@@ -1,0 +1,71 @@
+body {
+    font-size: 14px;
+    font-family: Arial, Helvetica, Sans-serif;
+    outline: none;
+}
+a {
+    color : #005fb3;
+    text-decoration: none;
+}
+.hidden {
+    display: none;
+}
+.clearfix {
+    clear : both;
+}
+#wrapper {
+    width : 60%;
+    margin : 50px auto;
+}
+h1 {
+    font-weight: normal;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #cccccc;
+}
+label {
+    width : 100%;
+    float: left;
+    margin-bottom: 10px;
+}
+#age_id {
+    height: 30px;
+    font-size: 14px;
+    border : 1px solid #cccccc;
+    width : 100%;
+    float : left;
+    margin-bottom: 10px;
+}
+#button {
+    background: #0070c6;
+    color : #fff;
+    border : none;
+    float: left;
+    padding : 8px;
+    width : 100%;
+    margin-bottom: 10px;
+    font-size: 14px;
+    cursor: pointer;
+}
+.install-tips {
+    margin-top : 30px;
+}
+#loading-message {
+    margin : 10px 0;
+}
+#loading-progress-bar {
+    width : 100%;
+    float: left;
+    height: 5px;
+}
+#loading-progress-bar-step {
+    float : left;
+    width : 0%;
+    height: 5px;
+    background: #005fb3;
+}
+#success-message {
+    margin : 10px 0;
+}
+#after-setting {
+    margin-top: 20px;
+}

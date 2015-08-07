@@ -1,0 +1,241 @@
+<script>
+    var mindowScript = {
+        listing_import : $('#listing-import'),
+        listing_product : $('#mindow-listing-product'),
+        footer_control : $('.footer-control'),
+        urlSupplier : '/admin/core/suppliers/index.php'
+    };
+    mindowScript.productItem = function (){
+        this.pro_id = 0;
+        this.pro_name = '';
+        this.pro_image = '';
+        this.pro_number = 1;
+        this.pro_code = '';
+        this.pro_unit = '';
+        this.pro_price_avg = '';
+        this.pro_price = 0;
+        this.pro_price_default = 1000;
+        this.pro_total_money = 0;
+    };
+    mindowScript.productList = {};
+    mindowScript.totalMoney = 0;
+    mindowScript.productActive = 0;
+
+    mindowScript.productIsSet = function (pro_id) {
+        return this.productList.hasOwnProperty(pro_id);
+    };
+
+    mindowScript.addProduct = function (pro_id) {
+        //kiểm tra trong mảng productList đã có product này chưa
+        if(this.productIsSet(pro_id)) {
+            this.productList[pro_id].pro_number++;
+            //active product nay
+            this.activeProductImportById(pro_id);
+            //cập nhật số liệu trong bảng
+            this.updateTable();
+            this.calcTotalMoney();
+            //cập nhật tiền trong hóa đơn
+            this.updateMoney();
+            return true;
+        }
+        var productItem = new mindowScript.productItem();
+        productItem.pro_id = pro_id;
+        productItem.pro_price = productItem.pro_price_default;
+        var record_data = this.listing_product.find('#record_' + pro_id);
+        productItem.pro_name = record_data.data('pro_name');
+        productItem.pro_image = record_data.data('pro_image');
+        productItem.pro_code = record_data.data('pro_code');
+        productItem.pro_unit = record_data.data('pro_unit');
+
+        this.productList[pro_id] = productItem;
+        this.calcTotalMoney();
+        var count_tr = this.listing_import.find('tbody').find('tr').length;
+        count_tr++;
+        var tr_string = '<tr id="record_' + productItem.pro_id + '" class="record-item" onclick="mindowScript.activeProductImportById('+productItem.pro_id+')">' +
+                        '<td class="center">' + count_tr + '</td>' +
+                        '<td class="center">' + productItem.pro_code + '</td>' +
+                        '<td>' + productItem.pro_name + '</td>' +
+                        '<td class="center">' + productItem.pro_unit + '</td>' +
+                        '<td class="center">' + productItem.pro_number + '</td>' +
+                        '<td class="text-right">' + productItem.pro_price + '</td>' +
+                        '<td class="text-right">' + productItem.pro_total_money + '</td>' +
+                '</tr>';
+        mindowScript.listing_import.find('table').append(tr_string);
+        mindowScript.activeProductImport(productItem);
+        mindowScript.updateTable();
+        mindowScript.updateMoney();
+        mindowScript.fixScroll();
+    };
+
+    mindowScript.activeProductImport = function(product) {
+        this.productActive = product.pro_id;
+        this.listing_import.find('.record-item').removeClass('active');
+        this.listing_import.find('#record_'+product.pro_id).addClass('active');
+        mindowScript.footer_control.find('#pro-image').attr('src',product.pro_image);
+        $('#product-id').val(product.pro_code);
+        $('#product-number').autoNumeric('set',product.pro_number);
+        $('#product-name').val(product.pro_name);
+        $('#product-price').autoNumeric('set',product.pro_price);
+    };
+
+    mindowScript.activeProductList = function(pro_id) {
+        this.listing_product.find('.record-item').removeClass('active');
+        this.listing_product.find('#record_'+pro_id).addClass('active');
+    };
+
+    mindowScript.activeProductImportById = function(pro_id) {
+        if(mindowScript.productIsSet(pro_id)) {
+            var productItem = mindowScript.productList[pro_id];
+            mindowScript.activeProductImport(productItem);
+        }
+    };
+
+    mindowScript.fixScroll = function() {
+        if(this.listing_import.find('.enscroll-track').length < 1) {
+            this.listing_import.find('.table-listing-bound').enscroll({
+                addPaddingToPane: false
+            })
+        }
+    };
+
+    mindowScript.updateTable = function() {
+        for(var i in this.productList) {
+            var price = this.productList[i].pro_price;
+            var number = this.productList[i].pro_number;
+            var total = price * number;
+            this.listing_import.find('#record_' + i).find('td').eq(4).html(number);
+            this.listing_import.find('#record_' + i).find('td').eq(5).html(number_format(price));
+            this.listing_import.find('#record_' + i).find('td').eq(6).html(number_format(total));
+
+        }
+    };
+
+    mindowScript.updateMoney = function () {
+        $('#total-money').html(number_format(this.totalMoney));
+    };
+
+    mindowScript.calcTotalMoney = function () {
+        this.totalMoney = 0;
+        for(var i in this.productList) {
+            this.totalMoney += this.productList[i].pro_price * this.productList[i].pro_number;
+        }
+    };
+
+    mindowScript.billSubmit = function () {
+        //kiem tra xem co nha cung cap chua
+        var supplier = $('#select-supplier').val();
+        if(!supplier) {
+            alert('Bạn vui lòng chọn nhà cung cấp hóa đơn trước');
+            return false;
+        }
+        if(this.productList.length < 1) {
+            alert('Chưa có mặt hàng nào trong hóa đơn');
+            return false;
+        }
+        if(confirm('Bạn chắc chắn nhập xong mặt hàng cho hóa đơn này?')) {
+            //biến lưu ghi nợ
+            var is_debit = 0, money_debit = 0, date_debit;
+            var store = $('#bio_store_id').val();
+            var start_date = $('#bio_start_time').val();
+            var note = $('#bio_note').val();
+            var pay_type = $('input[name="pay-type"]:checked').val();
+            //xem có ghi nợ ko - nếu có thì kiểm tra xem đã nhập tiền trả trước chưa
+            if($('#check-debit').is(':checked')) {
+                if($('#pre-pay').autoNumeric('get') <= 0) {
+                    alert('Chưa nhập số tiền thanh toán trước');
+                    return false;
+                }
+                is_debit = 1;
+                money_debit = $('#pre-pay').autoNumeric('get');
+                date_debit = $('#debit-date').val();
+            }
+            $.ajax({
+                type : 'post',
+                url : 'ajax.php',
+                data : {
+                    action : 'importProduct',
+                    products : mindowScript.productList,
+                    start_date : start_date,
+                    store_id : store,
+                    supplier : supplier,
+                    note : note,
+                    pay_type : pay_type,
+                    is_debit : is_debit,
+                    money_debit : money_debit,
+                    date_debit : date_debit
+                },
+                dataType : 'json',
+                success : function (resp) {
+                    loadingProgress('hide');
+                    if(resp.success == 1) {
+                        //thành công - đóng cửa sổ - tải lại khung
+                        window.parent.communicateParentWindow();
+                    }else{
+                        alert(resp.error);
+                        return false;
+                    }
+                },
+                beforeSend : function () {
+                    loadingProgress('show');
+                },
+                error : function () {
+                    loadingProgress('hide');
+                }
+            })
+        }
+
+    };
+
+    (function() {
+        if(mindowScript.listing_product.find('.enscroll-trach').length < 1) {
+            mindowScript.listing_product.find('.table-listing-bound').enscroll({
+                addPaddingToPane : false
+            });
+        }
+        //cap phat autonumeric
+        $('#product-number').autoNumeric({
+            lZero : 'deny'
+        });
+        $('#product-price, #pre-pay').autoNumeric({
+            lZero : 'deny',
+            mDec : 0
+        });
+        //keyup function
+        $('#product-number, #product-price').on('keyup', function () {
+            var productActive = mindowScript.productList[mindowScript.productActive];
+            productActive.pro_price = $('#product-price').autoNumeric('get');
+            productActive.pro_number = $('#product-number').autoNumeric('get');
+            //tinh lai tong tien
+            mindowScript.calcTotalMoney();
+            mindowScript.updateMoney();
+            mindowScript.updateTable();
+        });
+        //tinh toan so tien con phai tra
+        $('#pre-pay').on('keyup', function () {
+            var money = $(this).autoNumeric('get');
+            var finalMoney = mindowScript.totalMoney - money;
+            $('#money-debit').html(number_format(finalMoney));
+        });
+
+        //ghi nợ
+        $('#check-debit').click(function () {
+            if($(this).is(':checked')) {
+                $('#info-debit').css({
+                    color : '#333',
+                    background: '#fff'
+                }).find('input').removeAttr('disabled');
+            }else {
+                $('#info-debit').css({
+                    color : '#999',
+                    background: '#f0f0f0'
+                }).find('input').attr('disabled', 'disabled');
+            }
+        });
+
+        //datepicker cho ngay hen tra
+        $('#debit-date').datepicker({
+            format : 'dd/mm/yyyy'
+        })
+
+    })();
+</script>

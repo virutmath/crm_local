@@ -1,0 +1,59 @@
+<script>
+    var left_column_wrapper = $('.left-column').find('.column-wrapper');
+    var right_column_wrapper = $('.right-column').find('.column-wrapper');
+    var filter_data = $('.filter-data');
+    //chỉnh kích thước khung wrapper
+    var windowHeight = windowHeight || $(window).height();
+    var wrapperHeight = windowHeight;
+    var wrapperContent = $('#wrapper-full');
+    wrapperContent.height(wrapperHeight);
+    var offsetTopContent = wrapperContent.offset().top;
+    left_column_wrapper.height(wrapperHeight - offsetTopContent - 50);
+    right_column_wrapper.height(wrapperHeight - offsetTopContent - 50);
+    // date time input
+    $('.datetime-local').datepicker({
+        format : 'dd/mm/yyyy'
+    });
+    // loc du lieu submit
+    filter_data.click(function(){
+        var module              = $(this).parent().data('module') || '';
+        var from_date           = $('.from-date').val();
+        var to_date             = $('.to-date').val();
+        var customer_report     = $('.customer-report').val() || ''; // khach hang
+        var user_report         = $('.user-report').val() || '';// nhan vien
+        var adm_user_report     = $('.adm-user-report').val() || ''; // thu ngan
+        var brand_report        = $('.brand-report').val() || ''; // nha cung cap
+        var store_report        = $('.store-report').val() || ''; // kho hang
+        var type_bill           = 0;
+        if($('#pay_bill').is(':checked')) type_bill = 1;
+        if (module != '')
+        {
+            $.ajax({
+                url : module+'.php',
+                type : 'post',
+                data : 
+                {
+                    from_date : from_date,
+                    to_date : to_date,
+                    customer_report : customer_report,
+                    user_report : user_report,
+                    adm_user_report : adm_user_report,
+                    brand_report : brand_report,
+                    store_report : store_report,
+                    type_bill : type_bill
+                },
+                dataType :'json',
+                success : function(resp)
+                {
+                    if ( resp.table )
+                    {
+                        $('.table-listing-bound').html(resp.table);
+                        $('.total-cost strong').html(number_format(resp.total_cost));
+                        $('.bill strong').html(number_format(resp.bill));
+                        $('.fund strong').html(number_format(resp.fund));
+                    }
+                }
+            });
+        }
+    });
+</script>
