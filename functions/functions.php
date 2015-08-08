@@ -1186,7 +1186,7 @@ function logs($filename, $content)
     $arrayInfo = debug_backtrace();
     $arrayInfo = array_shift($arrayInfo);
 
-    $log_path = $_SERVER["DOCUMENT_ROOT"] . "/log/";
+    $log_path = $_SERVER["DOCUMENT_ROOT"] . "/logs/";
     $handle = @fopen($log_path . $filename . ".cfn", "a");
     //Neu handle chua co mo thêm ../
     if (!$handle) $handle = @fopen($log_path . $filename . ".cfn", "a");
@@ -2083,4 +2083,70 @@ function tdt($variable)
     } else {
         return "_@" . $variable . "@_";
     }
+}
+
+function url_add_params($url, $array_params) {
+    $url_arr = explode('?',$url);
+    $linked_str = '&';
+    if(count($url_arr) == 1){
+        $linked_str = '?';
+    }
+    $url .= $linked_str . http_build_query($array_params);
+    return $url;
+}
+// hàm tương tác phân tích lấy dữ liệu từ file Excel
+function analyzeExcel($filename)
+{
+    $inputFileType  = PHPExcel_IOFactory::identify($filename);
+    $objReader      = PHPExcel_IOFactory::createReader($inputFileType);
+    $objReader->setReadDataOnly(true);
+    /**  Load $inputFileName to a PHPExcel Object  **/
+    $objPHPExcel    = $objReader->load("$filename");
+    $total_sheets   = $objPHPExcel->getSheetCount();  
+    $allSheetName   = $objPHPExcel->getSheetNames();
+    $objWorksheet   = $objPHPExcel->setActiveSheetIndex(0);
+    // $highestRow lưu số lượng hàng trong Excel 
+    $highestRow     = $objWorksheet->getHighestRow();
+    $highestColumn  = $objWorksheet->getHighestColumn();
+    // $highestColumnIndex lưu số lượng cột trong Excel 
+    $highestColumnIndex = PHPExcel_Cell::columnIndexFromString($highestColumn);
+    // $arraydata dùng để lưu dữ liệu của file Excel
+    $arraydata      = array();
+    for ($row = 2; $row <= $highestRow;++$row)
+    {
+        for ($col = 0; $col <$highestColumnIndex;++$col)
+        {
+            $value=$objWorksheet->getCellByColumnAndRow($col, $row)->getValue();
+            $arraydata[$row-2][$col]=$value;
+        }
+    }
+    // $listMenu dùng để lưu danh sách chi tiết của tất cả menu
+    $listMenu =  array();
+    // $arr mảng tạm để lưu chi tiết của 1 menu
+    $arr = array();
+    // bắt đầu xử lý
+    for ($i = 1; $i < count($arraydata); $i++)
+    {
+        $arr['ten_thucdon'] = $arraydata[$i][1];
+        $arr['donvi_tinh'] = $arraydata[$i][2];
+        $arr['ma_thucdon'] = $arraydata[$i][3];
+        $arr['menu_cap_1'] = $arraydata[$i][4];
+        $arr['menu_cap_2'] = $arraydata[$i][5];
+        $nguyenlieu = array();
+        $chitiet = array();
+        // lấy ra nguyên liêu từ cột thứ 7 đến tông số cột
+        for ($j = 6 ; $j < $highestColumnIndex ; $j++)
+        {
+            $chitiet['ten_nguyenlieu']  = $arraydata[0][$j];
+            $chitiet['soluong']         = $arraydata[$i][$j];
+            if($chitiet['soluong'] != '')
+            {
+                $nguyenlieu[] = $chitiet;
+            }
+            
+        }
+        $arr['nguyenlieu'] = $nguyenlieu;
+        $listMenu[] = $arr;
+    }
+    return $listMenu;
 }
