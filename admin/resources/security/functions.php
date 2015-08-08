@@ -75,9 +75,6 @@ function checkAccessModule($module_id){
 //Check loged
 function checkloged(){
 	$dm						= $_SERVER["SERVER_NAME"];
-    if(strpos($dm, '192.168') !== false) {
-        return true;
-    };
 	$dm						= str_replace("www.", "", $dm);
 	$db_select 				= new db_query("SELECT * FROM kdims WHERE kdm_domain = '" . md5($dm) . "' LIMIT 1");
 	if($row = mysqli_fetch_assoc($db_select->result)){
@@ -148,6 +145,14 @@ function checkCustomPermission($permission = ''){
         return true;
     }
 }
+function check_desk_exist($desk_id) {
+	global $_list_desk;
+	foreach($_list_desk as $item) {
+		if($item['des_id'] == $desk_id)
+			return true;
+	}
+	exit('Bàn không tồn tại trong chi nhánh hiện tại');
+}
 
 function getPermissionValue($action){
 	global $module_id;
@@ -185,7 +190,6 @@ function getPermissionValue($action){
         $list_crole = explode(',',$list_crole);
         return $crole && in_array($crole['rol_id'], $list_crole);
     }
-
 }
 
 
@@ -278,15 +282,17 @@ function trash_recovery($record_id, $table){
 	$table_value = rtrim($table_value,',');
 
 	$recovery_sql = 'INSERT INTO '.$trash_record['tra_table'] . '('.$table_field.') VALUES ('.$table_value.')';
-    //echo $recovery_sql;
+    //echo $recovery_sql . '<br>';
 	$db_insert = new db_execute($recovery_sql);
 	unset($db_insert);
 	//kiểm tra lại xem đã khôi phục được chưa
     $check_query = rtrim(trim($check_query), 'AND');
 	$db_count = new db_count('SELECT count(*) as count FROM '.$table.' WHERE ' . $check_query);
+    //echo 'SELECT count(*) as count FROM '.$table.' WHERE '.$check_key.' = "'.$check_value.'"';
 	if($db_count->total == 1){
 		//xóa bản ghi này trong thùng rác
 		$db_del = new db_execute('DELETE FROM trash WHERE tra_id = '.$trash_record['tra_id']);
+        
 		unset($db_del);
 		//log lại
 		log_action(ACTION_LOG_RECOVERY,'Khôi phục bản ghi '.$trash_record['tra_record_id'].' tới bảng '.$trash_record['tra_table']);
