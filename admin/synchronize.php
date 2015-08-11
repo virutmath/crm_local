@@ -6,6 +6,7 @@ require_once("../classes/database.php");
 require_once("../classes/rain.tpl.class.php");
 require_once('resources/security/inc_constant.php');
 require_once("resources/security/functions.php");
+require_once("resources/security/functions_local.php");
 require_once("resources/security/functions_1.php");
 
 checkLogged('login.php');
