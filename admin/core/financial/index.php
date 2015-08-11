@@ -321,10 +321,10 @@ $db_total_money = new db_query('SELECT SUM(fin_money) as total_money_in
                              WHERE cat_type IN("money_in","money_system_in")');
 $total_money_in = mysqli_fetch_assoc($db_total_money->result);
 $total_money_in = $total_money_in['total_money_in'];
-$db_total_money = new db_query('SELECT SUM(fin_money) as total_money_out
-                             FROM financial
-                             LEFT JOIN categories_multi ON fin_cat_id = cat_id
-                             WHERE cat_type IN("money_out","money_system_out")');
+$db_total_money =  new db_query('SELECT SUM(fin_money) as total_money_out
+                                 FROM financial
+                                 LEFT JOIN categories_multi ON fin_cat_id = cat_id
+                                 WHERE cat_type IN("money_out","money_system_out")');
 $total_money_out = mysqli_fetch_assoc($db_total_money->result);
 $total_money_out = $total_money_out['total_money_out'];
 $footer_control .=
