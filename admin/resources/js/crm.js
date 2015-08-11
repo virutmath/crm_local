@@ -283,7 +283,13 @@ function loadingProgress(type) {
         }
     }
 }
-
+function synchronize_data() {
+    setInterval(function(){
+        $.get('/admin/synchronize.php', function () {
+            console.log('synchronize done!');
+        });
+    },30000);
+}
 
 function closeModal() {
     $('#modal').html('').hide();
