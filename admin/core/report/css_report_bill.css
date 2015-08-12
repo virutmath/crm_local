@@ -19,9 +19,8 @@
 .pay-bill {float:right;}
 #creat_bill, #pay_bill {width:11px;}
 .total {width: 50%; display: inline-block;}
-.total.price {text-align: right;}
-
-
+.total.price {text-align: right; }
+#chartContainer {height: 200px; width: 100%;position: absolute; bottom: 2px; left: 0;}
 
 
 

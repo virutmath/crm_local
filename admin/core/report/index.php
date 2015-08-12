@@ -32,12 +32,12 @@ $left_column .= '
             <li><a href="#" data-cat="revenue_bill"> <i class="fa fa-table"></i> Thống kê doanh thu theo hóa đơn</a></li>
             <li><a href="#" data-cat="revenue_fund"> <i class="fa fa-table"></i> Thống kê doanh thu theo quỹ tiền</a></li>
             <li><a href="#" data-cat="revenue_menus"> <i class="fa fa-table"></i> Thống kê bán hàng theo thực đơn</a></li>
-            <li><a href="#"> <i class="fa fa-table"></i> Thống kê doanh thu theo nhân viên</a></li>
-            <li><a href="#"> <i class="fa fa-table"></i> Thống kê doanh thu theo khách hàng</a></li>
+            <li><a href="#" data-cat="revenue_staff"> <i class="fa fa-table"></i> Thống kê doanh thu theo nhân viên</a></li>
+            <li><a href="#" data-cat="revenue_customers"> <i class="fa fa-table"></i> Thống kê doanh thu theo khách hàng</a></li>
             <br/>
             <li><a data-cat="report_bill"> <i class="fa fa-file-text"></i> Thống kê chi phí theo hóa đơn</a></li>
             <li><a data-cat="report_fund"> <i class="fa fa-file-text"></i> Thống kê chi phí theo quỹ tiền</a></li>
-            <li><a href="#"> <i class="fa fa-file-text"></i> Thống kê chi phí theo mặt hàng</a></li>
+            <li><a href="#" data-cat="report_product"> <i class="fa fa-file-text"></i> Thống kê chi phí theo mặt hàng</a></li>
             <br/>
             <li><a data-cat="expenditures_bill"> <i class="fa fa-file-text"></i> Thống kê thu chi</a></li>
         </ul>

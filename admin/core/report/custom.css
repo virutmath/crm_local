@@ -88,3 +88,11 @@ iframe{
     opacity: 1 !important;
     font-weight: bold;
 }
+.number_return{
+    font-size: 14px;
+    color: red;
+    font-weight: bold
+}
+.pull_span{
+    padding: 4px 5px;
+}

@@ -37,11 +37,12 @@ $top_control = '
                     '.$list_store.'
                 </select>
         </label>
-        <button class="btn btn-success" onclick="fillData()"><i class="fa fa-check-circle-o"></i> Lọc dữ liệu </button>
+        <button class="btn btn-success" onclick="fillProducts()"><i class="fa fa-check-circle-o"></i> Lọc dữ liệu </button>
         <button class="btn btn-danger"><i class="fa fa-file-excel-o"></i> Xuất excel </button>
     </div>
     <div class="clearfix"></div>
 ';
+$footer_control = '<div class="total_money"><label>Tổng tiền :</label> <span id="total-money" style="font-size: 16px;color: red;font-weight: bold"> </span></div>';
 
 
 

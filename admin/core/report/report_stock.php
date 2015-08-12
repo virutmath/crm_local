@@ -28,14 +28,16 @@ while($row_store = mysqli_fetch_assoc($db_store->result)){
 // phần top_control điều khiển trên đầu
 $top_control = '
     <div class="control_right">
-        <span>Kho hàng :</span>
+        <span class="fl pull_span"> Kho hàng:</span>
         <label><select class="form-control list_store" id="store_id" >
                     '.$list_store.'
                 </select>
         </label>
         <button class="btn btn-success" onclick="fillStock()"><i class="fa fa-check-circle-o"></i> Lọc dữ liệu </button>
         <button class="btn btn-danger"><i class="fa fa-file-excel-o"></i> Xuất excel </button>
+
     </div>
+    <div class="clearfix"></div>
 ';
 
 

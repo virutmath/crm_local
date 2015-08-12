@@ -132,6 +132,8 @@ while($data_bill_in = mysqli_fetch_assoc($db_bill_in->result) )
     $total_fund     += $data_bill_in['bii_true_money'];
 }unset($db_bill_in);
 //
+$array_date             = array();
+$array                  = array();
 foreach ( $data as $key => $value)
 {
     $soHD = 0;
@@ -154,6 +156,11 @@ foreach ( $data as $key => $value)
         $bii_id = implode('', $bii_id);
     }
     $i++;
+    //
+    $array_date['x'] = getdate(convertDateTime($key,'0:0:0'));
+    $array_date['y'] = intval($doanhthu);
+    $array[] = $array_date;
+    //
     $right_column .= $list->start_tr($i,$bii_id,'class="menu-normal record-item"');
     $right_column .= '<td class="center"> Trong ngày: ' . $key . '</td>';
     $right_column .= '<td class="center">' . $soHD . '</td>';
@@ -162,6 +169,7 @@ foreach ( $data as $key => $value)
     $right_column .= $list->end_tr();
 }
 $right_column        .= $list->showFooter();
+$right_column   .='<div id="chartContainer"></div>';
 // total report 
 $total_report       .= '<p class="select-title">Lọc theo thời gian:</p>';
 $total_report       .= '<p class="select-title">';
@@ -180,6 +188,7 @@ $total_report       .= '<p class="select-title total-cost"><strong>'.number_form
 
 if ( $isAjaxRequest )
 {
+    $array_return['dt'] = $array;
     $array_return['table'] = $right_column; 
     $array_return['total_cost'] = $total_fund;
     echo json_encode($array_return);

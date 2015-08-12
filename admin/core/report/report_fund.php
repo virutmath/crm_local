@@ -94,6 +94,8 @@ while ( $data_financial = mysqli_fetch_assoc($db_financial_bill_out->result) )
     
 }unset($db_financial_bill_out);
 //
+$array_date             = array();
+$array                  = array();
 foreach ($data_financial_bill_out as $date => $data_bill_in)
 {
     $i++;
@@ -119,7 +121,11 @@ foreach ($data_financial_bill_out as $date => $data_bill_in)
     }else{
         $fin_id = implode('', $fin_id);
     }
-    
+    //
+    $array_date['x'] = getdate(convertDateTime($date,'0:0:0'));
+    $array_date['y'] = intval($chiphi);
+    $array[] = $array_date;
+    //
     $right_column .= $list->start_tr($i,$fin_id,'class="menu-normal record-item"');
     $right_column .= '<td class="center"> Trong ngày: ' . $date . '</td>';
     $right_column .= '<td class="center">' . $soHD . '</td>';
@@ -129,12 +135,14 @@ foreach ($data_financial_bill_out as $date => $data_bill_in)
     $right_column .= $list->end_tr();
 }
 $right_column        .= $list->showFooter();
+$right_column   .='<div id="chartContainer"></div>';
 // total report 
 $total_report       .= '<p class="select-title">Tổng chi phí:</p>';
 $total_report       .= '<p class="select-title total-cost"><strong>'.number_format($total_fund).'</strong></p>';
 //return ajax
 if ( $isAjaxRequest )
 {
+    $array_return['dt'] = $array;
     $array_return['table'] = $right_column;
     $array_return['total_cost'] = $total_fund;
     echo json_encode($array_return);

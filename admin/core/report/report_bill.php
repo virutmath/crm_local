@@ -118,10 +118,12 @@ while($data_bill_out = mysqli_fetch_assoc($db_bill_out->result) )
     $total_bill     += $data_bill_out['bio_total_money'];
 }unset($db_bill_in);
 //
+$array_date             = array();
+$array                  = array();
 foreach ( $data as $key => $value)
 {
     $soHD = 0;
-    $doanhthu = 0;
+    $chiphi = 0;
     $bio_id = array();
     foreach ( $date_money as $val )
     {
@@ -130,7 +132,7 @@ foreach ( $data as $key => $value)
         {
             $bio_id[] = $val['id'];
             $soHD += 1;
-            $doanhthu += $val['money'];
+            $chiphi += $val['money'];
         }
     }
     if ( count($bio_id) > 1)
@@ -139,21 +141,28 @@ foreach ( $data as $key => $value)
     }else{
         $bio_id = implode('', $bio_id);
     }
+    //
+    $array_date['x'] = getdate(convertDateTime($key,'0:0:0'));
+    $array_date['y'] = intval($chiphi);
+    $array[] = $array_date;
+    //
     $i++;
     $right_column .= $list->start_tr($i,$bio_id,'class="menu-normal record-item"');
     $right_column .= '<td class="center"> Trong ngày: ' . $key . '</td>';
     $right_column .= '<td class="center">' . $soHD . '</td>';
-    $right_column .= '<td class="text-right"> ' . number_format($doanhthu) . '</td>';
-    $right_column .= '<td class="text-right"> ' . number_format($doanhthu / $soHD) . '</td>';
+    $right_column .= '<td class="text-right"> ' . number_format($chiphi) . '</td>';
+    $right_column .= '<td class="text-right"> ' . number_format($chiphi / $soHD) . '</td>';
     $right_column .= $list->end_tr();
 }
 $right_column        .= $list->showFooter();
+$right_column   .='<div id="chartContainer"></div>';
 // total report 
 $total_report       .= '<p class="select-title">Tổng chi phí:</p>';
 $total_report       .= '<p class="select-title total-cost"><strong>'.number_format($total_bill).'</strong></p>';
 // return ajax
 if  ( $isAjaxRequest )
 {
+    $array_return['dt'] = $array;
     $array_return['table'] = $right_column;
     $array_return['total_cost'] = $total_bill;
     echo json_encode($array_return);

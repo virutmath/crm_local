@@ -2,40 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e761213-30cd-4315-8c53-666a1a6f0c7d" name="Default" comment="">
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\api\common.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\api\config.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\chrome_app\asserts\angular-csp.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\chrome_app\asserts\angular-material.min.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\chrome_app\asserts\bootstrap.min.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\chrome_app\asserts\calculator-128.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\chrome_app\asserts\calculator-16.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\chrome_app\asserts\font-awesome.min.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\chrome_app\asserts\fonts\FontAwesome.otf" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\chrome_app\asserts\fonts\fontawesome-webfont.eot" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\chrome_app\asserts\fonts\fontawesome-webfont.svg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\chrome_app\asserts\fonts\fontawesome-webfont.ttf" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\chrome_app\asserts\fonts\fontawesome-webfont.woff" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\chrome_app\asserts\food-open.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\chrome_app\asserts\food-trays-active.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\chrome_app\asserts\food-trays.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\chrome_app\asserts\main.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\chrome_app\background.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\chrome_app\example.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\chrome_app\home.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\chrome_app\manifest.json" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\chrome_app\scripts\angular-animate.min.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\chrome_app\scripts\angular-aria.min.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\chrome_app\scripts\angular-indexed-db.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\chrome_app\scripts\angular-material.min.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\chrome_app\scripts\angular-route.min.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\chrome_app\scripts\angular-storage.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\chrome_app\scripts\angular.min.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\chrome_app\scripts\controllers.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\chrome_app\scripts\function.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\chrome_app\scripts\jquery.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\chrome_app\scripts\ui-bootstrap-tpls-0.12.1.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\chrome_app\setting.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\chrome_app\window.html" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="crm_local.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -140,6 +107,17 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope">
+        <subPane subId="Problems" />
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -156,17 +134,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="crm_local" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scope">
-        <subPane subId="Problems" />
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -236,7 +203,7 @@
     <frame x="-8" y="-8" width="1616" height="886" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20051414" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20308483" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />

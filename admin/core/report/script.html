@@ -260,4 +260,127 @@
             }
         })
     }
+
+    //thống kê bán hàng theo nhân viên
+    function fillStaff(){
+        // lay tat ca gia tri value checkbox cua product
+        var array_staff = [];
+        $('input.pro_item').each(function () {
+            if(this.checked == true){
+                item = parseInt($(this).val());
+                array_staff.push(item);
+            }
+        });
+        start_date  = $('#start_date').val();
+        end_date    = $('#end_date').val();
+
+        $.ajax({
+            type : 'post',
+            url  : 'ajax.php',
+            data : {
+                action      : 'revenueStaff',
+                staffs      : array_staff,
+                start_date  : start_date,
+                end_date    : end_date
+            },
+            dataType : 'json',
+            success : function (resp) {
+                loadingProgress('hide');
+                $('#right-column').find('.section-content').html(resp.content);
+                $('#total-bill').html(resp.all_bill);
+                $('#total-money').html(resp.total);
+                $('#total-round').html(resp.round_money);
+                $('#total-debit').html(resp.debit_money);
+                fixScrollMenu();
+            },
+            beforeSend : function () {
+                loadingProgress('show');
+            },
+            error : function () {
+                loadingProgress('hide');
+            }
+        })
+    }
+
+    //thống kê bán hàng theo khách hàng
+    function fillCustomers(){
+        // lay tat ca gia tri value checkbox cua product
+        var array_customers = [];
+        $('input.pro_item').each(function () {
+            if(this.checked == true){
+                item = parseInt($(this).val());
+                array_customers.push(item);
+            }
+        });
+        start_date  = $('#start_date').val();
+        end_date    = $('#end_date').val();
+
+        $.ajax({
+            type : 'post',
+            url  : 'ajax.php',
+            data : {
+                action      : 'revenueCustomers',
+                customers      : array_customers,
+                start_date  : start_date,
+                end_date    : end_date
+            },
+            dataType : 'json',
+            success : function (resp) {
+                loadingProgress('hide');
+                $('#right-column').find('.section-content').html(resp.content);
+                $('#total-bill').html(resp.all_bill);
+                $('#total-money').html(resp.total);
+                $('#total-round').html(resp.round_money);
+                $('#total-debit').html(resp.debit_money);
+                fixScrollMenu();
+            },
+            beforeSend : function () {
+                loadingProgress('show');
+            },
+            error : function () {
+                loadingProgress('hide');
+            }
+        })
+    }
+
+    //thống kê mặt hàng
+    function fillProducts(){
+        // lay tat ca gia tri value checkbox cua product
+
+        var array_product = [];
+        $('input.pro_item').each(function () {
+            if(this.checked == true){
+                item = parseInt($(this).val());
+                array_product.push(item);
+            }
+        });
+        start_date  = $('#start_date').val();
+        end_date    = $('#end_date').val();
+        store_id = $('#store_id').val();
+
+        $.ajax({
+            type : 'post',
+            url : 'ajax.php',
+            data : {
+                action : 'reportProducts',
+                products : array_product,
+                start_date  : start_date,
+                end_date    : end_date,
+                store_id : store_id
+            },
+            dataType : 'json',
+            success : function (resp) {
+                loadingProgress('hide');
+                $('#right-column').find('.section-content').html(resp.content);
+                $('#total-money').html(resp.total);
+                fixScrollMenu();
+            },
+            beforeSend : function () {
+                loadingProgress('show');
+            },
+            error : function () {
+                loadingProgress('hide');
+            }
+        })
+    }
 </script>

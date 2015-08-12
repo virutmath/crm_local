@@ -33,7 +33,8 @@ $adm_user_report = getValue('adm_user_report','int','POST',0);
 $And = '';
 $array_return = array();
 if ( $isAjaxRequest )
-{
+{ 
+    
     if ( $from_date != '' )
     {
         $from_date = convertDateTime($from_date,'0:0:0');
@@ -106,6 +107,8 @@ while( $data_fin        = mysqli_fetch_assoc($db_financial->result) )
     $array_data_result[$date] = $date;
 }unset($db_financial);
 //
+$array_date             = array();
+$array                  = array();
 foreach ( $array_data_result as $date => $value )
 {
     $i++;
@@ -129,6 +132,10 @@ foreach ( $array_data_result as $date => $value )
     {
         $arr_fin_id = implode('',$arr_fin_id);
     }
+    $array_date['x'] = getdate(convertDateTime($date,'0:0:0'));
+    $array_date['thu'] = intval($doanh_thu);
+    $array_date['chi'] = intval($chi_phi);
+    $array[] = $array_date;
     //
     $right_column .= $list->start_tr($i,$arr_fin_id,'class="menu-normal record-item"');
     $right_column .= '<td class="center"> Trong ngày: ' . $date . '</td>';
@@ -137,7 +144,8 @@ foreach ( $array_data_result as $date => $value )
     $right_column .= '<td class="text-right">' . number_format($doanh_thu - $chi_phi) . '</td>';
     $right_column .= $list->end_tr();
 }
-$right_column        .= $list->showFooter();
+$right_column   .= $list->showFooter();
+$right_column   .='<div id="chartContainer"></div>';
 // total report 
 $total_report       .= '<p class="select-title">';
 $total_report       .= '<span class="total">Tổng doanh thu:</span>';
@@ -152,6 +160,8 @@ $total_report       .= '<p class="select-title total-cost"><strong>' . number_fo
 // return ajax
 if ( $isAjaxRequest )
 {
+    $array_return['type_report'] = $data_module;
+    $array_return['dt'] = $array;
     $array_return['bill'] = $total_thu;
     $array_return['fund'] = $total_chi;
     $array_return['table'] = $right_column;

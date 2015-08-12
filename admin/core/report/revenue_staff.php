@@ -29,16 +29,15 @@ while($row_store = mysqli_fetch_assoc($db_store->result)){
 $top_control = '
     <div class="control_right">
         <span class="fl pull_span"> Thời gian:</span>
+        <label>
         <input class="form-control datetime-local input_date fl" value="'.date('d/m/Y',time() - 86400*30).'" id="start_date" type="text">
         <i class="fa fa-arrow-right fl pull_span"></i>
         <input class="form-control datetime-local input_date fl" value="'.date('d/m/Y').'" id="end_date" type="text">
-        <span class="fl pull_span"> Kho hàng:</span>
-        <label><select class="form-control list_store" id="store_id" >
-                    '.$list_store.'
-                </select>
+        &nbsp;
         </label>
-        <button class="btn btn-success" onclick="fillData()"><i class="fa fa-check-circle-o"></i> Lọc dữ liệu </button>
+        <button class="btn btn-success" onclick="fillStaff()"><i class="fa fa-check-circle-o"></i> Lọc dữ liệu </button>
         <button class="btn btn-danger"><i class="fa fa-file-excel-o"></i> Xuất excel </button>
+
     </div>
     <div class="clearfix"></div>
 ';
@@ -47,8 +46,8 @@ $top_control = '
 
 // phấn menu left
 //lấy ra danh mục
-$cat_type = "products";
-$bg_table = "products";
+$cat_type = "users";
+$bg_table = "users";
 $list_category = category_type($cat_type);
 
 
@@ -58,7 +57,7 @@ ob_start();
 ?>
     <ul id="tree" class="list_category">
         <li>
-            <label><input type="checkbox" name="all_products" id="chk_all"> <b>Tất cả</b> </label>
+            <label><input type="checkbox" name="all_staff" id="chk_all"> <b>Tất cả</b> </label>
         </li>
         <? foreach ($list_category as $cat) {?>
             <?
@@ -67,9 +66,22 @@ ob_start();
                 <li class="cat_parent list-vertical-item"  data-cat_parent="<?=$cat['cat_id'] ?>">
                     <i class="fa fa-minus-square-o collapse-li"></i>
                     <label>
-                        <input type="checkbox" name="group_products" class="group_product" id="cat_parent_<?=$cat['cat_id']?>">
+                        <input type="checkbox" name="group_staff" class="group_product" id="cat_parent_<?=$cat['cat_id']?>">
                         <span> <?= $cat['cat_name'] ?></span>
                     </label>
+                    <ul class="item_pro">
+                        <?
+                        // lấy ra những product thuộc các group_cat
+                        $db_products = new db_query('SELECT use_id,use_name,use_group_id FROM '.$bg_table.' WHERE use_group_id = '.$cat['cat_id'].'');
+                        while($row_product = mysqli_fetch_assoc($db_products->result)){?>
+                            <li class="product_item" data-cat_pro="<?=$cat_child['cat_id'] ?>" data-parent_pro="<?=$row_product['use_group_id']?>">
+                                <label>
+                                    <input type="checkbox" name="pro_item" class="group_product pro_item" value="<?=$row_product['use_id']?>" id="item_product_<?=$row_product['use_id']?>">
+                                    <span><?= $row_product['use_name'] ?></span>
+                                </label>
+                            </li>
+                        <?}?>
+                    </ul>
                     <ul class="cat_child">
                         <?
                         //foreach lại 1 lần nữa trong mảng categoy để lấy ra các category con của cat cha hiện tại
@@ -86,12 +98,12 @@ ob_start();
                                     <ul class="item_pro">
                                         <?
                                         // lấy ra những product thuộc các group_cat
-                                        $db_products = new db_query('SELECT pro_id,pro_name,pro_cat_id FROM products WHERE pro_cat_id = '.$cat_child['cat_id'].'');
+                                        $db_products = new db_query('SELECT use_id,use_name,use_group_id FROM menus WHERE use_group_id = '.$cat_child['cat_id'].'');
                                         while($row_product = mysqli_fetch_assoc($db_products->result)){?>
-                                            <li class="product_item" data-cat_pro="<?=$cat_child['cat_id'] ?>" data-parent_pro="<?=$row_product['pro_cat_id']?>">
+                                            <li class="product_item" data-cat_pro="<?=$cat_child['cat_id'] ?>" data-parent_pro="<?=$row_product['use_group_id']?>">
                                                 <label>
-                                                    <input type="checkbox" name="pro_item" class="group_product pro_item" value="<?=$row_product['pro_id']?>" id="item_product_<?=$row_product['pro_id']?>">
-                                                    <span><?= $row_product['pro_name'] ?></span>
+                                                    <input type="checkbox" name="pro_item" class="group_product pro_item" value="<?=$row_product['use_id']?>" id="item_product_<?=$row_product['use_id']?>">
+                                                    <span><?= $row_product['use_name'] ?></span>
                                                 </label>
                                             </li>
                                         <?}?>
@@ -110,17 +122,16 @@ ob_start();
 $left_column = ob_get_contents();
 ob_clean();
 
-
-
-// right_column
-$right_column .= '
-    <div class="content_right">
-        <div class="content_right">
-
-        </div>
-</div>
-';
-
+$footer_control = '
+<div class="total_money">
+    <label>Số HĐ: <span id="total-bill" class="number_return"> 0 </span></label>
+    &nbsp;&nbsp;
+    <label>Doanh thu: <span id="total-money" class="number_return"> 0 </span></label>
+    &nbsp;&nbsp;
+    <label>Ghi có: <span id="total-round" class="number_return"> 0 </span></label>
+    &nbsp;&nbsp;
+    <label>Ghi nợ: <span id="total-debit" class="number_return"> 0 </span></label>
+</div>';
 
 $rainTpl = new RainTPL();
 add_more_css('custom.css',$load_header);

@@ -28,11 +28,11 @@ while($row_store = mysqli_fetch_assoc($db_store->result)){
 // phần top_control điều khiển trên đầu
 $top_control = '
     <div class="control_right">
-        <span> Thời gian:</span>
-        <label><input class="form-control datetime-local input_date lft" value="'.date('d/m/Y',time() - 86400*30).'" id="start_date" type="text"></label>
-        <i class="fa fa-arrow-right"></i>
-        <label><input class="form-control datetime-local input_date lft" value="'.date('d/m/Y').'" id="end_date" type="text"></label>
-        <span>Kho hàng :</span>
+        <span class="fl pull_span"> Thời gian:</span>
+        <input class="form-control datetime-local input_date fl" value="'.date('d/m/Y',time() - 86400*30).'" id="start_date" type="text">
+        <i class="fa fa-arrow-right fl pull_span"></i>
+        <input class="form-control datetime-local input_date fl" value="'.date('d/m/Y').'" id="end_date" type="text">
+        <span class="fl pull_span">Kho hàng :</span>
         <label><select class="form-control list_store" id="store_id" >
                     '.$list_store.'
                 </select>
@@ -40,6 +40,7 @@ $top_control = '
         <button class="btn btn-success" onclick="fillMenus()"><i class="fa fa-check-circle-o"></i> Lọc dữ liệu </button>
         <button class="btn btn-danger"><i class="fa fa-file-excel-o"></i> Xuất excel </button>
     </div>
+    <div class="clearfix"></div>
 ';
 
 
