@@ -60,6 +60,9 @@ while ($row = mysqli_fetch_assoc($db_query->result)) {
 }
 while ($row = mysqli_fetch_assoc($db_listing->result)) {
     $i++;
+    if(!$row['uni_id'] || !isset($array_unit[$row['uni_id']])) {
+        $array_unit[$row['uni_id']] = '';
+    }
     $row['pro_code'] = format_codenumber($row['pro_id'], 6, PREFIX_PRODUCT_CODE);
     $row['pro_image'] = get_picture_path($row['pro_image']);
     $listing_product .= $list->start_tr($i, $row['pro_id'], 'class="menu-normal record-item" onclick="mindowScript.activeProductList('.$row['pro_id'].')" ondblclick="mindowScript.addProduct(' . $row['pro_id'] . ')" data-record_id="' . $row['pro_id'] . '" data-pro_name="' . $row['pro_name'] . '" data-pro_code="' . $row['pro_code'] . '" data-pro_unit="' . $array_unit[$row['pro_unit_id']] . '" data-pro_image="' . $row['pro_image'] . '"');
