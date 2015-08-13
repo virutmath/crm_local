@@ -2129,13 +2129,13 @@ function analyzeExcel($filename)
     {
         $arr['ten_thucdon'] = $arraydata[$i][1];
         $arr['donvi_tinh'] = $arraydata[$i][2];
-        $arr['ma_thucdon'] = $arraydata[$i][3];
-        $arr['menu_cap_1'] = $arraydata[$i][4];
-        $arr['menu_cap_2'] = $arraydata[$i][5];
+        $arr['gia_ban'] = $arraydata[$i][3];
+        $arr['menu_cap_1'] = $arraydata[$i][5];
+        $arr['menu_cap_2'] = $arraydata[$i][6];
         $nguyenlieu = array();
         $chitiet = array();
         // lấy ra nguyên liêu từ cột thứ 7 đến tông số cột
-        for ($j = 6 ; $j < $highestColumnIndex ; $j++)
+        for ($j = 7 ; $j < $highestColumnIndex ; $j++)
         {
             $chitiet['ten_nguyenlieu']  = $arraydata[0][$j];
             $chitiet['soluong']         = $arraydata[$i][$j];
@@ -2146,6 +2146,50 @@ function analyzeExcel($filename)
             
         }
         $arr['nguyenlieu'] = $nguyenlieu;
+        $listMenu[] = $arr;
+    }
+    return $listMenu;
+}
+
+// ham insert thuc don va nguyen lieu lam Banh tu file excel
+function analyzeExcel_Pie($filename)
+{
+    $inputFileType  = PHPExcel_IOFactory::identify($filename);
+    $objReader      = PHPExcel_IOFactory::createReader($inputFileType);
+    $objReader->setReadDataOnly(true);
+    /**  Load $inputFileName to a PHPExcel Object  **/
+    $objPHPExcel    = $objReader->load("$filename");  
+    $total_sheets   = $objPHPExcel->getSheetCount();  
+    $allSheetName   = $objPHPExcel->getSheetNames();
+    $objWorksheet   = $objPHPExcel->setActiveSheetIndex(0);
+    // $highestRow lưu số lượng hàng trong Excel 
+    $highestRow     = $objWorksheet->getHighestRow();
+    $highestColumn  = $objWorksheet->getHighestColumn();
+    // $highestColumnIndex lưu số lượng cột trong Excel 
+    $highestColumnIndex = PHPExcel_Cell::columnIndexFromString($highestColumn);
+    // $arraydata dùng để lưu dữ liệu của file Excel
+    $arraydata      = array();
+    for ($row = 2; $row <= $highestRow;++$row)
+    {
+        for ($col = 0; $col <$highestColumnIndex;++$col)
+        {
+            $value=$objWorksheet->getCellByColumnAndRow($col, $row)->getValue();
+            $arraydata[$row-2][$col]=$value;
+        }
+    }
+    // $listMenu dùng để lưu danh sách chi tiết của tất cả menu
+    $listMenu =  array();
+    // $arr mảng tạm để lưu chi tiết của 1 menu
+    $arr = array();
+    // bắt đầu xử lý
+    for ($i = 1; $i < count($arraydata); $i++)
+    {
+        $arr['ten_thucdon'] = $arraydata[$i][1];
+        $arr['donvi_tinh'] = $arraydata[$i][2];
+        $arr['gia_ban'] = $arraydata[$i][3];
+        $arr['menu_cap_1'] = $arraydata[$i][4];
+        $arr['menu_cap_2'] = $arraydata[$i][5];
+        $arr['nguyen_lieu'] = $arraydata[$i][6];
         $listMenu[] = $arr;
     }
     return $listMenu;

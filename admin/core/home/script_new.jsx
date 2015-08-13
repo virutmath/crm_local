@@ -964,63 +964,28 @@ HomeScript.contextMenu = function () {
                 name: '<i class="fa fa-play"></i> Sử dụng',
                 callback: function (key, opt) {
                     var _this = $(this);
-                    $('.desk-item').removeClass('selected');
-                    _this.addClass('selected');
-                    current_desk = _this;
-                    desk_name.html(_this.data('name'));
-                    desk_id.val(_this.data('id'));
-                    if (_this.hasClass('active')) {
-                        getCurrentDeskDetail(_this);
-                    } else {
-                        _this.addClass('active');
-                        openDesk(_this);
-                    }
+                    HomeScript.selectDesk(_this);
                 }
             },
             payment: {
                 name: '<i class="fa fa-check"></i> Thanh toán hóa đơn',
                 callback: function (key, opt) {
-                    billSubmit();
+                    var _this = $(this);
+                    HomeScript.selectDesk(_this);
+                    HomeScript.billSubmit();
                 }
             },
             cancel: {
                 name: '<i class="fa fa-times"></i> Hủy hóa đơn',
                 callback: function (key, opt) {
-                    var desk_id = opt.$trigger.data('id');
+                    var _this = $(this);
                     if (confirm('Bạn muốn hủy bàn này?')) {
-                        center_listing.html('');
-                        start_time_string.val('');
-                        start_time_int.val('');
-                        customer_code.val('').attr('disabled', 'disabled');
-                        $('#cus_id, #use_id, #cdm_number, #cdm_menu_discount').val('');
-                        $('#cdm_number, #cdm_menu_discount').attr('disabled', 'disabled');
-                        staff_code.val('').attr('disabled', 'disabled');
-                        search_customer.val('').attr('disabled', 'disabled');
-                        search_staff.val('').attr('disabled', 'disabled');
-                        //reset money
-                        resetMoney();
-                        var _this = $(this);
-                        $('.desk-item').removeClass('selected');
-                        _this.removeClass('selected');
-                        _this.removeClass('active');
-                        current_desk = _this;
-                        current_desk = null;
-                        $.ajax({
-                            type: 'post',
-                            url: 'ajax.php',
-                            data: {action: 'deleteDesk', desk_id: desk_id},
-                            dataType: 'json',
-                            success: function () {
 
-                            }
-                        })
                     }
-
-
                 }
             },
             print: {
-                name: '<i class="fa fa-print"></i> In trước hóa đơn',
+                name: '<i class="fa fa-print"></i> In tạm tính',
                 callback: function (key, opt) {
 
                 }
@@ -1028,6 +993,8 @@ HomeScript.contextMenu = function () {
             printmenu: {
                 name: '<i class="fa fa-print"></i> In chế biến',
                 callback: function (key, opt) {
+                    var _this = $(this);
+                    HomeScript.selectDesk(_this);
 
                 }
             },

@@ -37,6 +37,8 @@ define('PROMOTION_TYPE_MONEY',2);
 define('PROMOTION_ALL_AGENCY',0);
 // menus cat type
 define('MENU_CAT_TYPE','menus');
+// store cat type
+define('STORE_CAT_TYPE','stores');
 //Cấu hình hiển thị
 define('DISPLAY_LISTING_MENU_BY_CATEGORY',true);
 /**

@@ -185,8 +185,13 @@ if($isAjaxRequest && $import_menu)
         {
             $men_name       = $value['ten_thucdon'];
             $donvi_tinh     = $value['donvi_tinh'];
+            $menu1          = $value['menu_cap_1'];
+            $menu2          = $value['menu_cap_2'];
+            if ( $menu1     == '' ) $menu1 = $menu2;
+            if ( $menu1 == '' && $menu2 == '' || $menu2 == '' ) continue;
+            
             $men_cat_id     = 0;
-            $men_price      = 0;
+            $men_price      = $value['gia_ban'];
             $men_price1     = 0;
             $men_price2     = 0;
             $men_image      = '';
@@ -196,8 +201,11 @@ if($isAjaxRequest && $import_menu)
             //lay ra id cua don vi tinh
             $unit_id        = 0;
             $uni_note       = '';
+            // cat id
+            $cat_id         = 0;
             // kiem tra xem don vi tinh da ton tai trong bang units chua
-            $db_unit        = new db_query("SELECT uni_id FROM units WHERE uni_name = '" . trim($donvi_tinh) . "'");
+            $db_unit        = new db_query("SELECT uni_id FROM units 
+                                            WHERE uni_name = '" . trim($donvi_tinh) . "'");
              //neu co roi thi lay ra id cua don vi tinh do
             if( mysqli_num_rows($db_unit->result) >= 1 )
             {
@@ -220,10 +228,90 @@ if($isAjaxRequest && $import_menu)
                 unset($db_insert_unit);
                 $unit_id = $db_units_id;
             }
-           // kiem tra xem menu co trong csdl k 
-            // neu co thì update l?i thong tin menu dong thoi lay ra id cua menu do
-             ////chua co thì insert m?i
-            $db_menu        = new db_query("SELECT * FROM menus WHERE men_name = '" . trim($men_name) . "'");
+            // lay ra men cat id cua menu 
+            // kiem tra xem menu cap 1 categories dda ton tai chua neu chua ton tai thi insert thanh ban ghi moi
+            $db_categories_1 = new db_query("SELECT cat_id FROM categories_multi
+                                            WHERE cat_name = '" .trim($menu1) . "' 
+                                            AND cat_type = '" . MENU_CAT_TYPE . "'");
+            if ( mysqli_num_rows($db_categories_1->result) >= 1 )
+            {
+                $data_cat   = mysqli_fetch_assoc($db_categories_1->result);
+                $cat_id = $data_cat['cat_id'];
+            }
+            else
+            {
+                $cat_desc = '';
+                $cat_picture = '';
+                $cat_parent_id = 0;
+                $cat_has_child = 0;
+                $cat_note = '';
+                $db_insert_categories = new db_execute_return;
+                $db_categories_id = $db_insert_categories->db_execute("INSERT INTO categories_multi
+                                                                    (
+                                                                    cat_name, 
+                                                                    cat_type, 
+                                                                    cat_desc, 
+                                                                    cat_picture, 
+                                                                    cat_parent_id, 
+                                                                    cat_has_child, cat_note
+                                                                    ) VALUES (
+                                                                    '" .trim($menu1) . "',
+                                                                    '" . MENU_CAT_TYPE . "',
+                                                                    '".$cat_desc."',
+                                                                    '".$cat_picture."',
+                                                                    ".$cat_parent_id.",
+                                                                    ".$cat_has_child.",
+                                                                    '".$cat_note."'
+                                                                    )");
+                unset($db_insert_categories);
+                $cat_id = $db_categories_id;
+            }
+            $men_cat_id = $cat_id;
+            unset($db_categories_1); 
+            // kiem tra xem menu cap 2 da ton tai hay chua  neu chua thi inset thang ban ghi moi
+            $db_categories_2 = new db_query("SELECT cat_id FROM categories_multi
+                                            WHERE cat_name = '" .trim($menu2) . "' 
+                                            AND cat_parent_id = " . $cat_id . "
+                                            AND cat_type = '" . MENU_CAT_TYPE . "'");
+            if ( mysqli_num_rows($db_categories_2->result) >= 1 )
+            {
+                $data_cat_2   = mysqli_fetch_assoc($db_categories_2->result);
+                $men_cat_id = $data_cat_2['cat_id'];
+            }
+            else
+            {
+                $cat_desc = '';
+                $cat_picture = '';
+                $cat_parent_id = $cat_id;
+                $cat_has_child = 0;
+                $cat_note = '';
+                $db_insert_categories = new db_execute_return;
+                $db_categories_id = $db_insert_categories->db_execute("INSERT INTO categories_multi
+                                                                    (
+                                                                    cat_name, 
+                                                                    cat_type, 
+                                                                    cat_desc, 
+                                                                    cat_picture, 
+                                                                    cat_parent_id, 
+                                                                    cat_has_child, cat_note
+                                                                    ) VALUES (
+                                                                    '" .trim($menu2) . "',
+                                                                    '" . MENU_CAT_TYPE . "',
+                                                                    '".$cat_desc."',
+                                                                    '".$cat_picture."',
+                                                                    ".$cat_parent_id.",
+                                                                    ".$cat_has_child.",
+                                                                    '".$cat_note."'
+                                                                    )");
+                unset($db_insert_categories);
+                $men_cat_id = $db_categories_id;
+            }unset($db_categories_2); 
+           //kiem tra xem menu co trong csdl k 
+           //neu co thì update lai thong tin menu dong thoi lay ra id cua menu do
+           //chua co thì insert moi
+            $menu_id = 0;
+            $db_menu        = new db_query("SELECT * FROM menus 
+                                            WHERE men_name = '" . trim($men_name) . "'");
             if ( mysqli_num_rows($db_menu->result) >= 1)
             {
                 $db_update_menu = new db_execute("UPDATE menus
@@ -239,7 +327,7 @@ if($isAjaxRequest && $import_menu)
                                                 );
                 unset($db_update_menu);
                 $data_menu = mysqli_fetch_assoc($db_menu->result);
-                $db_menu_id = $data_menu['men_id'];
+                $menu_id = $data_menu['men_id'];
             }else
             {
                 $db_insert_menu = new db_execute_return;
@@ -267,7 +355,9 @@ if($isAjaxRequest && $import_menu)
                                                                 ".$men_editable."
                                                                 )");
                 unset($db_insert_menu);
+                $menu_id = $db_menu_id;
             }
+            
             foreach ( $list_pro as $val)
             {
                 $pro_name = $val['ten_nguyenlieu'];
@@ -281,11 +371,14 @@ if($isAjaxRequest && $import_menu)
                 $pro_instock = 0;
                 $pro_status = 0;
                 $idPro = 0;
+                $array_replace = array('(g)','(gói)','(ml)', '(hộp)');
+                $pro_name = str_replace($array_replace,'',$pro_name);
                 // kiem tra trong csdl ton tai nguyen lieu nay chua
                 // neu co roi thi lay ra id
                 // neu chua co thi insert vao song lay ra id
-                $dbPro  = new db_query("SELECT pro_id FROM products WHERE pro_name = '" . trim($pro_name) . "'");
-                             //neu co roi
+                $dbPro  = new db_query("SELECT pro_id FROM products 
+                                        WHERE pro_name = '" . trim($pro_name) . "'");
+                //neu co roi
                 if( mysqli_num_rows($dbPro->result) >= 1 )
                 {
                     $dataPro = mysqli_fetch_assoc($dbPro->result);
@@ -321,19 +414,44 @@ if($isAjaxRequest && $import_menu)
                     unset($db_insert_product);
                     $idPro = $db_product_id;
                 }unset($dbPro);
-                 //sau khi co dc id cua nguyen lieu va id cua menu thi them vao bang menu_product
-                $sql_menu_products = new db_execute("INSERT INTO menu_products
-                                                    (
-                                                    mep_menu_id, 
-                                                    mep_product_id, 
-                                                    mep_quantity
-                                                    ) 
-                                                    VALUES(
-                                                    ".$db_menu_id.",
-                                                    ".$idPro.",
-                                                    ".$mep_quantity."
-                                                    )");
-                unset($sql_menu_products);
+                // co id product roi 
+                // lay ra id cua tat ca cac kho cua cua hang
+                //$arrStore_id = array();
+//                $db_store = new db_query ("SELECT * FROM categories_multi 
+//                                           WHERE cat_type = '" . STORE_CAT_TYPE . "'");
+//                while ( $data_store = mysqli_fetch_assoc($db_store->result) )
+//                {
+//                    $arrStore_id[] = $data_store['cat_id'];
+//                }
+                //
+                //sau khi co dc id cua nguyen lieu va id cua menu 
+                // neu ton tai ca menu id va pro id thi update nguoc lai thi insert 
+                $db_menu_quantity = new db_query ("SELECT * FROM menu_products 
+                                                   WHERE mep_menu_id = " . $menu_id . "
+                                                   AND mep_product_id = " . $idPro . "");
+                if ( mysqli_num_rows($db_menu_quantity->result) >= 1 )
+                {
+                    $db_update_menu_quantity = new db_execute("UPDATE menu_products
+                                                                mep_quantity = mep_quantity + " . floatval($mep_quantity) . "
+                                                                WHERE mep_menu_id = " . $menu_id . "
+                                                                AND mep_product_id = " .$idPro . ""
+                                                                );
+                    unset($db_update_menu_quantity);
+                }
+                else{
+                    $sql_menu_products = new db_execute("INSERT INTO menu_products
+                                                        (
+                                                        mep_menu_id, 
+                                                        mep_product_id, 
+                                                        mep_quantity
+                                                        ) 
+                                                        VALUES(
+                                                        ".$menu_id.",
+                                                        ".$idPro.",
+                                                        ".floatval($mep_quantity)."
+                                                        )");
+                    unset($sql_menu_products);
+                }
             }
         }
     }     
