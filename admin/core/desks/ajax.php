@@ -43,7 +43,9 @@ class DeskAjax extends AjaxCommon
                 'id' => 'agency_list',
                 'option' => $list_agencies,
                 'extra' => 'onchange=loadServiceDesk()',
-                'selected' => $configuration['con_default_agency']
+                'selected' => $configuration['con_default_agency'],
+                'require'=>1,
+                'errorMsg'=>'Bạn chưa chọn cửa hàng'
             ))
         );
 
@@ -54,7 +56,7 @@ class DeskAjax extends AjaxCommon
                 'id' => 'sec_service_desk',
                 'option' => $list_service_desks,
                 'require'=>1,
-                'er'
+                'errorMsg'=>'Bạn chưa chọn quầy phục vụ'
             ))
         );
         //Thêm javascript
@@ -91,7 +93,7 @@ class DeskAjax extends AjaxCommon
                                   LEFT JOIN agencies ON age_id = sed_agency_id
                                   WHERE sec_id = ' . $sec_id);
         //lấy chi tiết bản ghi
-        $row = mysqli_fetch_assoc($db_query->result);
+        $row_section = mysqli_fetch_assoc($db_query->result);
         unset($db_query);
         //open modal
         $this->openModal();
@@ -120,7 +122,9 @@ class DeskAjax extends AjaxCommon
                 'id' => 'agency_list',
                 'option' => $list_agencies,
                 'extra' => 'onchange=loadServiceDesk()',
-                'selected' => $configuration['con_default_agency']
+                'selected' => $configuration['con_default_agency'],
+                'require'=>1,
+                'errorMsg'=>'Bạn chưa chọn cửa hàng'
             ))
         );
 
@@ -130,7 +134,7 @@ class DeskAjax extends AjaxCommon
                 'name' => 'sec_service_desk',
                 'id' => 'sec_service_desk',
                 'option' => $list_service_desks,
-                'selected' => $row['sec_service_desk'],
+                'selected' => $row_section['sec_service_desk'],
                 'require'=>1,
                 'errorMsg'=>'Bạn chưa chọn quầy phục vụ'
             ))
@@ -143,7 +147,7 @@ class DeskAjax extends AjaxCommon
                 'label' => 'Tên khu vực',
                 'name' => 'sec_name',
                 'id' => 'sec_name',
-                'value' => $row['sec_name'],
+                'value' => $row_section['sec_name'],
                 'require' => 1,
                 'errorMsg' => 'Bạn chưa nhập tên khu vực'
             ))
@@ -153,7 +157,7 @@ class DeskAjax extends AjaxCommon
                 'label' => 'Ghi chú',
                 'name' => 'sec_note',
                 'id' => 'sec_note',
-                'value' => $row['sec_note']
+                'value' => $row_section['sec_note']
             ))
         );
         //close modal

@@ -146,7 +146,9 @@ class ProductAjax extends AjaxCommon
                 'name' => 'pro_cat_id',
                 'id' => 'pro_cat_id',
                 'option' => $array_cat,
-                'selected' => 0
+                'selected' => 0,
+                'require'=>1,
+                'errorMsg'=>'Bạn chưa chọn danh mục nguyên liệu'
             ))
         );
         $this->add(
@@ -228,7 +230,9 @@ class ProductAjax extends AjaxCommon
                 'name' => 'pro_cat_id',
                 'id' => 'pro_cat_id',
                 'option' => $array_cat,
-                'selected' => $this->f['pro_cat_id']
+                'selected' => $this->f['pro_cat_id'],
+                'require'=>1,
+                'errorMsg'=>'Bạn chưa chọn danh mục nguyên liệu'
             ))
         );
         $this->add(

@@ -141,7 +141,9 @@ class MenuAjax extends AjaxCommon {
                 'name'=>'men_cat_id',
                 'id'=>'men_cat_id',
                 'option'=>$array_cat,
-                'selected'=>0
+                'selected'=>0,
+                'require'=>1,
+                'errorMsg'=>'Bạn chưa chọn danh mục thực đơn'
             ))
         );
         $this->add(
@@ -235,7 +237,9 @@ class MenuAjax extends AjaxCommon {
                 'name'=>'men_cat_id',
                 'id'=>'men_cat_id',
                 'option'=>$array_cat,
-                'selected'=>$this->f['men_cat_id']
+                'selected'=>$this->f['men_cat_id'],
+                'require'=>1,
+                'errorMsg'=>'Bạn chưa chọn danh mục thực đơn'
             ))
         );
         $this->add(
@@ -392,7 +396,9 @@ class MenuAjax extends AjaxCommon {
                 'name'=>'mep_product_id',
                 'id'=>'mep_product_id',
                 'option'=>$list_product,
-                'extra'=>'onchange="getProductUnit()"'
+                'extra'=>'onchange="getProductUnit()"',
+                'require'=>1,
+                'errorMsg'=>'Bạn chưa chọn nguyên liệu'
             ))
         );
         $this->add(
