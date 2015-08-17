@@ -262,7 +262,9 @@ class DeskAjax extends AjaxCommon
                 'label' => 'Chọn khu vực',
                 'name' => 'des_sec_id',
                 'id' => 'des_sec_id',
-                'option' => $array_section
+                'option' => $array_section,
+                'require'=>1,
+                'errorMsg'=>'Bạn chưa chọn khu vực'
             ))
         );
         $this->add(
@@ -317,7 +319,9 @@ class DeskAjax extends AjaxCommon
                 'name' => 'des_sec_id',
                 'id' => 'des_sec_id',
                 'option' => $array_section,
-                'selected' => $row['des_sec_id']
+                'selected' => $row['des_sec_id'],
+                'require'=>1,
+                'errorMsg'=>'Bạn chưa chọn khu vực'
             ))
         );
         $this->add(
