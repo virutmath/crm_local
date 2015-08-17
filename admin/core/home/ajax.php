@@ -824,6 +824,8 @@ class HomeAjax extends AjaxCommon
             //thực đơn không đủ số lượng tồn kho, đưa ra thông báo lỗi
             $array_return['error'] = 'Không thể xuất do không đủ số lượng tồn kho';
             $array_return['disallow_menu'] = json_encode($disallow_menu);
+            $this->add($array_return);
+            return false;
         } else {
             //Không có hóa đơn nào đang được xử lý - cập nhật trigger status thành 1 để bắt đầu vào hàm
             $db_update = new db_execute('UPDATE triggers SET tri_status = 1 WHERE tri_key = "billSubmit" LIMIT 1');
