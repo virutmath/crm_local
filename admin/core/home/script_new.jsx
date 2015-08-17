@@ -154,7 +154,11 @@ var HomeScript = {
         menuList: [],
         billInfo: new BillInfo()
     },
-    infoRestaurant: {}
+    infoRestaurant: {},
+    beforeData : {
+        currentDesk : {},
+        currentMenu : {}
+    }
 };
 
 HomeScript.addMenuToDesk = function (menu_id) {
@@ -256,6 +260,10 @@ HomeScript.checkDebitSubmit = function () {
         mindow.resize = true;
         mindow.iframe('debit_v2.php', 'Cài đặt công nợ khách hàng' ,{total: HomeScript.currentDesk.billInfo.finalMoney});
     }
+};
+HomeScript.deleteDesk = function(elem) {
+    //xóa bàn
+
 };
 HomeScript.init = function (data) {
     if (data) {
@@ -383,6 +391,19 @@ HomeScript.inputChangeFunction = function (type) {
         success: function (resp) {
             loadingProgress('hide');
             if (resp.error) {
+                //đặt lại dữ liệu trước khi thay đổi
+                switch (data.action) {
+                    case 'updateMenuNumber':
+                        HomeScript.currentMenu.menuItem.cdm_number = HomeScript.beforeData.currentMenu.menuItem.cdm_number;
+                        for(var i in HomeScript.currentDesk.menuList) {
+                            var tmpMenu = HomeScript.currentDesk.menuList[i];
+                            if(tmpMenu.men_id == data.menu_id) {
+                                tmpMenu.cdm_number = HomeScript.beforeData.currentMenu.menuItem.cdm_number;
+                            }
+                        }
+                        HomeScript.view.buildCurrentDesk();
+                        break;
+                }
                 alert(resp.error);
             }
         },
@@ -402,6 +423,10 @@ HomeScript.keyUpFunction = function (type) {
         alert('Vui lòng chọn thực đơn cho bàn!');
         return false;
     }
+    //lưu lại giá trị cũ
+    this.beforeData.currentDesk =  $.extend(true,{}, this.currentDesk);
+    this.beforeData.currentMenu =  $.extend(true,{}, this.currentMenu);
+
     //cập nhật số lượng, phụ phí, VAT...
     var curMenu = this.currentMenu.menuItem,
         billInfo = this.currentDesk.billInfo,

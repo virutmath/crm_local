@@ -61,17 +61,18 @@ $brand_report = getValue('brand_report','int','POST',0);
 $store_report = getValue('store_report','int','POST',0);
 $And = '';
 $array_return = array();
+$time_order_field = 'bio_start_time';
 if ( $isAjaxRequest )
 {
     if ( $from_date != '' ) 
     {
         $from_date  = convertDateTime($from_date,'0:0:0');
-        $And .= ' AND bio_start_time >= ' . $from_date;
+        $And .= ' AND '.$time_order_field.' >= ' . $from_date;
     }
     if ( $to_date != '' )
     {
         $to_date  = convertDateTime($to_date,'0:0:0') + 86400 - 1;
-        $And .= ' AND bio_start_time <= ' . $to_date;
+        $And .= ' AND '.$time_order_field.' <= ' . $to_date;
     }
     if ( $adm_user_report > 0 )
     {
@@ -86,7 +87,7 @@ if ( $isAjaxRequest )
         $And .= ' AND bio_store_id = ' . $store_report;
     }
 }else{
-    $And = 'AND bio_start_time >= ' . ($today - 2592000) . ' AND bio_start_time <= ' . $today;
+    $And = 'AND '.$time_order_field.' >= ' . ($today - 2592000) . ' AND '.$time_order_field.' <= ' . $today;
 }
 $db_count           = new db_count('SELECT count(*) as count
                                     FROM '.$bg_table_o.' 
@@ -96,7 +97,7 @@ $total              = $db_count->total;unset($db_count);
 
 $db_bill_out         = new db_query("SELECT * FROM " . $bg_table_o . "
                                     WHERE 1 " . $And . "
-                                    ORDER BY " . $id_field_o . " ASC
+                                    ORDER BY " . $time_order_field . " ASC
                                     " . $list->limit($total) ." 
                                     ");
 $total_bill_out      = mysqli_num_rows($db_bill_out->result);
@@ -142,7 +143,7 @@ foreach ( $data as $key => $value)
         $bio_id = implode('', $bio_id);
     }
     //
-    $array_date['x'] = getdate(convertDateTime($key,'0:0:0'));
+    $array_date['x'] = convertDateTime($key,'0:0:0');
     $array_date['y'] = intval($chiphi);
     $array[] = $array_date;
     //
@@ -156,6 +157,7 @@ foreach ( $data as $key => $value)
 }
 $right_column        .= $list->showFooter();
 $right_column   .='<div id="chartContainer"></div>';
+$title['title'] = "Chi phí theo hóa đơn";
 // total report 
 $total_report       .= '<p class="select-title">Tổng chi phí:</p>';
 $total_report       .= '<p class="select-title total-cost"><strong>'.number_format($total_bill).'</strong></p>';
@@ -174,6 +176,8 @@ add_more_css('css_report_bill.css',$load_header);
 $rainTpl->assign('load_header',$load_header);
 $rainTpl->assign('formDate', $formDate);
 $rainTpl->assign('toDate', $toDate);
+$rainTpl->assign('title', json_encode($title));
+$rainTpl->assign('array', json_encode($array));
 $rainTpl->assign('data_module', $data_module);
 $rainTpl->assign('left_column', $left_column);
 $rainTpl->assign('total_report', $total_report);

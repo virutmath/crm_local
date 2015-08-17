@@ -32,25 +32,25 @@ $to_date = getValue('to_date','str','POST','');
 $adm_user_report = getValue('adm_user_report','int','POST',0);
 $And = '';
 $array_return = array();
+$time_order_field = 'fin_updated_time';
 if ( $isAjaxRequest )
 { 
-    
     if ( $from_date != '' )
     {
         $from_date = convertDateTime($from_date,'0:0:0');
-        $And .= ' AND fin_updated_time >= ' . $from_date;
+        $And .= ' AND '.$time_order_field.' >= ' . $from_date;
     }
     if ( $to_date != '' )
     {
         $to_date = convertDateTime($to_date,'0:0:0') + 86400 - 1;
-        $And .= ' AND fin_updated_time <= ' . $to_date;
+        $And .= ' AND '.$time_order_field.' <= ' . $to_date;
     }
     if ( $adm_user_report > 0 )
     {
         $And .= ' AND fin_admin_id = ' . $adm_user_report;
     }
 }else{
-    $And = 'AND fin_updated_time >= ' . ($today - 2592000) . ' AND fin_updated_time <= ' . $today;
+    $And = 'AND '.$time_order_field.' >= ' . ($today - 2592000) . ' AND '.$time_order_field.' <= ' . $today;
 }
 $db_count               = new db_count('SELECT count(*) as count
                                         FROM '.$bg_table_fin.' 
@@ -62,7 +62,7 @@ $total                  = $db_count->total;unset($db_count);
 $db_financial           = new db_query("SELECT * FROM " . $bg_table_fin . "
                                         WHERE 1 ".$list->sqlSearch(). $And . " 
                                         AND fin_cat_id IN(". FINANCIAL_CAT_BAN_HANG .", ". FINANCIAL_CAT_NHAP_HANG .")
-                                        ORDER BY " . $id_financial . " ASC
+                                        ORDER BY " . $time_order_field . " ASC
                                         " . $list->limit($total) ." 
                                         ");
 $total_financial        = mysqli_num_rows($db_financial->result);
@@ -132,7 +132,7 @@ foreach ( $array_data_result as $date => $value )
     {
         $arr_fin_id = implode('',$arr_fin_id);
     }
-    $array_date['x'] = getdate(convertDateTime($date,'0:0:0'));
+    $array_date['x']   = convertDateTime($date,'0:0:0');
     $array_date['thu'] = intval($doanh_thu);
     $array_date['chi'] = intval($chi_phi);
     $array[] = $array_date;
@@ -146,6 +146,8 @@ foreach ( $array_data_result as $date => $value )
 }
 $right_column   .= $list->showFooter();
 $right_column   .='<div id="chartContainer"></div>';
+$title['title'] = "Thống kê thu chi";
+$title['all'] = 1;
 // total report 
 $total_report       .= '<p class="select-title">';
 $total_report       .= '<span class="total">Tổng doanh thu:</span>';
@@ -175,6 +177,8 @@ $rainTpl->assign('load_header',$load_header);
 $rainTpl->assign('data_module', $data_module);
 $rainTpl->assign('formDate', $formDate);
 $rainTpl->assign('toDate', $toDate);
+$rainTpl->assign('title', json_encode($title));
+$rainTpl->assign('array', json_encode($array));
 $rainTpl->assign('left_column', $left_column);
 $rainTpl->assign('total_report', $total_report);
 $rainTpl->assign('footer_control', $footer_control);

@@ -573,8 +573,15 @@ class HomeAjax extends AjaxCommon
         //cập nhật số lượng vào thực đơn
         $db_ex = new db_execute('UPDATE current_desk_menu
                                  SET cdm_number = ' . $number . '
-                                 WHERE cdm_desk_id = ' . $desk_id . ' AND cdm_menu_id = ' . $menu_id . '
+                                 WHERE cdm_desk_id = ' . $desk_id . '
+                                    AND cdm_menu_id = ' . $menu_id . '
+                                    AND cdm_printed_number < '.$number.'
                                  LIMIT 1');
+        if(!$db_ex->total){
+            $array_return['error'] = 'Thực đơn này đã in bếp, không thể giảm số lượng';
+            $this->add($array_return);
+            return;
+        }
         $array_return['success'] = 1;
         $this->add($array_return);
         //log action

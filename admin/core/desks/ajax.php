@@ -52,7 +52,9 @@ class DeskAjax extends AjaxCommon
                 'label' => 'Quầy phục vụ',
                 'name' => 'sec_service_desk',
                 'id' => 'sec_service_desk',
-                'option' => $list_service_desks
+                'option' => $list_service_desks,
+                'require'=>1,
+                'er'
             ))
         );
         //Thêm javascript
@@ -128,7 +130,9 @@ class DeskAjax extends AjaxCommon
                 'name' => 'sec_service_desk',
                 'id' => 'sec_service_desk',
                 'option' => $list_service_desks,
-                'selected' => $row['sec_service_desk']
+                'selected' => $row['sec_service_desk'],
+                'require'=>1,
+                'errorMsg'=>'Bạn chưa chọn quầy phục vụ'
             ))
         );
         //Thêm javascript

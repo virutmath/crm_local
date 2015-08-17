@@ -8,7 +8,6 @@ if($action == 'execute') {
 
     }
 }
-
 //Phần hiển thị
 //Khởi tạo
 $left_control       = '';
@@ -18,9 +17,7 @@ $left_column        = '';
 $right_column       = '';
 $top_control        = '';
 $list_store         = '';
-
 //lấy ra tất cả kho hàng
-
 $db_store = new db_query('SELECT * FROM categories_multi WHERE cat_type = "stores"');
 while($row_store = mysqli_fetch_assoc($db_store->result)){
     $list_store .= '<option value="'.$row_store['cat_id'].'">'.$row_store['cat_name'].'</option>';
@@ -41,9 +38,6 @@ $top_control = '
     </div>
     <div class="clearfix"></div>
 ';
-
-
-
 // phấn menu left
 //lấy ra danh mục
 $bg_table = "customers";

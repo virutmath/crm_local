@@ -64,42 +64,27 @@ $And    = '';
 $array_return = array();
 if ( $isAjaxRequest )
 {
-    if ( $type_bill == 0 )
-    {
-        if ( $from_date != '' ) 
-        {
-            $from_date  = convertDateTime($from_date,'0:0:0');
-            $And .= ' AND bii_start_time >= ' . $from_date;
-        }
-        if ( $to_date != '' )
-        {
-            $to_date  = convertDateTime($to_date,'0:0:0') + 86400 - 1;
-            $And .= ' AND bii_start_time <= ' . $to_date;
-        }
+    if ( $type_bill == 0 ){
+        $time_order_field = 'bii_start_time';
+    }else{
+        $time_order_field = 'bii_end_time';
     }
-    else
+    if ( $from_date != '' ) 
     {
-        if ( $from_date != '' ) 
-        {
-            $from_date  = convertDateTime($from_date,'0:0:0');
-            $And .= ' AND bii_end_time >= ' . $from_date;
-        }
-        if ( $to_date != '' )
-        {
-            $to_date  = convertDateTime($to_date,'0:0:0') + 86400 - 1;
-            $And .= ' AND bii_end_time <= ' . $to_date;
-        }
+        $from_date  = convertDateTime($from_date,'0:0:0');
+        $And .= ' AND '.$time_order_field.' >= ' . $from_date;
+    }
+    if ( $to_date != '' )
+    {
+        $to_date  = convertDateTime($to_date,'0:0:0') + 86400 - 1;
+        $And .= ' AND '.$time_order_field.' <= ' . $to_date;
     }
     if ( $customer_report >= 0 ) $And .= ' AND bii_customer_id = ' . $customer_report;
     if ( $user_report >= 0 ) $And .= ' AND bii_staff_id = ' . $user_report;
     if ( $adm_user_report >= 0 ) $And .= ' AND bii_admin_id = ' . $adm_user_report;
 }else{
-    if ( $type_bill == 0 )
-    {
-        $And = 'AND bii_start_time >= ' . ($today - 2592000) . ' AND bii_start_time <= ' . $today;
-    }else{
-        $And = 'AND bii_end_time >= ' . ($today - 2592000) . ' AND bii_end_time <= ' . $today;
-    }
+    $time_order_field = 'bii_start_time';
+    $And = 'AND '.$time_order_field.' >= ' . ($today - 2592000) . ' AND '.$time_order_field.' <= ' . $today;
 }
 
 $db_count           = new db_count('SELECT count(*) as count
@@ -110,7 +95,7 @@ $total              = $db_count->total;unset($db_count);
 
 $db_bill_in         = new db_query("SELECT * FROM " . $bg_table_i . "
                                     WHERE 1 " . $And . "
-                                    ORDER BY " . $id_field_i . " ASC
+                                    ORDER BY " . $time_order_field . " ASC
                                     " . $list->limit($total) ." 
                                     ");
 $total_bill_in      = mysqli_num_rows($db_bill_in->result);
@@ -157,7 +142,7 @@ foreach ( $data as $key => $value)
     }
     $i++;
     //
-    $array_date['x'] = getdate(convertDateTime($key,'0:0:0'));
+    $array_date['x'] = convertDateTime($key,'0:0:0');
     $array_date['y'] = intval($doanhthu);
     $array[] = $array_date;
     //
@@ -168,6 +153,7 @@ foreach ( $data as $key => $value)
     $right_column .= '<td class="text-right"> ' . number_format($doanhthu / $soHD) . '</td>';
     $right_column .= $list->end_tr();
 }
+$title['title'] = "Doanh thu theo hóa đơn";
 $right_column        .= $list->showFooter();
 $right_column   .='<div id="chartContainer"></div>';
 // total report 
@@ -185,7 +171,6 @@ $total_report       .= '<div class="clear"></div>';
 $total_report       .= '</p>';
 $total_report       .= '<p class="select-title">Tổng doanh thu:</p>';
 $total_report       .= '<p class="select-title total-cost"><strong>'.number_format($total_fund).'</strong></p>';
-
 if ( $isAjaxRequest )
 {
     $array_return['dt'] = $array;
@@ -199,6 +184,8 @@ add_more_css('css_report_bill.css',$load_header);
 $rainTpl->assign('load_header',$load_header);
 $rainTpl->assign('formDate', $formDate);
 $rainTpl->assign('toDate', $toDate);
+$rainTpl->assign('title', json_encode($title));
+$rainTpl->assign('array', json_encode($array));
 $rainTpl->assign('data_module', $data_module);
 $rainTpl->assign('left_column', $left_column);
 $rainTpl->assign('total_report', $total_report);

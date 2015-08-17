@@ -39,7 +39,7 @@ if($import_menu)
                                                             )");
             unset($db_insert_unit);
             $unit_id = $db_units_id;
-        }
+        }unset($db_unit);
         //
         $db_categories_1 = new db_query("SELECT cat_id FROM categories_multi
                                         WHERE cat_name = '" .trim($menu1) . "' 
@@ -252,4 +252,3 @@ if($import_menu)
 <input id="file-menu" type="file" name="import_menu" class="file_menu" onchange="updateMenu()"/>
 <button type="submit" id="submit_form"> abc </button>
 </form>
-<?
