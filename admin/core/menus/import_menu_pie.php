@@ -18,11 +18,11 @@ if($import_menu)
         // kiem tra xem don vi tinh da ton tai trong bang units chua
         $db_unit    = new db_query("SELECT uni_id FROM units 
                                     WHERE uni_name = '" . trim($donvi_tinh) . "'");
-         //neu co roi thi lay ra id cua don vi tinh do
+//         //neu co roi thi lay ra id cua don vi tinh do
         if( mysqli_num_rows($db_unit->result) >= 1 )
         {
             $data_units = mysqli_fetch_assoc($db_unit->result);
-             //id don vi tinh
+//             //id don vi tinh
             $unit_id    = $data_units['uni_id'];
         } //neu chua co thi insert don vi tinh vao bang unit sau do lai lay ra id cua don vi tinh vua insert vao
         else{
@@ -40,7 +40,7 @@ if($import_menu)
             unset($db_insert_unit);
             $unit_id = $db_units_id;
         }unset($db_unit);
-        //
+//        //
         $db_categories_1 = new db_query("SELECT cat_id FROM categories_multi
                                         WHERE cat_name = '" .trim($menu1) . "' 
                                         AND cat_type = '" . MENU_CAT_TYPE . "'");
@@ -79,8 +79,8 @@ if($import_menu)
         }
         $men_cat_id = $cat_id;
         unset($db_categories_1); 
-        //
-        // kiem tra xem menu cap 2 da ton tai hay chua  neu chua thi inset thang ban ghi moi
+//        //
+//        // kiem tra xem menu cap 2 da ton tai hay chua  neu chua thi inset thang ban ghi moi
         $db_categories_2 = new db_query("SELECT cat_id FROM categories_multi
                                         WHERE cat_name = '" .trim($menu2) . "' 
                                         AND cat_parent_id = " . $cat_id . "
@@ -118,10 +118,10 @@ if($import_menu)
             unset($db_insert_categories);
             $men_cat_id = $db_categories_id;
         }unset($db_categories_2);
-        //
-        //kiem tra xem menu co trong csdl k 
-        //neu co thì update lai thong tin menu dong thoi lay ra id cua menu do
-        //chua co thì insert moi
+//        //
+//        //kiem tra xem menu co trong csdl k 
+//        //neu co thì update lai thong tin menu dong thoi lay ra id cua menu do
+//        //chua co thì insert moi
         $menu_id = 0;
         $men_price = '' ? 0 : floatval($value['gia_ban']);
         $men_price1 = 0;
@@ -180,13 +180,15 @@ if($import_menu)
         $pro_name = $value['nguyen_lieu']; 
         $pro_image = '';
         $pro_note = '';
-        $pro_cat_id = 0;
-        $pro_unit_id = 0;
+        $pro_cat_id = $cat_id;
+        $pro_unit_id = $unit_id;
         $pro_code = '';
         $pro_instock = 0;
         $pro_status = 0;
         $idPro = 0;
         $mep_quantity = 1; 
+        $array_replace = array('(g)','(gói)','(ml)');
+        $pro_name = str_replace($array_replace,'',$pro_name);
         // kiem tra xem ten nguyen lieu da ton tai trong csdl chua
         // roi thi update so luong
         // chua thi insert ban ghi moi
@@ -221,12 +223,43 @@ if($import_menu)
                                                                 '" . $pro_code . "',
                                                                 " . $pro_instock . ",
                                                                 " . $pro_status . "
-                                                                )");
-            
+                                                                )");            
             unset($db_insert_product);
             $idPro = $db_product_id;
         }unset($dbPro);
-        //
+        $pro_quantity = 0;
+        // thêm nguyên liệu vào bảng product quantity
+        $db_store = new db_query ("SELECT * FROM categories_multi
+                                    WHERE cat_type = 'stores'");
+        while ( $data_store = mysqli_fetch_assoc ( $db_store->result ) )
+        {
+            $db_product_quantity = new  db_query("SELECT * FROM product_quantity
+                                                  WHERE product_id = " . $idPro . "
+                                                  AND store_id = " . $data_store['cat_id']);
+            if ( mysqli_num_rows($db_product_quantity->result) >= 1 )
+            {
+                $db_update_product_quantity = new db_execute("UPDATE product_quantity 
+                                                              SET 
+                                                              pro_quantity= pro_quantity + ".$pro_quantity."
+                                                              WHERE product_id = " . $idPro . "
+                                                              AND store_id = " . $data_store['cat_id']);
+                unset($db_update_product_quantity);
+            }else{
+                $db_insert_product_quantity = new db_execute_return;
+                $db_product_quantity = $db_insert_product_quantity->db_execute("INSERT INTO product_quantity
+                                                                                (
+                                                                                product_id, 
+                                                                                store_id, 
+                                                                                pro_quantity
+                                                                                ) VALUES (
+                                                                                " . $idPro . ",
+                                                                                " . $data_store['cat_id'] . ",
+                                                                                ".$pro_quantity."
+                                                                                )");
+                unset($db_insert_product_quantity);
+            }unset($db_product_quantity);
+            
+        }
         $db_menu_quantity = new db_query ("SELECT * FROM menu_products 
                                            WHERE mep_menu_id = " . $menu_id . "
                                            AND mep_product_id = " . $idPro . "");

@@ -989,7 +989,13 @@ HomeScript.contextMenu = function () {
                 name: '<i class="fa fa-play"></i> Sử dụng',
                 callback: function (key, opt) {
                     var _this = $(this);
-                    HomeScript.selectDesk(_this);
+                    if(_this.hasClass('active'))
+                        HomeScript.selectDesk(_this);
+                    else{
+                        HomeScript.selectDesk(_this);
+                        HomeScript.openDesk(_this);
+                    }
+
                 }
             },
             payment: {

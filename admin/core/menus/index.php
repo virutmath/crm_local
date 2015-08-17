@@ -373,6 +373,31 @@ if($isAjaxRequest && $import_menu)
                 $idPro = 0;
                 $array_replace = array('(g)','(gói)','(ml)', '(hộp)');
                 $pro_name = str_replace($array_replace,'',$pro_name);
+                //don vi tinh cua nguyen lieu
+                $uni_name = trim(str_replace(array($pro_name, '(', ')'),'',$val['ten_nguyenlieu']));
+                // kiem tra xem don vi tinh da ton tai chua
+                // roi thi lay ra id
+                // chua thi insert thanh ban ghi moi roi lay ra id
+                $uni_note = '';
+                $db_unit = new db_query("SELECT * FROM units 
+                                        WHERE uni_name = '".$uni_name."'");
+                if ( mysqli_num_rows($db_unit->result) >= 1 )
+                {
+                    $data_unit = mysqli_fetch_assoc($db_unit->result);
+                    $pro_unit_id = $data_unit['uni_id'];
+                }else{
+                    $db_insert_unit = new db_execute_return;
+                    $db_unit_id = $db_insert_unit->db_execute("INSERT INTO units
+                                                                (
+                                                                uni_name, 
+                                                                uni_note
+                                                                ) VALUES (
+                                                                '".$uni_name."',
+                                                                '".$uni_note."'
+                                                                )");
+                    $pro_unit_id = $db_unit_id;
+                    unset ($db_insert_unit);
+                }unset($db_unit);
                 // kiem tra trong csdl ton tai nguyen lieu nay chua
                 // neu co roi thi lay ra id
                 // neu chua co thi insert vao song lay ra id
