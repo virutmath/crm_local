@@ -2194,3 +2194,43 @@ function analyzeExcel_Pie($filename)
     }
     return $listMenu;
 }
+// ham insert nguyen lieu tu file excel
+function analyzeExcel_Material($filename)
+{
+    $inputFileType  = PHPExcel_IOFactory::identify($filename);
+    $objReader      = PHPExcel_IOFactory::createReader($inputFileType);
+    $objReader->setReadDataOnly(true);
+    /**  Load $inputFileName to a PHPExcel Object  **/
+    $objPHPExcel    = $objReader->load("$filename");  
+    $total_sheets   = $objPHPExcel->getSheetCount();  
+    $allSheetName   = $objPHPExcel->getSheetNames();
+    $objWorksheet   = $objPHPExcel->setActiveSheetIndex(0);
+    // $highestRow lưu số lượng hàng trong Excel 
+    $highestRow     = $objWorksheet->getHighestRow();
+    $highestColumn  = $objWorksheet->getHighestColumn();
+    // $highestColumnIndex lưu số lượng cột trong Excel 
+    $highestColumnIndex = PHPExcel_Cell::columnIndexFromString($highestColumn);
+    // $arraydata dùng để lưu dữ liệu của file Excel
+    $arraydata      = array();
+    for ($row = 2; $row <= $highestRow;++$row)
+    {
+        for ($col = 0; $col <$highestColumnIndex;++$col)
+        {
+            $value=$objWorksheet->getCellByColumnAndRow($col, $row)->getValue();
+            $arraydata[$row-2][$col]=$value;
+        }
+    }
+    // $listMenu dùng để lưu danh sách chi tiết của tất cả menu
+    $listMenu =  array();
+    // $arr mảng tạm để lưu chi tiết của 1 menu
+    $arr = array();
+    // bắt đầu xử lý
+    for ($i = 1; $i < count($arraydata); $i++)
+    {
+        $arr['ten_nguyenlieu'] = $arraydata[$i][0];
+        $arr['donvi_tinh'] = $arraydata[$i][1];
+        $arr['menu_cap_1'] = $arraydata[$i][3];
+        $listMenu[] = $arr;
+    }
+    return $listMenu;
+}

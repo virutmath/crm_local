@@ -724,6 +724,7 @@ class form{
             $extra .= $attribute['extra'];
         }
         if(!isset($attribute['option']))    $attribute['option'] = array(''=>'--');
+        
         $control = '<div class="row col-xs-6">'.form_dropdown($attribute['name'],$attribute['option'],$attribute['selected'],$extra).'</div>';
         return $this->create_control($attribute,$control);
     }

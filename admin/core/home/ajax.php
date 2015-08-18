@@ -820,7 +820,7 @@ class HomeAjax extends AjaxCommon
         }
         //Kiểm tra xem có cho phép xuất âm kho hàng không
         //Hiện tại trong config không cho phép xuất âm - làm dần dần
-        if (count($disallow_menu) > 0 && $configuration['con_negative_export']) {
+        if (count($disallow_menu) > 0 && !$configuration['con_negative_export']) {
             //thực đơn không đủ số lượng tồn kho, đưa ra thông báo lỗi
             $array_return['error'] = 'Không thể xuất do không đủ số lượng tồn kho';
             $array_return['disallow_menu'] = json_encode($disallow_menu);
