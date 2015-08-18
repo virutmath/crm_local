@@ -245,6 +245,7 @@
     $(window).resize(function () {
         //window.location.reload();
     });
+	synchronize_data();
     isOnline(function () {
         $('#AppOffline').hide();
         $('#navigator-online').hide();

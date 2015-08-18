@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e761213-30cd-4315-8c53-666a1a6f0c7d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/install.php" afterPath="$PROJECT_DIR$/admin/install.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/resources/caches/admin_index.d1ca576805cfe3b2fb21dd3504c709b9.rtpl.php" afterPath="$PROJECT_DIR$/admin/resources/caches/admin_index.d1ca576805cfe3b2fb21dd3504c709b9.rtpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/resources/security/functions.php" afterPath="$PROJECT_DIR$/admin/resources/security/functions.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/core/home/script_new.jsx" afterPath="$PROJECT_DIR$/admin/core/home/script_new.jsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/resources/security/security.php" afterPath="$PROJECT_DIR$/admin/resources/security/security.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="crm_local.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,29 +38,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="functions_local.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/resources/security/functions_local.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.275862">
-              <caret line="38" column="13" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
-              <folding>
-                <marker date="1439890259007" expanded="true" signature="817:926" placeholder="INSERT INTO ..." />
-                <marker date="1439890259007" expanded="true" signature="817:1001" placeholder="INSERT INTO ..." />
-                <marker date="1439890259007" expanded="true" signature="817:1074" placeholder="INSERT INTO ..." />
-                <marker date="1439890259007" expanded="true" signature="817:1114" placeholder="INSERT INTO ..." />
-                <marker date="1439890259007" expanded="true" signature="1916:1945" placeholder="INSERT INTO ..." />
-                <marker date="1439890259007" expanded="true" signature="3459:3500" placeholder="SELECT * FRO..synchronize_trigger..." />
-                <marker date="1439890259007" expanded="true" signature="6949:6984" placeholder="SELECT * FRO..server_config..." />
-                <marker date="1439890259007" expanded="true" signature="7273:7338" placeholder="SELECT * FRO..system_update_log..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="synchronize.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/synchronize.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.4827585">
+            <state vertical-scroll-proportion="-11.5172415">
               <caret line="18" column="31" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
               <folding>
                 <marker date="1439884193515" expanded="true" signature="1075:1128" placeholder="INSERT INTO ..." />
@@ -65,11 +50,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="install.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="install.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/install.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8134864">
-              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+            <state vertical-scroll-proportion="-20.48276">
+              <caret line="230" column="0" selection-start-line="230" selection-start-column="0" selection-end-line="230" selection-end-column="0" />
               <folding>
                 <marker date="1439894001297" expanded="true" signature="684:909" placeholder="INSERT INTO ..." />
                 <marker date="1439894001297" expanded="true" signature="3165:3184" placeholder="INSERT INTO ..." />
@@ -77,6 +62,21 @@
                 <marker date="1439894001297" expanded="true" signature="5491:5588" placeholder="INSERT INTO ..." />
                 <marker date="1439894001297" expanded="true" signature="6337:6407" placeholder="INSERT INTO ..." />
                 <marker date="1439894001297" expanded="true" signature="7130:7350" placeholder="INSERT INTO ..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="security.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/admin/resources/security/security.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.7449857">
+              <caret line="20" column="32" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
+              <folding>
+                <marker date="1439914661436" expanded="true" signature="1525:1596" placeholder="SELECT * FRO..configurations..." />
+                <marker date="1439914661436" expanded="true" signature="1632:1816" placeholder="SELECT * FRO..configurations..." />
+                <marker date="1439914661436" expanded="true" signature="2004:2241" placeholder="SELECT * FRO..desks..." />
+                <marker date="1439914661436" expanded="true" signature="2415:2597" placeholder="SELECT * FRO..sections..." />
               </folding>
             </state>
           </provider>
@@ -124,6 +124,7 @@
         <option value="$PROJECT_DIR$/admin/config" />
         <option value="$PROJECT_DIR$/admin/resources/security/functions_local.php" />
         <option value="$PROJECT_DIR$/admin/install.php" />
+        <option value="$PROJECT_DIR$/admin/resources/security/security.php" />
       </list>
     </option>
   </component>
@@ -141,7 +142,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1616" />
+    <option name="width" value="1604" />
     <option name="height" value="886" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -167,6 +168,18 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope">
+        <subPane subId="Problems" />
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -231,16 +244,26 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scratches" />
-      <pane id="Scope">
-        <subPane subId="Problems" />
-        <subPane subId="Project Files">
           <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
+            <PATH_ELEMENT>
+              <option name="myItemId" value="crm_local" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="crm_local" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="security" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -306,10 +329,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="886" extended-state="6" />
+    <frame x="-8" y="-8" width="1604" height="886" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20565553" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20854922" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -348,6 +371,21 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/admin/install.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1439894001297" expanded="true" signature="684:909" placeholder="INSERT INTO ..." />
+            <marker date="1439894001297" expanded="true" signature="3165:3184" placeholder="INSERT INTO ..." />
+            <marker date="1439894001297" expanded="true" signature="3931:4007" placeholder="INSERT INTO ..." />
+            <marker date="1439894001297" expanded="true" signature="5491:5588" placeholder="INSERT INTO ..." />
+            <marker date="1439894001297" expanded="true" signature="6337:6407" placeholder="INSERT INTO ..." />
+            <marker date="1439894001297" expanded="true" signature="7130:7350" placeholder="INSERT INTO ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/admin/resources/js/crm.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -450,13 +488,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.3532847">
           <caret line="80" column="10" selection-start-line="80" selection-start-column="10" selection-end-line="80" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/resources/security/security.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.689655">
-          <caret line="30" column="28" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="28" />
         </state>
       </provider>
     </entry>
@@ -653,15 +684,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/config">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17906336">
-          <caret line="5" column="33" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -669,6 +691,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.1492109">
           <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/config">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.17881706">
+          <caret line="5" column="33" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
           <folding />
         </state>
       </provider>
@@ -683,7 +712,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/synchronize.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.4827585">
+        <state vertical-scroll-proportion="-11.5172415">
           <caret line="18" column="31" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
           <folding>
             <marker date="1439884193515" expanded="true" signature="1075:1128" placeholder="INSERT INTO ..." />
@@ -691,27 +720,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/resources/security/functions_local.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.275862">
-          <caret line="38" column="13" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
-          <folding>
-            <marker date="1439890259007" expanded="true" signature="817:926" placeholder="INSERT INTO ..." />
-            <marker date="1439890259007" expanded="true" signature="817:1001" placeholder="INSERT INTO ..." />
-            <marker date="1439890259007" expanded="true" signature="817:1074" placeholder="INSERT INTO ..." />
-            <marker date="1439890259007" expanded="true" signature="817:1114" placeholder="INSERT INTO ..." />
-            <marker date="1439890259007" expanded="true" signature="1916:1945" placeholder="INSERT INTO ..." />
-            <marker date="1439890259007" expanded="true" signature="3459:3500" placeholder="SELECT * FRO..synchronize_trigger..." />
-            <marker date="1439890259007" expanded="true" signature="6949:6984" placeholder="SELECT * FRO..server_config..." />
-            <marker date="1439890259007" expanded="true" signature="7273:7338" placeholder="SELECT * FRO..system_update_log..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/install.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8134864">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        <state vertical-scroll-proportion="-20.48276">
+          <caret line="230" column="0" selection-start-line="230" selection-start-column="0" selection-end-line="230" selection-end-column="0" />
           <folding>
             <marker date="1439894001297" expanded="true" signature="684:909" placeholder="INSERT INTO ..." />
             <marker date="1439894001297" expanded="true" signature="3165:3184" placeholder="INSERT INTO ..." />
@@ -719,6 +731,19 @@
             <marker date="1439894001297" expanded="true" signature="5491:5588" placeholder="INSERT INTO ..." />
             <marker date="1439894001297" expanded="true" signature="6337:6407" placeholder="INSERT INTO ..." />
             <marker date="1439894001297" expanded="true" signature="7130:7350" placeholder="INSERT INTO ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/resources/security/security.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7449857">
+          <caret line="20" column="32" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
+          <folding>
+            <marker date="1439914661436" expanded="true" signature="1525:1596" placeholder="SELECT * FRO..configurations..." />
+            <marker date="1439914661436" expanded="true" signature="1632:1816" placeholder="SELECT * FRO..configurations..." />
+            <marker date="1439914661436" expanded="true" signature="2004:2241" placeholder="SELECT * FRO..desks..." />
+            <marker date="1439914661436" expanded="true" signature="2415:2597" placeholder="SELECT * FRO..sections..." />
           </folding>
         </state>
       </provider>

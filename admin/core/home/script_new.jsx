@@ -263,7 +263,11 @@ HomeScript.checkDebitSubmit = function () {
 };
 HomeScript.deleteDesk = function(elem) {
     //xóa bàn
-
+    $.ajax({
+        type : 'post',
+        url : 'ajax.php',
+        data : {action : 'deleteDesk',}
+    })
 };
 HomeScript.init = function (data) {
     if (data) {
@@ -1011,7 +1015,7 @@ HomeScript.contextMenu = function () {
                 callback: function (key, opt) {
                     var _this = $(this);
                     if (confirm('Bạn muốn hủy bàn này?')) {
-
+                        HomeScript.deleteDesk(_this);
                     }
                 }
             },

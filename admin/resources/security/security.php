@@ -15,11 +15,11 @@ require_once('../../../functions/date_functions.php');
 require_once("../../../functions/file_functions.php");
 
 require_once('functions.php');
-require_once('functions_local.php');
 require_once('grid.php');
 require_once('AbstractAjax.php');
 require_once('AjaxCommon.php');
 require_once('functions_1.php');
+require_once('functions_local.php');
 require_once('inc_config_security.php');
 RainTpl::configure("base_url", null );
 RainTpl::configure("tpl_dir", "../../resources/templates/" );
