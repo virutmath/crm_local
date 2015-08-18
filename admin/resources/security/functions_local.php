@@ -29,6 +29,9 @@ function synchronize_data_table($array_data) {
         $check_table = new db_query('SHOW TABLES LIKE "'.$table_name.'"');
         if(mysqli_num_rows($check_table->result) > 0) {
             unset($check_table);
+            //truncate table
+            $db_execute = new db_execute('TRUNCATE TABLE ' . $table_name,1,0);
+            unset($db_execute);
             $db_list_field = new db_query('SHOW FIELDS FROM '. $table_name);
             $array_type_field = array();
             while ($row = mysqli_fetch_assoc($db_list_field->result)) {
