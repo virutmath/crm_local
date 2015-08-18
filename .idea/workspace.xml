@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e761213-30cd-4315-8c53-666a1a6f0c7d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/resources/security/functions_local.php" afterPath="$PROJECT_DIR$/admin/resources/security/functions_local.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/install.php" afterPath="$PROJECT_DIR$/admin/install.php" />
     </list>
     <ignored path="crm_local.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,7 +37,7 @@
       <file leaf-file-name="functions_local.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/resources/security/functions_local.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.5172415">
+            <state vertical-scroll-proportion="-14.275862">
               <caret line="29" column="55" selection-start-line="29" selection-start-column="55" selection-end-line="29" selection-end-column="55" />
               <folding>
                 <marker date="1439890259007" expanded="true" signature="817:926" placeholder="INSERT INTO ..." />
@@ -68,14 +68,14 @@
       <file leaf-file-name="install.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/admin/install.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4476327">
-              <caret line="168" column="25" selection-start-line="168" selection-start-column="25" selection-end-line="168" selection-end-column="25" />
+            <state vertical-scroll-proportion="0.52223814">
+              <caret line="221" column="26" selection-start-line="221" selection-start-column="26" selection-end-line="221" selection-end-column="26" />
               <folding>
-                <marker date="1438912034563" expanded="true" signature="2812:2831" placeholder="INSERT INTO ..." />
-                <marker date="1438912034563" expanded="true" signature="3578:3654" placeholder="INSERT INTO ..." />
-                <marker date="1438912034563" expanded="true" signature="5138:5235" placeholder="INSERT INTO ..." />
-                <marker date="1438912034563" expanded="true" signature="5984:6054" placeholder="INSERT INTO ..." />
-                <marker date="1438912034563" expanded="true" signature="6777:6997" placeholder="INSERT INTO ..." />
+                <marker date="1439891673027" expanded="true" signature="2812:2831" placeholder="INSERT INTO ..." />
+                <marker date="1439891673027" expanded="true" signature="3578:3654" placeholder="INSERT INTO ..." />
+                <marker date="1439891673027" expanded="true" signature="5138:5235" placeholder="INSERT INTO ..." />
+                <marker date="1439891673027" expanded="true" signature="5984:6054" placeholder="INSERT INTO ..." />
+                <marker date="1439891673027" expanded="true" signature="6777:6997" placeholder="INSERT INTO ..." />
               </folding>
             </state>
           </provider>
@@ -118,11 +118,11 @@
         <option value="$PROJECT_DIR$/admin/resources/js/crm.js" />
         <option value="$PROJECT_DIR$/admin/resources/templates/admin_index.html" />
         <option value="$PROJECT_DIR$/admin/resources/css/home.css" />
-        <option value="$PROJECT_DIR$/admin/install.php" />
         <option value="$PROJECT_DIR$/admin/resources/security/functions.php" />
         <option value="$PROJECT_DIR$/admin/synchronize.php" />
         <option value="$PROJECT_DIR$/admin/config" />
         <option value="$PROJECT_DIR$/admin/resources/security/functions_local.php" />
+        <option value="$PROJECT_DIR$/admin/install.php" />
       </list>
     </option>
   </component>
@@ -692,7 +692,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/resources/security/functions_local.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.5172415">
+        <state vertical-scroll-proportion="-14.275862">
           <caret line="29" column="55" selection-start-line="29" selection-start-column="55" selection-end-line="29" selection-end-column="55" />
           <folding>
             <marker date="1439890259007" expanded="true" signature="817:926" placeholder="INSERT INTO ..." />
@@ -709,14 +709,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/install.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4476327">
-          <caret line="168" column="25" selection-start-line="168" selection-start-column="25" selection-end-line="168" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.52223814">
+          <caret line="221" column="26" selection-start-line="221" selection-start-column="26" selection-end-line="221" selection-end-column="26" />
           <folding>
-            <marker date="1438912034563" expanded="true" signature="2812:2831" placeholder="INSERT INTO ..." />
-            <marker date="1438912034563" expanded="true" signature="3578:3654" placeholder="INSERT INTO ..." />
-            <marker date="1438912034563" expanded="true" signature="5138:5235" placeholder="INSERT INTO ..." />
-            <marker date="1438912034563" expanded="true" signature="5984:6054" placeholder="INSERT INTO ..." />
-            <marker date="1438912034563" expanded="true" signature="6777:6997" placeholder="INSERT INTO ..." />
+            <marker date="1439891673027" expanded="true" signature="2812:2831" placeholder="INSERT INTO ..." />
+            <marker date="1439891673027" expanded="true" signature="3578:3654" placeholder="INSERT INTO ..." />
+            <marker date="1439891673027" expanded="true" signature="5138:5235" placeholder="INSERT INTO ..." />
+            <marker date="1439891673027" expanded="true" signature="5984:6054" placeholder="INSERT INTO ..." />
+            <marker date="1439891673027" expanded="true" signature="6777:6997" placeholder="INSERT INTO ..." />
           </folding>
         </state>
       </provider>
