@@ -13,9 +13,13 @@ function get_config_install(&$api_download_url, &$api_get_url, &$admin, &$passwo
     list($admin, $password) = explode(' ', $admin_str);
     $domain_server_url = trim($config_array[3]);
     $synchronize_url = trim($config_array[4]);
+    $version_check_url = trim($config_array[5]);
     //lưu 1 vài thông tin config vào database
     $db = new db_execute('TRUNCATE TABLE server_config',1,0);
-    $db = new db_execute('INSERT INTO server_config(server_domain,synchronize_url) VALUES("'.$domain_server_url.'","'.$synchronize_url.'")',1,0);
+    $db = new db_execute('INSERT INTO server_config(server_domain,synchronize_url,version_check_url)
+                          VALUES("'.encode_combine($domain_server_url).'",
+                                 "'.encode_combine($synchronize_url).'",
+                                 "'.encode_combine($version_check_url).'")',1,0);
     unset($db);
 }
 //hàm này viết riêng cho local
@@ -161,4 +165,21 @@ function directoryToArray($directory, $recursive = true, $listDirs = false, $lis
         closedir($handle);
     }
     return $arrayItems;
+}
+function getUpdateSystem() {
+
+}
+function read_server_config() {
+    $db_query = new db_query('SELECT * FROM server_config LIMIT 1');
+    $array_return = array();
+    $config = mysqli_fetch_assoc($db_query->result);unset($db_query);
+    foreach($config as $k=>$v) {
+        $array_return[$k] = $v ? decode_combine($v) : '';
+    }
+    return $array_return;
+}
+function checkSystemUpdate() {
+    $db_query = new db_query('SELECT * FROM system_update_log ORDER BY update_time DESC LIMIT 1');
+    $update_info = mysqli_fetch_assoc($db_query->result);unset($db_query);
+
 }

@@ -3,3 +3,4 @@ http://test.khang.vn/api/get.php
 admin 123456
 http://test.khang.vn
 http://test.khang.vn/api/sync_local.php
+http://test.khang.vn/version.info

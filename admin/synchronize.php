@@ -19,8 +19,7 @@ $array_query = read_logs();
 echo json_encode($array_query);
 $array_query = base64_encode(json_encode($array_query));
 //lấy config
-$db = new db_query('SELECt * FROM server_config LIMIT 1');
-$server_config = mysqli_fetch_assoc($db->result);unset($db);
+$server_config = read_server_config();
 //bắn các câu query lên qua curl
 $curl = curl_get_content($server_config['synchronize_url'],array('queries'=>$array_query,'action'=>'syncLogQuery','username'=>$username,'password'=>$password));
 $response = json_decode($curl,1);
