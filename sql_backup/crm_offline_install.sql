@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50621
 File Encoding         : 65001
 
-Date: 2015-08-08 09:33:38
+Date: 2015-08-18 16:58:27
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -32,10 +32,6 @@ CREATE TABLE `admin_group_role` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of admin_group_role
--- ----------------------------
-
--- ----------------------------
 -- Table structure for admin_logs
 -- ----------------------------
 DROP TABLE IF EXISTS `admin_logs`;
@@ -47,10 +43,6 @@ CREATE TABLE `admin_logs` (
   `alo_message` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`alo_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of admin_logs
--- ----------------------------
 
 -- ----------------------------
 -- Table structure for admin_users
@@ -72,10 +64,6 @@ CREATE TABLE `admin_users` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of admin_users
--- ----------------------------
-
--- ----------------------------
 -- Table structure for admin_users_groups
 -- ----------------------------
 DROP TABLE IF EXISTS `admin_users_groups`;
@@ -86,10 +74,6 @@ CREATE TABLE `admin_users_groups` (
   `adu_group_note` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`adu_group_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of admin_users_groups
--- ----------------------------
 
 -- ----------------------------
 -- Table structure for agencies
@@ -104,10 +88,6 @@ CREATE TABLE `agencies` (
   `age_note` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`age_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of agencies
--- ----------------------------
 
 -- ----------------------------
 -- Table structure for bill_in
@@ -136,10 +116,6 @@ CREATE TABLE `bill_in` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- ----------------------------
--- Records of bill_in
--- ----------------------------
-
--- ----------------------------
 -- Table structure for bill_in_detail
 -- ----------------------------
 DROP TABLE IF EXISTS `bill_in_detail`;
@@ -151,10 +127,6 @@ CREATE TABLE `bill_in_detail` (
   `bid_menu_discount` int(11) NOT NULL DEFAULT '0' COMMENT '% giảm giá của thực đơn',
   UNIQUE KEY `bid_bill_id` (`bid_bill_id`,`bid_menu_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- ----------------------------
--- Records of bill_in_detail
--- ----------------------------
 
 -- ----------------------------
 -- Table structure for bill_out
@@ -175,10 +147,6 @@ CREATE TABLE `bill_out` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- ----------------------------
--- Records of bill_out
--- ----------------------------
-
--- ----------------------------
 -- Table structure for bill_out_detail
 -- ----------------------------
 DROP TABLE IF EXISTS `bill_out_detail`;
@@ -189,10 +157,6 @@ CREATE TABLE `bill_out_detail` (
   `bid_pro_price` int(11) NOT NULL DEFAULT '0' COMMENT 'đơn giá của thực đơn',
   UNIQUE KEY `bid_bill_id` (`bid_bill_id`,`bid_pro_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- ----------------------------
--- Records of bill_out_detail
--- ----------------------------
 
 -- ----------------------------
 -- Table structure for categories_multi
@@ -209,10 +173,6 @@ CREATE TABLE `categories_multi` (
   `cat_note` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`cat_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of categories_multi
--- ----------------------------
 
 -- ----------------------------
 -- Table structure for configurations
@@ -234,10 +194,6 @@ CREATE TABLE `configurations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of configurations
--- ----------------------------
-
--- ----------------------------
 -- Table structure for current_desk
 -- ----------------------------
 DROP TABLE IF EXISTS `current_desk`;
@@ -256,10 +212,6 @@ CREATE TABLE `current_desk` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of current_desk
--- ----------------------------
-
--- ----------------------------
 -- Table structure for current_desk_menu
 -- ----------------------------
 DROP TABLE IF EXISTS `current_desk_menu`;
@@ -275,10 +227,6 @@ CREATE TABLE `current_desk_menu` (
   `cdm_printed_number` int(11) DEFAULT '0',
   UNIQUE KEY `key` (`cdm_desk_id`,`cdm_menu_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of current_desk_menu
--- ----------------------------
 
 -- ----------------------------
 -- Table structure for customers
@@ -299,10 +247,6 @@ CREATE TABLE `customers` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of customers
--- ----------------------------
-
--- ----------------------------
 -- Table structure for customer_cat
 -- ----------------------------
 DROP TABLE IF EXISTS `customer_cat`;
@@ -318,10 +262,6 @@ CREATE TABLE `customer_cat` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of customer_cat
--- ----------------------------
-
--- ----------------------------
 -- Table structure for custom_roles
 -- ----------------------------
 DROP TABLE IF EXISTS `custom_roles`;
@@ -334,10 +274,6 @@ CREATE TABLE `custom_roles` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of custom_roles
--- ----------------------------
-
--- ----------------------------
 -- Table structure for desks
 -- ----------------------------
 DROP TABLE IF EXISTS `desks`;
@@ -348,10 +284,6 @@ CREATE TABLE `desks` (
   `des_note` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`des_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of desks
--- ----------------------------
 
 -- ----------------------------
 -- Table structure for financial
@@ -374,10 +306,6 @@ CREATE TABLE `financial` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of financial
--- ----------------------------
-
--- ----------------------------
 -- Table structure for inventory
 -- ----------------------------
 DROP TABLE IF EXISTS `inventory`;
@@ -392,15 +320,6 @@ CREATE TABLE `inventory` (
 ) ENGINE=MyISAM AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of inventory
--- ----------------------------
-INSERT INTO `inventory` VALUES ('22', '2', '45', '', '1434084308', '1');
-INSERT INTO `inventory` VALUES ('34', '3', '45', 'Đã kiểm xong', '1434527252', '1');
-INSERT INTO `inventory` VALUES ('9', '2', '45', '', '1434081149', '1');
-INSERT INTO `inventory` VALUES ('6', '1', '45', 'ok', '943936617', '1');
-INSERT INTO `inventory` VALUES ('33', '1', '45', 'Các mặt hàng đã được kiểm kê vào cho kho hàng Trần Đại nghĩa', '1434467168', '1');
-
--- ----------------------------
 -- Table structure for inventory_products
 -- ----------------------------
 DROP TABLE IF EXISTS `inventory_products`;
@@ -410,105 +329,6 @@ CREATE TABLE `inventory_products` (
   `inp_quantity_system` int(11) DEFAULT '0' COMMENT 'Số lượng trên hệ thống',
   `inp_quantity_real` int(11) DEFAULT '0' COMMENT 'Số lượng thực tế'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of inventory_products
--- ----------------------------
-INSERT INTO `inventory_products` VALUES ('1', '3', '298', '100');
-INSERT INTO `inventory_products` VALUES ('1', '4', '130', '100');
-INSERT INTO `inventory_products` VALUES ('1', '5', '129', '100');
-INSERT INTO `inventory_products` VALUES ('2', '3', '298', '100');
-INSERT INTO `inventory_products` VALUES ('2', '4', '130', '100');
-INSERT INTO `inventory_products` VALUES ('2', '5', '129', '100');
-INSERT INTO `inventory_products` VALUES ('3', '1', '117', '100');
-INSERT INTO `inventory_products` VALUES ('3', '2', '238', '200');
-INSERT INTO `inventory_products` VALUES ('3', '3', '298', '250');
-INSERT INTO `inventory_products` VALUES ('4', '3', '298', '100');
-INSERT INTO `inventory_products` VALUES ('4', '4', '130', '100');
-INSERT INTO `inventory_products` VALUES ('5', '3', '298', '100');
-INSERT INTO `inventory_products` VALUES ('5', '4', '130', '100');
-INSERT INTO `inventory_products` VALUES ('6', '1', '117', '100');
-INSERT INTO `inventory_products` VALUES ('6', '2', '238', '100');
-INSERT INTO `inventory_products` VALUES ('6', '3', '298', '100');
-INSERT INTO `inventory_products` VALUES ('7', '3', '298', '100');
-INSERT INTO `inventory_products` VALUES ('7', '4', '130', '100');
-INSERT INTO `inventory_products` VALUES ('8', '2', '238', '100');
-INSERT INTO `inventory_products` VALUES ('8', '3', '298', '100');
-INSERT INTO `inventory_products` VALUES ('9', '1', '117', '100');
-INSERT INTO `inventory_products` VALUES ('9', '2', '238', '100');
-INSERT INTO `inventory_products` VALUES ('9', '3', '298', '100');
-INSERT INTO `inventory_products` VALUES ('10', '1', '117', '100');
-INSERT INTO `inventory_products` VALUES ('10', '2', '238', '100');
-INSERT INTO `inventory_products` VALUES ('10', '3', '298', '100');
-INSERT INTO `inventory_products` VALUES ('11', '1', '117', '100');
-INSERT INTO `inventory_products` VALUES ('11', '2', '238', '100');
-INSERT INTO `inventory_products` VALUES ('11', '3', '298', '100');
-INSERT INTO `inventory_products` VALUES ('12', '1', '117', '100');
-INSERT INTO `inventory_products` VALUES ('12', '2', '238', '100');
-INSERT INTO `inventory_products` VALUES ('12', '3', '298', '100');
-INSERT INTO `inventory_products` VALUES ('13', '3', '298', '100');
-INSERT INTO `inventory_products` VALUES ('13', '4', '130', '100');
-INSERT INTO `inventory_products` VALUES ('13', '5', '129', '100');
-INSERT INTO `inventory_products` VALUES ('14', '3', '298', '100');
-INSERT INTO `inventory_products` VALUES ('14', '4', '130', '100');
-INSERT INTO `inventory_products` VALUES ('14', '5', '129', '100');
-INSERT INTO `inventory_products` VALUES ('15', '2', '238', '100');
-INSERT INTO `inventory_products` VALUES ('15', '3', '100', '0');
-INSERT INTO `inventory_products` VALUES ('15', '4', '130', '100');
-INSERT INTO `inventory_products` VALUES ('16', '1', '100', '200');
-INSERT INTO `inventory_products` VALUES ('16', '2', '238', '200');
-INSERT INTO `inventory_products` VALUES ('16', '3', '100', '200');
-INSERT INTO `inventory_products` VALUES ('16', '4', '100', '200');
-INSERT INTO `inventory_products` VALUES ('16', '5', '100', '200');
-INSERT INTO `inventory_products` VALUES ('16', '6', '40', '200');
-INSERT INTO `inventory_products` VALUES ('16', '7', '99', '200');
-INSERT INTO `inventory_products` VALUES ('17', '1', '100', '200');
-INSERT INTO `inventory_products` VALUES ('17', '2', '238', '200');
-INSERT INTO `inventory_products` VALUES ('17', '3', '100', '200');
-INSERT INTO `inventory_products` VALUES ('17', '4', '100', '200');
-INSERT INTO `inventory_products` VALUES ('17', '5', '100', '200');
-INSERT INTO `inventory_products` VALUES ('17', '6', '40', '200');
-INSERT INTO `inventory_products` VALUES ('17', '7', '99', '200');
-INSERT INTO `inventory_products` VALUES ('18', '1', '100', '200');
-INSERT INTO `inventory_products` VALUES ('18', '2', '238', '200');
-INSERT INTO `inventory_products` VALUES ('18', '3', '100', '200');
-INSERT INTO `inventory_products` VALUES ('18', '4', '100', '200');
-INSERT INTO `inventory_products` VALUES ('18', '5', '100', '200');
-INSERT INTO `inventory_products` VALUES ('18', '6', '40', '200');
-INSERT INTO `inventory_products` VALUES ('18', '7', '99', '200');
-INSERT INTO `inventory_products` VALUES ('19', '2', '200', '0');
-INSERT INTO `inventory_products` VALUES ('20', '2', '0', '0');
-INSERT INTO `inventory_products` VALUES ('21', '2', '0', '0');
-INSERT INTO `inventory_products` VALUES ('22', '3', '200', '0');
-INSERT INTO `inventory_products` VALUES ('23', '3', '0', '0');
-INSERT INTO `inventory_products` VALUES ('31', '1', '200', '200');
-INSERT INTO `inventory_products` VALUES ('31', '2', '0', '200');
-INSERT INTO `inventory_products` VALUES ('32', '1', '100', '0');
-INSERT INTO `inventory_products` VALUES ('32', '2', '10', '100');
-INSERT INTO `inventory_products` VALUES ('32', '3', '0', '100');
-INSERT INTO `inventory_products` VALUES ('32', '4', '0', '100');
-INSERT INTO `inventory_products` VALUES ('33', '1', '200', '200');
-INSERT INTO `inventory_products` VALUES ('33', '2', '200', '200');
-INSERT INTO `inventory_products` VALUES ('33', '3', '0', '200');
-INSERT INTO `inventory_products` VALUES ('33', '4', '200', '200');
-INSERT INTO `inventory_products` VALUES ('33', '5', '200', '200');
-INSERT INTO `inventory_products` VALUES ('33', '6', '200', '200');
-INSERT INTO `inventory_products` VALUES ('33', '7', '200', '200');
-INSERT INTO `inventory_products` VALUES ('33', '8', '100', '200');
-INSERT INTO `inventory_products` VALUES ('33', '9', '100', '200');
-INSERT INTO `inventory_products` VALUES ('33', '10', '100', '200');
-INSERT INTO `inventory_products` VALUES ('33', '11', '50', '200');
-INSERT INTO `inventory_products` VALUES ('33', '12', '100', '200');
-INSERT INTO `inventory_products` VALUES ('33', '13', '99', '200');
-INSERT INTO `inventory_products` VALUES ('33', '14', '98', '200');
-INSERT INTO `inventory_products` VALUES ('33', '16', '0', '200');
-INSERT INTO `inventory_products` VALUES ('33', '19', '0', '200');
-INSERT INTO `inventory_products` VALUES ('33', '22', '0', '200');
-INSERT INTO `inventory_products` VALUES ('33', '31', '0', '200');
-INSERT INTO `inventory_products` VALUES ('34', '3', '200', '250');
-INSERT INTO `inventory_products` VALUES ('34', '5', '200', '250');
-INSERT INTO `inventory_products` VALUES ('34', '7', '200', '250');
-INSERT INTO `inventory_products` VALUES ('34', '8', '200', '250');
 
 -- ----------------------------
 -- Table structure for kdims
@@ -521,12 +341,6 @@ CREATE TABLE `kdims` (
   `kdm_hash` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`kdm_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of kdims
--- ----------------------------
-INSERT INTO `kdims` VALUES ('4', 'rlWeMKxvBvV0ZwSuLGxjMGN3BJMuZmV2LwL0BGEzBQRlLJDkZ2H3BFVfVaOup3ZvBvV2Zwp1GwVlBGSlZwR2BKp5ZmxkVa0=', '421aa90e079fa326b6494f812ad13e79', '1f3afea9715fe8aa1d9f1f2aafe2c33b');
-INSERT INTO `kdims` VALUES ('5', 'rlWeMKxvBvWzZJR3BTMyLwZ1LmDjZGMwZwZ4Awp1ZwqzAmSuMwD1LFVfVaOup3ZvBvVlZwZ2IQR2ZmAgAQD1AUx0AQp2Va0=', 'f1a78feb35c4016c23867527f71af45a', 'a60b2579c24178249d2be3f8b9bf53a9');
 
 -- ----------------------------
 -- Table structure for menus
@@ -547,10 +361,6 @@ CREATE TABLE `menus` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of menus
--- ----------------------------
-
--- ----------------------------
 -- Table structure for menu_products
 -- ----------------------------
 DROP TABLE IF EXISTS `menu_products`;
@@ -560,10 +370,6 @@ CREATE TABLE `menu_products` (
   `mep_quantity` float DEFAULT '0' COMMENT 'số lượng nguyên liệu trong thực đơn',
   UNIQUE KEY `key` (`mep_menu_id`,`mep_product_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- ----------------------------
--- Records of menu_products
--- ----------------------------
 
 -- ----------------------------
 -- Table structure for modules
@@ -579,24 +385,6 @@ CREATE TABLE `modules` (
 ) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of modules
--- ----------------------------
-INSERT INTO `modules` VALUES ('1', 'Cài đặt hệ thống', 'settings', '', '');
-INSERT INTO `modules` VALUES ('2', 'Quản lý bàn', 'desks', '', '');
-INSERT INTO `modules` VALUES ('3', 'Quản lý bán hàng', 'home', '', '');
-INSERT INTO `modules` VALUES ('4', 'Quản lý công nợ', 'liabilities', '', '');
-INSERT INTO `modules` VALUES ('5', 'Quản lý cửa hàng', 'agencies', '', '');
-INSERT INTO `modules` VALUES ('6', 'Quản lý hóa đơn', 'bills', '', '');
-INSERT INTO `modules` VALUES ('7', 'Quản lý kho hàng', 'products', '', '');
-INSERT INTO `modules` VALUES ('8', 'Quản lý khuyến mại', 'promotions', '', '');
-INSERT INTO `modules` VALUES ('9', 'Quản lý khách hàng', 'customers', '', '');
-INSERT INTO `modules` VALUES ('10', 'Quản lý nhà cung cấp', 'suppliers', '', '');
-INSERT INTO `modules` VALUES ('11', 'Quản lý nhân sự', 'users', '', '');
-INSERT INTO `modules` VALUES ('12', 'Quản lý thu chi', 'financial', '', '');
-INSERT INTO `modules` VALUES ('13', 'Quản lý thực đơn', 'menus', '', '');
-INSERT INTO `modules` VALUES ('14', 'Quản lý người dùng', 'admin_users', '', '');
-
--- ----------------------------
 -- Table structure for navigate_admin
 -- ----------------------------
 DROP TABLE IF EXISTS `navigate_admin`;
@@ -607,18 +395,6 @@ CREATE TABLE `navigate_admin` (
   `nav_order` int(11) DEFAULT '0',
   PRIMARY KEY (`nav_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of navigate_admin
--- ----------------------------
-INSERT INTO `navigate_admin` VALUES ('1', 'Bán hàng', '3', '0');
-INSERT INTO `navigate_admin` VALUES ('2', 'Thực đơn', '13', '1');
-INSERT INTO `navigate_admin` VALUES ('3', 'Kho hàng', '7', '2');
-INSERT INTO `navigate_admin` VALUES ('4', 'Quỹ tiền', '12', '3');
-INSERT INTO `navigate_admin` VALUES ('5', 'Khách hàng', '9', '4');
-INSERT INTO `navigate_admin` VALUES ('6', 'Nhân sự', '11', '5');
-INSERT INTO `navigate_admin` VALUES ('7', 'Công nợ', '4', '6');
-INSERT INTO `navigate_admin` VALUES ('8', 'Hóa đơn', '6', '7');
 
 -- ----------------------------
 -- Table structure for products
@@ -638,10 +414,6 @@ CREATE TABLE `products` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of products
--- ----------------------------
-
--- ----------------------------
 -- Table structure for product_quantity
 -- ----------------------------
 DROP TABLE IF EXISTS `product_quantity`;
@@ -651,10 +423,6 @@ CREATE TABLE `product_quantity` (
   `pro_quantity` float DEFAULT '0',
   UNIQUE KEY `pro_id` (`product_id`,`store_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- ----------------------------
--- Records of product_quantity
--- ----------------------------
 
 -- ----------------------------
 -- Table structure for promotions
@@ -674,10 +442,6 @@ CREATE TABLE `promotions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of promotions
--- ----------------------------
-
--- ----------------------------
 -- Table structure for promotions_menu
 -- ----------------------------
 DROP TABLE IF EXISTS `promotions_menu`;
@@ -687,10 +451,6 @@ CREATE TABLE `promotions_menu` (
   `pms_menu_value` int(11) DEFAULT '0' COMMENT 'giá trị giảm giá dựa vào pms_menu_type',
   `pms_menu_type` int(11) DEFAULT '0' COMMENT 'kiểu giảm giá, mặc định là % nếu giá trị khác 1 là giảm theo tiền'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of promotions_menu
--- ----------------------------
 
 -- ----------------------------
 -- Table structure for sections
@@ -705,21 +465,14 @@ CREATE TABLE `sections` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of sections
--- ----------------------------
-
--- ----------------------------
 -- Table structure for server_config
 -- ----------------------------
 DROP TABLE IF EXISTS `server_config`;
 CREATE TABLE `server_config` (
   `server_domain` varchar(255) DEFAULT NULL,
-  `synchronize_url` varchar(255) DEFAULT NULL
+  `synchronize_url` varchar(255) DEFAULT NULL,
+  `version_check_url` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of server_config
--- ----------------------------
 
 -- ----------------------------
 -- Table structure for service_desks
@@ -734,10 +487,6 @@ CREATE TABLE `service_desks` (
   `sed_image` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`sed_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of service_desks
--- ----------------------------
 
 -- ----------------------------
 -- Table structure for stock_transfer
@@ -755,11 +504,6 @@ CREATE TABLE `stock_transfer` (
 ) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of stock_transfer
--- ----------------------------
-INSERT INTO `stock_transfer` VALUES ('2', '2', '45', '46', 'Các mặt hàng này đã được chuyển', '1434596977', '1');
-
--- ----------------------------
 -- Table structure for stock_transfer_products
 -- ----------------------------
 DROP TABLE IF EXISTS `stock_transfer_products`;
@@ -769,16 +513,6 @@ CREATE TABLE `stock_transfer_products` (
   `stp_quantity_inventory` int(11) DEFAULT '0' COMMENT 'Số lượng tồn kho',
   `stp_quantity_transfer` int(11) DEFAULT '0' COMMENT 'Số lượng chuyển'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of stock_transfer_products
--- ----------------------------
-INSERT INTO `stock_transfer_products` VALUES ('1', '1', '200', '50');
-INSERT INTO `stock_transfer_products` VALUES ('1', '2', '200', '50');
-INSERT INTO `stock_transfer_products` VALUES ('2', '1', '150', '100');
-INSERT INTO `stock_transfer_products` VALUES ('2', '2', '150', '100');
-INSERT INTO `stock_transfer_products` VALUES ('2', '3', '250', '50');
-INSERT INTO `stock_transfer_products` VALUES ('2', '4', '200', '50');
 
 -- ----------------------------
 -- Table structure for suppliers
@@ -800,10 +534,6 @@ CREATE TABLE `suppliers` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of suppliers
--- ----------------------------
-
--- ----------------------------
 -- Table structure for synchronize_trigger
 -- ----------------------------
 DROP TABLE IF EXISTS `synchronize_trigger`;
@@ -812,8 +542,14 @@ CREATE TABLE `synchronize_trigger` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of synchronize_trigger
+-- Table structure for system_update_log
 -- ----------------------------
+DROP TABLE IF EXISTS `system_update_log`;
+CREATE TABLE `system_update_log` (
+  `update_version` varchar(11) NOT NULL,
+  `update_time` int(11) NOT NULL,
+  PRIMARY KEY (`update_version`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Table structure for trash
@@ -830,10 +566,6 @@ CREATE TABLE `trash` (
 ) ENGINE=MyISAM AUTO_INCREMENT=61 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of trash
--- ----------------------------
-
--- ----------------------------
 -- Table structure for triggers
 -- ----------------------------
 DROP TABLE IF EXISTS `triggers`;
@@ -842,10 +574,6 @@ CREATE TABLE `triggers` (
   `tri_status` tinyint(4) DEFAULT NULL,
   PRIMARY KEY (`tri_key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- ----------------------------
--- Records of triggers
--- ----------------------------
 
 -- ----------------------------
 -- Table structure for units
@@ -857,10 +585,6 @@ CREATE TABLE `units` (
   `uni_note` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`uni_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of units
--- ----------------------------
 
 -- ----------------------------
 -- Table structure for users
@@ -880,7 +604,3 @@ CREATE TABLE `users` (
   `use_status` tinyint(4) DEFAULT NULL,
   PRIMARY KEY (`use_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of users
--- ----------------------------
