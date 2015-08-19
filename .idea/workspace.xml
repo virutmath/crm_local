@@ -2,10 +2,73 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e761213-30cd-4315-8c53-666a1a6f0c7d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/resources/caches/admin_index.d1ca576805cfe3b2fb21dd3504c709b9.rtpl.php" afterPath="$PROJECT_DIR$/admin/resources/caches/admin_index.d1ca576805cfe3b2fb21dd3504c709b9.rtpl.php" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\New Text Document.txt" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\PRP085.rar" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\admin\resources\caches\admin_index.d1ca576805cfe3b2fb21dd3504c709b9.rtpl.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\admin\resources\caches\bill_detail.feb7ee57c7a699eca0faa3fe848659c7.rtpl.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\admin\resources\caches\config_navigate.feb7ee57c7a699eca0faa3fe848659c7.rtpl.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\admin\resources\caches\debit.149f304ead0198351fd25efb2ec2b69e.rtpl.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\admin\resources\caches\fullwidth_2column.feb7ee57c7a699eca0faa3fe848659c7.rtpl.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\admin\resources\caches\fullwidth_2column_report.feb7ee57c7a699eca0faa3fe848659c7.rtpl.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\admin\resources\caches\fullwidth_2column_report_bill.feb7ee57c7a699eca0faa3fe848659c7.rtpl.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\admin\resources\caches\fullwidth_2column_report_transfer.feb7ee57c7a699eca0faa3fe848659c7.rtpl.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\admin\resources\caches\fullwidth_3column.feb7ee57c7a699eca0faa3fe848659c7.rtpl.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\admin\resources\caches\fullwidth_half.feb7ee57c7a699eca0faa3fe848659c7.rtpl.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\admin\resources\caches\home.149f304ead0198351fd25efb2ec2b69e.rtpl.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\admin\resources\caches\home.feb7ee57c7a699eca0faa3fe848659c7.rtpl.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\admin\resources\caches\home_list_menu.889e736acfbc9a6d678b83bf3d2e9e9b.rtpl.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\admin\resources\caches\mindow_2column.feb7ee57c7a699eca0faa3fe848659c7.rtpl.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\admin\resources\caches\mindow_iframe.feb7ee57c7a699eca0faa3fe848659c7.rtpl.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\admin\resources\caches\mindow_iframe_1column.feb7ee57c7a699eca0faa3fe848659c7.rtpl.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\admin\resources\caches\mindow_iframe_2column.feb7ee57c7a699eca0faa3fe848659c7.rtpl.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\admin\resources\caches\modal_1column.feb7ee57c7a699eca0faa3fe848659c7.rtpl.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\admin\resources\caches\modal_2column.feb7ee57c7a699eca0faa3fe848659c7.rtpl.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\admin\resources\caches\modal_setup.feb7ee57c7a699eca0faa3fe848659c7.rtpl.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\admin\resources\caches\modal_template.feb7ee57c7a699eca0faa3fe848659c7.rtpl.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\admin\resources\caches\order.6e43b102343366a2dc233c597094da22.rtpl.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\admin\resources\caches\pay_libility.feb7ee57c7a699eca0faa3fe848659c7.rtpl.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\admin\resources\caches\print.feb7ee57c7a699eca0faa3fe848659c7.rtpl.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\admin\resources\caches\user_config.d1ca576805cfe3b2fb21dd3504c709b9.rtpl.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\admin\resources\caches\websetting.feb7ee57c7a699eca0faa3fe848659c7.rtpl.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\mysql.sql" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\pictures\2015\4\organic\aqp1429021604.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\pictures\2015\4\organic\buy1429850143.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\pictures\2015\4\organic\fwb1429850800.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\pictures\2015\4\organic\gpv1429850435.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\pictures\2015\4\organic\jkq1429850546.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\pictures\2015\4\organic\kuz1429022238.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\pictures\2015\4\organic\lxi1429850665.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\pictures\2015\4\organic\lyt1429850989.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\pictures\2015\4\organic\mwc1429021925.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\pictures\2015\4\organic\njh1429022165.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\pictures\2015\4\organic\oee1429022327.JPG" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\pictures\2015\4\organic\olf1429021856.gif" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\pictures\2015\4\organic\sou1429850275.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\pictures\2015\4\organic\tey1429850859.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\pictures\2015\4\organic\vjz1429850599.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\pictures\2015\4\organic\zli1429850364.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\pictures\2015\4\organic\zok1429022819.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\sql_backup\2015-04-02-alter-trash.sql" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\sql_backup\configurations.sql" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\sql_backup\crm_offline_install.sql" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\sql_backup\crm_restaurant.sql" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\sql_backup\financial.sql" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\sql_backup\menu_products.sql" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\sql_backup\promotions.sql" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\sql_backup\triggers.sql" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\sql_backup\units.sql" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\temp\dlv1427103569.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\temp\dsa1429020628.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\temp\ewc1429018868.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\temp\jeg1427345389.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\temp\jfq1428635333.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\temp\kqk1422195523.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\temp\pqe1422242387.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\temp\rei1428635437.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\temp\vnj1422194464.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\temp\xve1422242529.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\temp\zgq1422247102.png" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/resources/security/functions.php" afterPath="$PROJECT_DIR$/admin/resources/security/functions.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/core/home/script_new.jsx" afterPath="$PROJECT_DIR$/admin/core/home/script_new.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/resources/security/security.php" afterPath="$PROJECT_DIR$/admin/resources/security/security.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="crm_local.iws" />
@@ -31,7 +94,7 @@
       <file leaf-file-name="config.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/home/config.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.275862">
+            <state vertical-scroll-proportion="0.0">
               <caret line="7" column="44" selection-start-line="7" selection-start-column="44" selection-end-line="7" selection-end-column="44" />
               <folding />
             </state>
@@ -41,7 +104,7 @@
       <file leaf-file-name="synchronize.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/synchronize.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.5172415">
+            <state vertical-scroll-proportion="0.0">
               <caret line="18" column="31" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
               <folding>
                 <marker date="1439884193515" expanded="true" signature="1075:1128" placeholder="INSERT INTO ..." />
@@ -53,7 +116,7 @@
       <file leaf-file-name="install.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/install.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-20.48276">
+            <state vertical-scroll-proportion="0.0">
               <caret line="230" column="0" selection-start-line="230" selection-start-column="0" selection-end-line="230" selection-end-column="0" />
               <folding>
                 <marker date="1439894001297" expanded="true" signature="684:909" placeholder="INSERT INTO ..." />
@@ -67,11 +130,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="security.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="config" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/admin/config">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.17881706">
+              <caret line="5" column="33" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="security.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/resources/security/security.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7449857">
-              <caret line="20" column="32" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="14" column="32" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
               <folding>
                 <marker date="1439914661436" expanded="true" signature="1525:1596" placeholder="SELECT * FRO..configurations..." />
                 <marker date="1439914661436" expanded="true" signature="1632:1816" placeholder="SELECT * FRO..configurations..." />
@@ -121,10 +194,10 @@
         <option value="$PROJECT_DIR$/admin/resources/css/home.css" />
         <option value="$PROJECT_DIR$/admin/resources/security/functions.php" />
         <option value="$PROJECT_DIR$/admin/synchronize.php" />
-        <option value="$PROJECT_DIR$/admin/config" />
         <option value="$PROJECT_DIR$/admin/resources/security/functions_local.php" />
         <option value="$PROJECT_DIR$/admin/install.php" />
         <option value="$PROJECT_DIR$/admin/resources/security/security.php" />
+        <option value="$PROJECT_DIR$/admin/config" />
       </list>
     </option>
   </component>
@@ -142,7 +215,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1604" />
+    <option name="width" value="1616" />
     <option name="height" value="886" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -168,7 +241,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope">
         <subPane subId="Problems" />
         <subPane subId="Project Files">
@@ -180,6 +252,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -208,7 +281,21 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="classes" />
+              <option name="myItemId" value="pictures" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="crm_local" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="crm_local" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="log" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -262,7 +349,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="security" />
+              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -329,10 +416,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1604" height="886" extended-state="0" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1616" height="886" extended-state="6" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20854922" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2114396" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -371,6 +458,19 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/admin/resources/security/security.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="32" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
+          <folding>
+            <marker date="1439914661436" expanded="true" signature="1525:1596" placeholder="SELECT * FRO..configurations..." />
+            <marker date="1439914661436" expanded="true" signature="1632:1816" placeholder="SELECT * FRO..configurations..." />
+            <marker date="1439914661436" expanded="true" signature="2004:2241" placeholder="SELECT * FRO..desks..." />
+            <marker date="1439914661436" expanded="true" signature="2415:2597" placeholder="SELECT * FRO..sections..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/admin/install.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -645,20 +745,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/log/sync/2015/7/6/9.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/log/sync/2015/7/6/8.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.036414567">
-          <caret line="1" column="10" selection-start-line="1" selection-start-column="10" selection-end-line="1" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/resources/js/home.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.75206614">
@@ -694,17 +780,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/config">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17881706">
-          <caret line="5" column="33" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/home/config.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.275862">
+        <state vertical-scroll-proportion="0.0">
           <caret line="7" column="44" selection-start-line="7" selection-start-column="44" selection-end-line="7" selection-end-column="44" />
           <folding />
         </state>
@@ -712,7 +790,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/synchronize.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.5172415">
+        <state vertical-scroll-proportion="0.0">
           <caret line="18" column="31" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
           <folding>
             <marker date="1439884193515" expanded="true" signature="1075:1128" placeholder="INSERT INTO ..." />
@@ -720,9 +798,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/admin/resources/security/security.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="32" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
+          <folding>
+            <marker date="1439914661436" expanded="true" signature="1525:1596" placeholder="SELECT * FRO..configurations..." />
+            <marker date="1439914661436" expanded="true" signature="1632:1816" placeholder="SELECT * FRO..configurations..." />
+            <marker date="1439914661436" expanded="true" signature="2004:2241" placeholder="SELECT * FRO..desks..." />
+            <marker date="1439914661436" expanded="true" signature="2415:2597" placeholder="SELECT * FRO..sections..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/admin/install.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.48276">
+        <state vertical-scroll-proportion="0.0">
           <caret line="230" column="0" selection-start-line="230" selection-start-column="0" selection-end-line="230" selection-end-column="0" />
           <folding>
             <marker date="1439894001297" expanded="true" signature="684:909" placeholder="INSERT INTO ..." />
@@ -735,16 +826,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/resources/security/security.php">
+    <entry file="file://$PROJECT_DIR$/admin/config">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7449857">
-          <caret line="20" column="32" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
-          <folding>
-            <marker date="1439914661436" expanded="true" signature="1525:1596" placeholder="SELECT * FRO..configurations..." />
-            <marker date="1439914661436" expanded="true" signature="1632:1816" placeholder="SELECT * FRO..configurations..." />
-            <marker date="1439914661436" expanded="true" signature="2004:2241" placeholder="SELECT * FRO..desks..." />
-            <marker date="1439914661436" expanded="true" signature="2415:2597" placeholder="SELECT * FRO..sections..." />
-          </folding>
+        <state vertical-scroll-proportion="0.17881706">
+          <caret line="5" column="33" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
+          <folding />
         </state>
       </provider>
     </entry>

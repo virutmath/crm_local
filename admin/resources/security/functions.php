@@ -54,7 +54,7 @@ function checkLogin($username, $password)
 function checkAccessModule($module_id)
 {
     global $load_header;
-    if (!$module_id) {
+    if (!$module_id || !check_module_exist($module_id)) {
         trigger_error('Chưa khởi tạo module. Kiểm tra lại module id ', E_USER_ERROR);
     }
     $isAdmin = getValue("isAdmin", "int", "SESSION", 0);
@@ -79,7 +79,12 @@ function checkAccessModule($module_id)
 
 function check_module_exist($module_id)
 {
-
+    $db_query = new db_query('SELECT mod_id FROM modules WHERE mod_id = '.$module_id.' LIMIT 1');
+    if(mysqli_fetch_assoc($db_query->result)){
+        return true;
+    }else{
+        return false;
+    }
 }
 
 //Check loged
