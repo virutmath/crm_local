@@ -54,9 +54,11 @@ select#store_id {
 }
 
 #mindow-listing-product .grid_header input.form-control[type="text"] {
-    width: 139px;
+    width: 130px;
 }
-
+select#pro_cat_id {
+    width : 170px;
+}
 #import-control {
     overflow: hidden;
     padding: 0 5px;

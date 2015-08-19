@@ -67,7 +67,7 @@ while ($row = mysqli_fetch_assoc($db_listing->result)) {
     $row['pro_image'] = get_picture_path($row['pro_image']);
     $listing_product .= $list->start_tr($i, $row['pro_id'], 'class="menu-normal record-item" onclick="mindowScript.activeProductList('.$row['pro_id'].')" ondblclick="mindowScript.addProduct(' . $row['pro_id'] . ')" data-record_id="' . $row['pro_id'] . '" data-pro_name="' . $row['pro_name'] . '" data-pro_code="' . $row['pro_code'] . '" data-pro_unit="' . $array_unit[$row['pro_unit_id']] . '" data-pro_image="' . $row['pro_image'] . '"');
     /* code something */
-    $listing_product .= '<td class="text-left">' . $row['pro_name'] . '</td>';
+    $listing_product .= '<td class="text-left" style="width : 50%">' . $row['pro_name'] . '</td>';
     $listing_product .= '<td class="center">' . $array_unit[$row['pro_unit_id']] . '</td>';
     $listing_product .= '<td class="text-right"></td>';
     $listing_product .= $list->end_tr();
@@ -77,6 +77,21 @@ $listing_product .= $list->showFooter();
 $left_column .= $listing_product;
 $left_column .= '</div>';
 
+if($isAjaxRequest) {
+    $action = $_REQUEST['action'];
+    $ajax_container = $_REQUEST['container'];
+    switch($action) {
+        case 'pagingAjax' :
+            if($ajax_container == '#mindow-listing-product') {
+                echo $listing_product;
+            }
+            break;
+        case 'searchAjax':
+            echo $listing_product;
+            break;
+    }
+    die();
+}
 //List kho hàng
 $list_store = category_type('stores');
 $list_store_option = '';
@@ -257,7 +272,7 @@ $footer_button = '
 </div>';
 
 $rainTpl = new RainTPL();
-add_more_css('custom.css',$load_header);
+add_more_css('custom_import.css',$load_header);
 $rainTpl->assign('load_header', $load_header);
 $rainTpl->assign('left_column', $left_column);
 $rainTpl->assign('right_column', $right_column);

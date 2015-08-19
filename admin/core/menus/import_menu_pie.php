@@ -180,15 +180,52 @@ if($import_menu)
         $pro_name = $value['nguyen_lieu']; 
         $pro_image = '';
         $pro_note = '';
-        $pro_cat_id = $cat_id;
+        $pro_cat_id = 0;
+        $cat_parent_id = 0;
         $pro_unit_id = $unit_id;
         $pro_code = '';
+        $cat_note = 0;
+        $cat_has_child = 0;
         $pro_instock = 0;
         $pro_status = 0;
         $idPro = 0;
+        $cat_desc = '';
+        $cat_picture = '';
         $mep_quantity = 1; 
         $array_replace = array('(g)','(gói)','(ml)');
         $pro_name = str_replace($array_replace,'',$pro_name);
+        // kiem tra xem danh muc cap 1 cua nguyen lieu nay da ton tai chua
+        // nêu ton tai rôi thi lay ra cat id 
+        // nguoc lai chua ton tai thi them thanh ban ghi moi vs cat type = products
+        $db_cat_pro = new db_query("SELECT cat_id FROM categories_multi 
+                                    WHERE cat_name = '" .trim($menu1). "'
+                                    AND cat_type = 'products'");
+        if ( mysqli_num_rows($db_cat_pro->result) >= 1 )
+        {
+            $data_cat_pro = mysqli_fetch_assoc($db_cat_pro->result);
+            $pro_cat_id = $data_cat_pro['cat_id'];
+        }else{
+            $db_insert_cat_pro = new db_execute_return;
+            $pro_cat_id = $db_insert_cat_pro->db_execute("INSERT INTO categories_multi
+                                                        (
+                                                        cat_name, 
+                                                        cat_type, 
+                                                        cat_desc, 
+                                                        cat_picture, 
+                                                        cat_parent_id, 
+                                                        cat_has_child, cat_note
+                                                        ) VALUES (
+                                                        '" .trim($menu1) . "',
+                                                        'products',
+                                                        '".$cat_desc."',
+                                                        '".$cat_picture."',
+                                                        ".$cat_parent_id.",
+                                                        ".$cat_has_child.",
+                                                        '".$cat_note."'
+                                                        )");
+            unset($db_insert_cat_pro);
+        }unset($db_cat_pro);
+        
         // kiem tra xem ten nguyen lieu da ton tai trong csdl chua
         // roi thi update so luong
         // chua thi insert ban ghi moi
@@ -281,6 +318,7 @@ if($import_menu)
     }
 }
 ?>
+<h3>Import danh sách thực đơn bánh và nguyên liệu</h3>
 <form action="" method="post" enctype="multipart/form-data" id="update-menu" name="update_menu">
 <input id="file-menu" type="file" name="import_menu" class="file_menu" onchange="updateMenu()"/>
 <button type="submit" id="submit_form"> abc </button>

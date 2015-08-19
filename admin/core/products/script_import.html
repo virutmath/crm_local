@@ -1,4 +1,6 @@
 <script>
+    //phân trang ajax
+    ajax_paging = true;
     var mindowScript = {
         listing_import : $('#listing-import'),
         listing_product : $('#mindow-listing-product'),
@@ -235,7 +237,22 @@
         //datepicker cho ngay hen tra
         $('#debit-date').datepicker({
             format : 'dd/mm/yyyy'
+        });
+        $('#mindow-listing-product').on('change','#pro_cat_id', function () {
+            $(this).closest('form').trigger('submit');
+        });
+        //form submit ajax
+        $('#mindow-listing-product').on('submit','form',function(e){
+            e.preventDefault();
+            var _this = $(this);
+            $.ajax({
+                type : 'get',
+                url : _this.attr('action'),
+                data : _this.serialize() + '&action=searchAjax',
+                success : function(resp){
+                    $('#mindow-listing-product').html(resp);
+                }
+            })
         })
-
     })();
 </script>

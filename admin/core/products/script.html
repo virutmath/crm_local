@@ -137,10 +137,19 @@
             })
         }
     });
-
+    /* click dup bản ghi hiển thị chi tiết*/
+    function detailRecord(){
+        var record_id = $('.record-item.active').data('record_id');
+        var modal = new Modal();
+        modal.width = 600;
+        modal.height = 400;
+        modal.miniLoad('ajax.php', {action: ajax_url.edit_right, record_id: record_id})
+    }
     //add right
     btn_add_right.unbind('click').click(function () {
         var modal = new Modal();
+        modal.width = 600;
+        modal.height = 400;
         modal.miniLoad('ajax.php', {action: ajax_url.add_right});
     });
 
@@ -149,6 +158,8 @@
         if ($(this).hasClass('deactivate')) return false;
         var record_id = $('.record-item.active').data('record_id');
         var modal = new Modal();
+        modal.width = 600;
+        modal.height = 400;
         modal.miniLoad('ajax.php', {action: ajax_url.edit_right, record_id: record_id})
     });
 
@@ -173,45 +184,32 @@
         }
     });
 
-    $('.list-vertical-crm').find('li[data-cat]').unbind('click').click(function () {
-
+    $('.list-vertical-crm').find('li').unbind('click').click(function() {
+        var url = 'index.php';
+        if($(this).data('cat') == 'trash'){
+            url = 'ajax.php';
+        }
         if ($(this).find('.cat_name').hasClass('active')) {
             return false;
         }
         var cat_id = $(this).data('cat');
         $('label.cat_name').removeClass('active');
         $(this).find('.cat_name').addClass('active');
-        if ($(this).hasClass('list-vertical-item')) {
+        if($(this).hasClass('list-vertical-item')){
             active_control('left')
-        } else {
+        }else{
             deactivate_control('left');
         }
         //load danh sách bên right column
-        if($(this).attr('cat-parent')){
-            return false;
-        }
-        var url_request = 'index.php';
-        if(cat_id == 'trash') {
-            url_request = 'ajax.php';
-        }
         $.ajax({
-            type: 'post',
-            url: url_request,
-            data: {action: ajax_url.listRecord, cat_id: cat_id},
-            success: function (html) {
-                loadingProgress('hide');
+            type : 'post',
+            url : url,
+            data : {action : ajax_url.listRecord, cat_id : cat_id},
+            success : function (html) {
                 right_column_wrapper.html(html);
                 //deactivate các phím sửa xóa bên phải
-                deactivate_control('right');
-                //cấp phát lại scroll
+                deactivate_control('center');
                 fixScrollMenu();
-            },
-            beforeSend: function(){
-                loadingProgress('show');
-            },
-            error: function(){
-                alert('Request TimeOut');
-                loadingProgress('hide');
             }
         })
     });
@@ -253,7 +251,7 @@
     //fix tất cả table listing
     function fixScrollMenu() {
         sectionContent = right_column_wrapper.find('.table-listing-bound');
-        sectionContent.height(wrapperHeight - offsetTopContent - 10);
+        sectionContent.height(right_column_wrapper.height());
         //cấp phát lại table scroll
         if(sectionContent.find('.enscroll-track').length < 1){
             sectionContent.enscroll({

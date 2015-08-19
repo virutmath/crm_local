@@ -12,6 +12,15 @@ function get_config_install(&$api_download_url, &$api_get_url, &$admin, &$passwo
     $admin_str = trim($config_array[2]);
     list($admin, $password) = explode(' ', $admin_str);
     $domain_server_url = trim($config_array[3]);
+}
+function import_server_config() {
+    if (!file_exists('config')) {
+        die('Thiếu file config hệ thống! Vui lòng liên hệ nhà cung cấp');
+    }
+    $config_str = file_get_contents('config');
+    $config_array = explode("\n", $config_str);
+
+    $domain_server_url = trim($config_array[3]);
     $synchronize_url = trim($config_array[4]);
     $version_check_url = trim($config_array[5]);
     //lưu 1 vài thông tin config vào database

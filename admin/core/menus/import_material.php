@@ -13,7 +13,7 @@ if($import_menu)
         $menu1      = $value['menu_cap_1'];
         if( $menu1 == '' ) continue;
         $uni_note = '';
-        $array_replace = array('(g)','(gói)','(ml)');
+        $array_replace = array('(g)','(gói)','(ml)', '(hộp)', 'miếng');
         $ten_nguyenlieu = str_replace($array_replace,'',$ten_nguyenlieu);
         // kiem tra xem don vi tinh da ton tai trong bang units chua
         $db_unit    = new db_query("SELECT uni_id FROM units 
@@ -41,7 +41,7 @@ if($import_menu)
             $unit_id = $db_units_id;
         }unset($db_unit);
         //
-        //
+        // kiêm tra xem tòn tai menu cap 1 chua
         $db_categories_1 = new db_query("SELECT cat_id FROM categories_multi
                                         WHERE cat_name = '" .trim($menu1) . "' 
                                         AND cat_type = 'products'");
@@ -170,6 +170,7 @@ if($import_menu)
     }// foreach
 }
 ?>
+<h3>Import danh sách nguyên liệu</h3>
 <form action="" method="post" enctype="multipart/form-data" id="update-menu" name="update_menu">
 <input id="file-menu" type="file" name="import_menu" class="file_menu" onchange="updateMenu()"/>
 <button type="submit" id="submit_form"> abc </button>

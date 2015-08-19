@@ -371,8 +371,8 @@ if($isAjaxRequest && $import_menu)
                 $pro_instock = 0;
                 $pro_status = 0;
                 $idPro = 0;
-                $array_replace = array('(g)','(gói)','(ml)', '(hộp)');
-                $pro_name = str_replace($array_replace,'',$pro_name);
+                $array_replace = array('(g)','(gói)','(ml)', '(hộp)', '(miếng)');
+                $pro_name = str_ireplace($array_replace,'',$pro_name);
                 //don vi tinh cua nguyen lieu
                 $uni_name = trim(str_replace(array($pro_name, '(', ')'),'',$val['ten_nguyenlieu']));
                 // kiem tra xem don vi tinh da ton tai chua
@@ -604,7 +604,7 @@ while($row = mysqli_fetch_assoc($db_query->result)){
 }
 while($row = mysqli_fetch_assoc($db_listing->result)){
     $i++;
-    $center_column .= $list->start_tr($i,$row[$id_field],'class="menu-normal record-item" onclick="active_record('.$row[$id_field].')" data-record_id="'.$row[$id_field].'"');
+    $center_column .= $list->start_tr($i,$row[$id_field],'class="menu-normal record-item" ondblclick="detailRecord()" onclick="active_record('.$row[$id_field].')" data-record_id="'.$row[$id_field].'"');
     /* code something */
     $center_column .= '<td class="center">'.format_codenumber($row['men_id'],3).'</td>';
     $center_column .= '<td>'.$row['men_name'].'</td>';

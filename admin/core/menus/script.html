@@ -1,4 +1,5 @@
 <script>
+    ajax_paging = true;
     var ajax_url = {
         add_left : 'loadFormAddCategory',
         edit_left :'loadFormEditCategory',
@@ -159,7 +160,7 @@
         var cat_id = parseInt($('.cat_name.active').parent('li').data('cat'));
         var modal = new Modal();
         modal.miniLoad('ajax.php',{action:ajax_url.edit_left, cat_id : cat_id})
-    })
+    });
 
     //delete left
     btn_trash_left.unbind('click').click(function(){
@@ -188,11 +189,20 @@
             })
         }
     });
-
+    /* click dup bản ghi hiển thị chi tiết*/
+    function detailRecord(){
+        var record_id = $('.record-item.active').data('record_id');
+        var modal = new Modal();
+        modal.width = 600;
+        modal.height = 400;
+        modal.miniLoad('ajax.php', {action: ajax_url.edit_center, record_id: record_id})
+    }
 
     //add_center
     btn_add_center.unbind('click').click(function(){
         var modal = new Modal();
+        modal.width = 600;
+        modal.height = 400;
         modal.miniLoad('ajax.php',{action:ajax_url.add_center});
     });
     //edit center
@@ -200,6 +210,8 @@
         if($(this).hasClass('deactivate')) return false;
         var record_id = $('.record-item.active').data('record_id');
         var modal = new Modal();
+        modal.width = 600;
+        modal.height = 400;
         modal.miniLoad('ajax.php',{action:ajax_url.edit_center,record_id:record_id})
     });
     //delete center
