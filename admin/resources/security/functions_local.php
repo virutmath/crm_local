@@ -22,6 +22,16 @@ function get_config_install(&$api_download_url, &$api_get_url, &$admin, &$passwo
                                  "'.encode_combine($version_check_url).'")',1,0);
     unset($db);
 }
+function truncate_database() {
+    $list_table = new db_query('SHOW TABLES');
+    while($row = mysqli_fetch_assoc($list_table->result)) {
+        foreach($row as $k=>$tableName) {
+            $db = new db_execute('TRUNCATE TABLE '.$tableName);
+            unset($db);
+        }
+    }
+    unset($list_table);
+}
 //hàm này viết riêng cho local
 function synchronize_data_table($array_data) {
     foreach($array_data as $table_name=>$table_list_record) {
@@ -29,9 +39,6 @@ function synchronize_data_table($array_data) {
         $check_table = new db_query('SHOW TABLES LIKE "'.$table_name.'"');
         if(mysqli_num_rows($check_table->result) > 0) {
             unset($check_table);
-            //truncate table
-            $db_execute = new db_execute('TRUNCATE TABLE ' . $table_name,1,0);
-            unset($db_execute);
             $db_list_field = new db_query('SHOW FIELDS FROM '. $table_name);
             $array_type_field = array();
             while ($row = mysqli_fetch_assoc($db_list_field->result)) {
