@@ -128,7 +128,7 @@
         var group_id = parseInt(group_li.data('group-user'));
         var modal = new Modal();
         modal.miniLoad('ajax.php',{action:'loadFormEditGroup',group : group_id});
-    })
+    });
     btn_edit_right.unbind('click').click(function(){
         if($(this).hasClass('deactivate')){
             return false;

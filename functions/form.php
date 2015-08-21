@@ -1001,11 +1001,11 @@ class form{
         if(is_string($attribute['type'])){
             $attribute['type'] = array($attribute['type']);
         }
-        $form = '<div class="form-group"><div class="col-xs-offset-3 col-xs-10"> ';
+        $form = '<div class="form-group form-action"><div class="col-xs-offset-3 col-xs-10"> ';
         $form .= form_hidden('action','execute');
         foreach($attribute['label'] as $key=>$btn){
             if($attribute['type'][$key] == 'submit'){
-                $class = 'btn btn-primary btn-xs';
+                $class = 'btn btn-default btn-xs';
                 $type = 'submit';
             }
             if($attribute['type'][$key] == 'reset'){

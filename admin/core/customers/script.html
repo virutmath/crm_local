@@ -29,8 +29,7 @@
     var sectionContent = right_column_wrapper.find('.table-listing-bound');
     var offsetTopContent = sectionContent.offset().top;
     sectionContent.height(wrapperHeight - offsetTopContent - 10 - 28);
-    var offsetLeftContent = left_column_wrapper.offset().top;
-    left_column_wrapper.height(wrapperHeight - offsetLeftContent - 13 - 28);
+    left_column_wrapper.height(wrapperHeight - offsetTopContent - 13 - 28);
     right_column_wrapper.height(wrapperHeight - offsetTopContent - 10 - 28);
 
     //table scroll
@@ -162,19 +161,23 @@
                 }
             })
         }
-    })
+    });
 
     //add right
     btn_add_right.unbind('click').click(function () {
         var modal = new Modal();
+        modal.width = 600;
+        modal.height = 400;
         modal.miniLoad('ajax.php', {action: ajax_url.add_right});
-    })
+    });
 
     //edit right
     btn_edit_right.unbind('click').click(function () {
         if ($(this).hasClass('deactivate')) return false;
         var record_id = $('.record-item.active').data('record_id');
         var modal = new Modal();
+        modal.width = 600;
+        modal.height = 400;
         modal.miniLoad('ajax.php', {action: ajax_url.edit_right, record_id: record_id})
     });
 
@@ -197,7 +200,7 @@
                 }
             })
         }
-    })
+    });
 
     $('.list-vertical-crm').find('li').unbind('click').click(function () {
         var url = 'index.php';
@@ -259,6 +262,8 @@
     function detailRecord(){
         var record_id = $('.record-item.active').data('record_id');
         var modal = new Modal();
+        modal.width = 600;
+        modal.height = 400;
         modal.miniLoad('ajax.php', {action: ajax_url.edit_right, record_id: record_id})
     }
     //context menu

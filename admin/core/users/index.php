@@ -193,7 +193,7 @@ $right_column .= $list->showHeader($total_row);
 $i = 0;
 while($row = mysqli_fetch_assoc($db_listing->result)){
     $i++;
-    $right_column .= $list->start_tr($i,$row[$id_field],'class="menu-normal record-item" onclick="active_record('.$row[$id_field].')" data-record_id="'.$row[$id_field].'"');
+    $right_column .= $list->start_tr($i,$row[$id_field],'class="menu-normal record-item" ondblclick="detailRecord()" onclick="active_record('.$row[$id_field].')" data-record_id="'.$row[$id_field].'"');
     /* code something */
     $right_column .= '<td class="center">'.format_codenumber($row['use_id'],6,PREFIX_STAFF_CODE).'</td>';
     $right_column .= '<td class="center">'.$row['use_code'].'</td>';

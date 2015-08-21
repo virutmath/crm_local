@@ -9,7 +9,7 @@
         recoveryRow : 'recoveryRecord',
         terminalDelete : 'terminalDeleteRecord',
         listRecord : 'listRecord'
-    }
+    };
     var btn_refresh = $('.modal-control .control-btn-refresh');
     var btn_add_left = $('.left-column .control-btn-add');
     var btn_add_right = $('.right-column .control-btn-add');
@@ -129,7 +129,7 @@
         var cat_id = parseInt($('.cat_name.active').parent('li').data('cat'));
         var modal = new Modal();
         modal.miniLoad('ajax.php',{action:ajax_url.edit_left, cat_id : cat_id})
-    })
+    });
 
     //delete left
     btn_trash_left.unbind('click').click(function(){
@@ -157,13 +157,13 @@
                 }
             })
         }
-    })
+    });
 
     //add right
     btn_add_right.unbind('click').click(function(){
         var modal = new Modal();
         modal.miniLoad('ajax.php',{action:ajax_url.add_right});
-    })
+    });
 
     //edit right
     btn_edit_right.unbind('click').click(function () {
@@ -192,7 +192,7 @@
                 }
             })
         }
-    })
+    });
 
     $('.list-vertical-crm').find('li').click(function() {
 
@@ -325,7 +325,7 @@
                 }
             }
         }
-    })
+    });
 
 
     //Khu vực hiển thị chi tiết cửa hàng

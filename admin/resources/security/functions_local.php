@@ -133,7 +133,7 @@ function read_logs() {
             $content = explode(PHP_EOL,$content);
             foreach($content as $line) {
                 list($time, $query) = explode('|',$line);
-                $query = decode_combine($query);
+                //$query = decode_combine($query);
                 if($last_sync > $time) {
                     continue;
                 }

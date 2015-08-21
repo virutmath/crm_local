@@ -237,7 +237,7 @@ while($row = mysqli_fetch_assoc($db_query->result)){
 }
 while ($row = mysqli_fetch_assoc($db_listing->result)) {
     $i++;
-    $right_column .= $list->start_tr($i, $row[$id_field], 'class="menu-normal record-item" onclick="active_record(' . $row[$id_field] . ')" data-record_id="' . $row[$id_field] . '"');
+    $right_column .= $list->start_tr($i, $row[$id_field], 'class="menu-normal record-item" ondblclick="detailRecord()" onclick="active_record(' . $row[$id_field] . ')" data-record_id="' . $row[$id_field] . '"');
     /* code something */
     $pro_unit_id = $row['pro_unit_id'];
     $right_column .= '<td class="center" width="100">' . format_codenumber($row['pro_id'],6,PREFIX_PRODUCT_CODE) . '</td>';

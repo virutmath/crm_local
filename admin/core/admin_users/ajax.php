@@ -28,7 +28,7 @@ switch($action){
                     'extra'=>'style="height : 120px;"'
                 ));
                 $html .= $form->form_action(array(
-                    'label'=>array('Đồng ý','Hủy bỏ'),
+                    'label'=>array('Lưu lại'),
                     'type'=>array('submit','reset'),
                     'extra'=>array('','modal-control="modal-close"')
                 ));
@@ -213,7 +213,7 @@ switch($action){
                     'extra'=>'style="height : 90px;"'
                 ));
                 $html .= $form->form_action(array(
-                    'label'=>array('Đồng ý','Hủy bỏ'),
+                    'label'=>array('Lưu lại'),
                     'type'=>array('submit','reset'),
                     'extra'=>array('','modal-control="modal-close"')
                 ));
@@ -297,7 +297,7 @@ switch($action){
                     'extra'=>'style="height : 90px;"'
                 ));
                 $html .= $form->form_action(array(
-                    'label'=>array('Đồng ý','Hủy bỏ'),
+                    'label'=>array('Lưu lại'),
                     'type'=>array('submit','reset'),
                     'extra'=>array('','modal-control="modal-close"')
                 ));

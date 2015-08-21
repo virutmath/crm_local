@@ -118,7 +118,8 @@
     //add left
     btn_add_left.unbind('click').click(function(){
         var modal = new Modal();
-        modal.height = 350;
+        modal.width = 600;
+        modal.height = 450;
         modal.miniLoad('ajax.php',{action:ajax_url.add_left});
     });
 
@@ -129,9 +130,10 @@
         }
         var record_id = $('#table-listing-left').find('.record-item.active').data('record_id');
         var modal = new Modal();
-        modal.height = 350;
+        modal.width = 600;
+        modal.height = 450;
         modal.miniLoad('ajax.php', {action: ajax_url.edit_left, record_id: record_id})
-    })
+    });
 
     //delete left
     btn_trash_left.unbind('click').click(function(){
@@ -159,6 +161,8 @@
     //add right
     btn_add_right.unbind('click').click(function(){
         var modal = new Modal();
+        modal.width = 600;
+        modal.height = 450;
         modal.miniLoad('ajax.php',{action:ajax_url.add_right});
     });
 
@@ -167,6 +171,8 @@
         if($(this).hasClass('deactivate')) return false;
         var record_id = $('#table-listing-right').find('.record-item.active').data('record_id');
         var modal = new Modal();
+        modal.width = 600;
+        modal.height = 450;
         modal.miniLoad('ajax.php',{action:ajax_url.edit_right,record_id:record_id})
     });
 
@@ -236,8 +242,8 @@
     function list_trash(control) {
         //mở ra modal
         var modal = new Modal();
-        modal.width = 500;
-        modal.height = 400;
+        modal.width = 600;
+        modal.height = 450;
         modal.miniLoad('ajax.php',{action : 'listRecordTrash', control: control});
     }
 

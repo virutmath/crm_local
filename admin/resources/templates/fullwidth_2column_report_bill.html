@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <script src="http://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script src="report_js/canvasjs.min.js"></script>
     {$load_header}
 </head>
 <body>
@@ -36,6 +36,10 @@
         </div>
     </div>
     <div class="section-title footer-control col-xs-12">{$footer_control}</div>
+    <script>
+        var array_date_time = {$array};
+        var title = {$title};
+    </script>
     {$custom_script}
     <div id="modal"></div>
     <div id="overlay"></div>

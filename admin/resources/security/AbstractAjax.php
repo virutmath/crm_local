@@ -94,9 +94,9 @@ abstract class AbstractAjax {
         }
         $html = '';
         $html .= $this->form->form_action(array(
-            'label'=>array('Đồng ý','Hủy bỏ'),
-            'type'=>array('submit','reset'),
-            'extra'=>array('','modal-control="modal-close"')
+            'label'=>array('<i class="fa fa-save"></i> Lưu lại'),
+            'type'=>array('submit'),
+            'extra'=>array('')
         ));
         $html .= $this->form->hidden(array(
             'name'=>'action_modal',

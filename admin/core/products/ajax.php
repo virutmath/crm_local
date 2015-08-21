@@ -534,6 +534,12 @@ class ProductAjax extends AjaxCommon
         }
         //nhà cung cấp
         $bio_supplier_id = getValue('supplier','int','POST',0);
+        //check nhà cung cấp
+        if(!$bio_supplier_id) {
+            $array_return['error'] = 'Bạn chưa chọn nhà cung cấp!';
+            $this->add($array_return);
+            return false;
+        }
         //ghi chú
         $bio_note = getValue('note','str','POST','',3);
         //người nhập hàng

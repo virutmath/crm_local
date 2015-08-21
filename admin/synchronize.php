@@ -16,7 +16,7 @@ $password = getValue('password','str','SESSION','');
 
 //đọc file log lấy ra các query chưa được synchronize
 $array_query = read_logs();
-echo json_encode($array_query);
+//echo json_encode($array_query);
 $array_query = base64_encode(json_encode($array_query));
 //lấy config
 $server_config = read_server_config();
