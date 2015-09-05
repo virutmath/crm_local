@@ -38,12 +38,15 @@ $js_global .= '<script src="../../resources/js/jqueryui/ui/droppable.js"></scrip
 
 //include reactjs
 $js_global .= '<script src="../../resources/js/reactjs/react-0.13.3.js"></script>';
+$js_global .= '<script src="../../resources/js/reactjs/react-intl.min.js"></script>';
 if(DEVELOPER_ENVIRONMENT){
     $js_global .= '<script src="../../resources/js/reactjs/JSXTransformer-0.13.3.js"></script>';
 }
 
 $js_global .= '<script src="../../resources/js/plupload/plupload.full.js" type="text/javascript"></script>';
 $js_global .= '<script src="../../resources/js/bootstrap-tagsinput.js" type="text/javascript"></script>';
+$js_global .= '<script src="../../resources/js/bootstrap.min.js" type="text/javascript"></script>';
+$js_global .= '<script src="../../resources/js/bootbox/bootbox.min.js" type="text/javascript"></script>';
 $js_global .= '<script src="../../resources/js/jquery.contextMenu.js" type="text/javascript"></script>';
 $js_global .= '<script src="../../resources/js/jquery.autonumeric.js" type="text/javascript"></script>';
 $js_global .= '<script src="../../resources/js/enscroll-0.5.5.min.js" type="text/javascript"></script>';

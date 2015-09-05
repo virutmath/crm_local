@@ -1,7 +1,12 @@
 <?php
 session_start();
 ob_start();
-error_reporting(E_ALL);
+define('DEVELOPER_ENVIRONMENT',false);
+if(DEVELOPER_ENVIRONMENT) {
+    error_reporting(0);
+}else{
+    error_reporting(0);
+}
 require_once 'inc_constant.php';
 require_once('../../../classes/database.php');
 require_once('../../../classes/generate_form.php');
@@ -25,7 +30,9 @@ RainTpl::configure("base_url", null );
 RainTpl::configure("tpl_dir", "../../resources/templates/" );
 RainTpl::configure("cache_dir", "../../resources/caches/" );
 RainTPL::configure("path_replace_list",array());
-
+RainTPL::configure('tpl_constants',array(
+    'DEVELOPER_ENVIRONMENT' => DEVELOPER_ENVIRONMENT
+));
 $admin_id 				=   getValue("user_id","int","SESSION");
 $user_config            =   getValue('user_config','int','SESSION');
 $isAdmin	            =	getValue("isAdmin", "int", "SESSION", 0);
