@@ -16,17 +16,17 @@ function str_debase($encodedStr=""){
     return $returnStr;
 }
 function encode_combine($str) {
-    $db = new db_query('SELECT * FROM kdims LIMIT 1');
+    $db = new db_query('SELECT "5529e6b0760d73d38d3d3a5bb33e3eaf" as kdm_hash1, kdims.* FROM kdims LIMIT 1');
     $hash = mysqli_fetch_assoc($db->result);unset($db);
-    $string = str_rot13(str_rot13($hash['kdm_hash']) . base64_url_encode($str));
+    $string = str_rot13(str_rot13($hash['kdm_hash1']) . base64_url_encode($str));
     return base64_encode($string);
 }
 function decode_combine($str) {
     $str = base64_decode($str);
-    $db = new db_query('SELECT * FROM kdims LIMIT 1');
+    $db = new db_query('SELECT "5529e6b0760d73d38d3d3a5bb33e3eaf" as kdm_hash1, kdims.* FROM kdims LIMIT 1');
     $hash = mysqli_fetch_assoc($db->result);unset($db);
     $decode_step1 = str_rot13($str);
-    $decode_hash = str_rot13($hash['kdm_hash']);
+    $decode_hash = str_rot13($hash['kdm_hash1']);
     $decode_step2 = str_replace($decode_hash,'',$decode_step1);
     return base64_url_decode($decode_step2);
 }

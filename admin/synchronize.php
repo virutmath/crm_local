@@ -1,6 +1,6 @@
 <?
 session_start();
-error_reporting(E_ALL);
+error_reporting(0);
 require_once("../functions/functions.php");
 require_once("../classes/database.php");
 require_once("../classes/rain.tpl.class.php");
@@ -16,10 +16,11 @@ $password = getValue('password','str','SESSION','');
 
 //đọc file log lấy ra các query chưa được synchronize
 $array_query = read_logs();
-//echo json_encode($array_query);
 $array_query = base64_encode(json_encode($array_query));
+//var_dump($array_query);
 //lấy config
 $server_config = read_server_config();
+//var_dump($server_config);
 //bắn các câu query lên qua curl
 $curl = curl_get_content($server_config['synchronize_url'],array('queries'=>$array_query,'action'=>'syncLogQuery','username'=>$username,'password'=>$password));
 $response = json_decode($curl,1);

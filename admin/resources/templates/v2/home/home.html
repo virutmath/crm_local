@@ -263,9 +263,11 @@
                                                      onclick="HomeScript.setDebit()"/></label>
                             </div>
                             <div class="col-xs-7 text-right">
-                                <label class="pull-left"><input type="radio" name="pay_type" value="1" checked/> Tiền
+                                <label class="pull-left">
+                                    <input type="radio" onclick="HomeScript.view.changePayType({$pay_type_cash})" name="pay_type" value="{$pay_type_cash}" checked/> Tiền
                                     mặt</label>
-                                <label class="pull-right"><input type="radio" name="pay_type" value="2"/> Thẻ</label>
+                                <label class="pull-right">
+                                    <input type="radio" onclick="HomeScript.view.changePayType({$pay_type_card})" name="pay_type" value="{$pay_type_card}"/> Thẻ</label>
                             </div>
                         </div>
                         <div id="bill-finish" class="col-xs-12" onclick="HomeScript.billSubmit()">
@@ -277,7 +279,6 @@
             </div>
         </div>
     </div>
-    {$custom_script}
     <div id="modal"></div>
     <div id="overlay"></div>
     <div id="m-window"></div>
@@ -314,5 +315,11 @@
         </div>
     </div>
 </div>
+{* Sử dụng jsx nếu đang ở chế độ DEVELOPER *}
+{if="$tpl_constants['DEVELOPER_ENVIRONMENT']"}
+<script type="text/jsx" src="js/src/home.js"></script>
+{else}
+<script type="text/javascript" src="js/build/home.js"></script>
+{/if}
 </body>
 </html>

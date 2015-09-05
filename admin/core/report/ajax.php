@@ -78,7 +78,7 @@ class ReportAjax extends AjaxCommon {
         $left_column = '';
         //Hiển thị danh sách phiếu thu bên trái
         #Bắt đầu với datagird
-        $list = new dataGrid('pro_id', 30);
+        $list = new dataGrid('pro_id', 100);
         $list->add('', 'Tên mặt hàng');
         $list->add('', 'ĐVT');
         $list->add('', 'SL tồn');
@@ -96,7 +96,7 @@ class ReportAjax extends AjaxCommon {
 
         $sql_query = 'SELECT * FROM product_quantity
                             WHERE 1 ' . $list->sqlSearch() . $sql_search . '
-                            ORDER BY ' . $list->sqlSort() . ' product_id ASC
+                            ORDER BY ' . $list->sqlSort() . ' product_id DESC
                             ' . $list->limit($total);
         $db_listing = new db_query($sql_query);
 
@@ -195,7 +195,7 @@ class ReportAjax extends AjaxCommon {
         $left_column = '';
         //Hiển thị danh sách phiếu thu bên trái
         #Bắt đầu với datagird
-        $list = new dataGrid('men_id', 30);
+        $list = new dataGrid('men_id', 100);
         $list->add('', 'Tên thực đơn');
         $list->add('', 'ĐVT');
         $list->add('', 'SL Bán');
@@ -449,7 +449,7 @@ class ReportAjax extends AjaxCommon {
         $left_column = '';
         //Hiển thị danh sách phiếu thu bên trái
         #Bắt đầu với datagird
-        $list = new dataGrid('bii_id', 30);
+        $list = new dataGrid('bii_id', 100);
         $list->add('', 'Tên khách hàng');
         $list->add('', 'Số HĐ');
         $list->add('', 'Doanh thu');
@@ -580,7 +580,7 @@ class ReportAjax extends AjaxCommon {
         $left_column = '';
         //Hiển thị danh sách phiếu thu bên trái
         #Bắt đầu với datagird
-        $list = new dataGrid('pro_id', 30);
+        $list = new dataGrid('pro_id', 100);
         $list->add('', 'Tên mặt hàng');
         $list->add('', 'ĐVT');
         $list->add('', 'SL nhập');

@@ -321,7 +321,7 @@
             delete : {
                 name : '<i class="fa fa-trash"></i> Xóa vĩnh viễn',
                 callback : function (key, opt){
-
+                    terminalDelete(opt.$trigger.data('record_id'))
                 }
             }
         }

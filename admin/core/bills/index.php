@@ -38,106 +38,22 @@ $list->add('bio_total_money', 'Tổng tiền');
 // khai bao
 $and_bii_cus_id = '';
 $and_bio_sup_id = '';
-
+$type_bill_fillter = ' AND bii_start_time ';
 // tồn tại $isRequestAjax
 if($isAjaxRequest && isset($_POST['active'])){
     $id_customer    = getValue('id_customer','int','POST',0);
-    $time_start     = getValue('time_start','str','POST',''); 
-    $time_end       = getValue('time_end','str','POST','');
+    $time_start     = convertDateTime(getValue('time_start','str','POST',''),'0:0:0'); 
+    $time_end       = convertDateTime(getValue('time_end','str','POST',''),'23:59:59');
     $active         = getValue('active','int','POST',0);
-    // neu ton tai id khach hang va id khach hang khac 0;    
-    if($id_customer != 0){
-        $and_bii_cus_id                     = ' AND bii_customer_id = ' . $id_customer;
-        // neu loc theo ngay thanh toan hoa don
-        if($active  != 0){
-            //loc theo ngay thanh toan hoa don tu ngay $time_start den 23h59p cua ngay $time_end (+ 86400 - 1);
-            if($time_start != '' && $time_end != ''){
-                $time_start                 = convertDateTime($time_start,'0:0:0');
-                $time_end                   = convertDateTime($time_end,'0:0:0') + 86400 - 1;
-                $and_bii_cus_id             = ' AND bii_customer_id = ' . $id_customer . ' 
-                                                AND bii_end_time >= ' . $time_start . '
-                                                AND bii_end_time <= ' . $time_end;
-            }
-            // neu ngay thanh toan hoa don tu ngay $time_start = '' va ngay tao den ngay $time_end != ''
-            if($time_start == '' && $time_end != ''){
-                $time_end                   = convertDateTime($time_end,'0:0:0') + 86400 - 1;
-                $and_bii_cus_id             = ' AND bii_customer_id = ' . $id_customer . ' 
-                                                AND bii_end_time <= ' . $time_end;
-            }
-            // neu ngay thanh toan hoa don tu ngay $time_start != '' va ngay tao den ngay $time_end == ''
-            if($time_start != '' && $time_end == ''){
-                $time_start                 = convertDateTime($time_start,'0:0:0');
-                $and_bii_cus_id             = ' AND bii_customer_id = ' . $id_customer . ' 
-                                                AND bii_end_time >= ' . $time_start;
-            }
-        }// end active != 0
-        // loc theo ngay tao hoa don
-        if($active  == 0){
-            //loc theo ngay tao hoa don tu ngay $time_start den 23h59p cua ngay $time_end (+ 86400 - 1);
-            if($time_start != '' && $time_end != ''){
-                $time_start                 = convertDateTime($time_start,'0:0:0');
-                $time_end                   = convertDateTime($time_end,'0:0:0') + 86400 - 1;
-                $and_bii_cus_id             = ' AND bii_customer_id = ' . $id_customer . ' 
-                                                AND bii_start_time >= ' . $time_start . '
-                                                AND bii_start_time <= ' . $time_end;
-            }
-            // neu ngay tao hoa don tu ngay $time_start = '' va ngay tao den ngay $time_end != ''
-            if($time_start == '' && $time_end != ''){
-                $time_end                   = convertDateTime($time_end,'0:0:0') + 86400 - 1;
-                $and_bii_cus_id             = ' AND bii_customer_id = ' . $id_customer . ' 
-                                                AND bii_start_time <= ' . $time_end;
-            }
-            // neu ngay tao hoa don tu ngay $time_start != '' va ngay tao den ngay $time_end == ''
-            if($time_start != '' && $time_end == ''){
-                $time_start                 = convertDateTime($time_start,'0:0:0');
-                $and_bii_cus_id             = ' AND bii_customer_id = ' . $id_customer . ' 
-                                                AND bii_start_time >= ' . $time_start;
-            }
-        }// end active == 0
-    }// end customer_id != 0
-    if($id_customer == 0){
-        $and_bii_cus_id                     = '';
-        // neu loc theo ngay thanh toan hoa don
-        if($active  != 0){
-            //loc theo ngay thanh toan hoa don tu ngay $time_start den 23h59p cua ngay $time_end (+ 86400 - 1);
-            if($time_start != '' && $time_end != ''){
-                $time_start                 = convertDateTime($time_start,'0:0:0');
-                $time_end                   = convertDateTime($time_end,'0:0:0') + 86400 - 1;
-                $and_bii_cus_id             = ' AND bii_end_time >= ' . $time_start . '
-                                                AND bii_end_time <= ' . $time_end;
-            }
-            // neu ngay thanh toan hoa don tu ngay $time_start = '' va ngay tao den ngay $time_end != ''
-            if($time_start == '' && $time_end != ''){
-                $time_end                   = convertDateTime($time_end,'0:0:0') + 86400 - 1;
-                $and_bii_cus_id             = ' AND bii_end_time <= ' . $time_end;
-            }
-            // neu ngay thanh toan hoa don tu ngay $time_start != '' va ngay tao den ngay $time_end == ''
-            if($time_start != '' && $time_end == ''){
-                $time_start                 = convertDateTime($time_start,'0:0:0');
-                $and_bii_cus_id             = ' AND bii_end_time >= ' . $time_start;
-            }
-        }// end active != 0
-        // loc theo ngay tao hoa don
-        if($active  == 0){
-            //loc theo ngay tao hoa don tu ngay $time_start den 23h59p cua ngay $time_end (+ 86400 - 1);
-            if($time_start != '' && $time_end != ''){
-                $time_start                 = convertDateTime($time_start,'0:0:0');
-                $time_end                   = convertDateTime($time_end,'0:0:0') + 86400 - 1;
-                $and_bii_cus_id             = ' AND bii_start_time >= ' . $time_start . '
-                                                AND bii_start_time <= ' . $time_end;
-            }
-            // neu ngay tao hoa don tu ngay $time_start = '' va ngay tao den ngay $time_end != ''
-            if($time_start == '' && $time_end != ''){
-                $time_end                   = convertDateTime($time_end,'0:0:0') + 86400 - 1;
-                $and_bii_cus_id             = ' AND bii_start_time <= ' . $time_end;
-            }
-            // neu ngay tao hoa don tu ngay $time_start != '' va ngay tao den ngay $time_end == ''
-            if($time_start != '' && $time_end == ''){
-                $time_start                 = convertDateTime($time_start,'0:0:0');
-                $and_bii_cus_id             = ' AND bii_start_time >= ' . $time_start;
-            }
-        }// end active == 0
-    }// end customer_id == 0
+    
+    if ( $active ) $type_bill_fillter = ' AND bii_end_time '; // loc theo thoi gian thanh toan hoa don
+    if ( $id_customer ) $and_bii_cus_id .= ' AND bii_customer_id = ' . intval($id_customer); // loc theo id khach
+    if ( $time_start ) $and_bii_cus_id .= $type_bill_fillter .' >= ' . $time_start;
+    if ( $time_end ) $and_bii_cus_id .= $type_bill_fillter . ' <= ' . $time_end;      
+}
+else
+{
+    $and_bii_cus_id = $type_bill_fillter . ' >= ' . (convertDateTime($today,'0:0:0') - 2592000) . $type_bill_fillter . ' <= ' . convertDateTime($today,'23:59:59');
 }// end ton tai $isAjaxRequest
 $db_count = new db_count('SELECT count(*) as count
                             FROM '.$bg_table_i.' 
@@ -222,55 +138,22 @@ $list_right->add('bio_supplier_id', 'Nhà cung cấp');
 $list_right->add('bio_start_time', 'Ngày nhập');
 $list_right->add('bio_total_money', 'Tổng tiền');
 // ton tai request ajax loc hoa don nhap
+$type_bill_fillter = ' AND bio_start_time ';
 if($isAjaxRequest && isset($_POST['id_brand'])){
     $id_brand   = getValue('id_brand','int','POST',0);
-    $id_brand   = intval($id_brand);
-    $time_start = getValue('time_start','str','POST','');
-    $time_end   = getValue('time_end','str','POST','');
-    // neu ton tai id _ brand ! = 0
-    if($id_brand != 0){
-        $and_bio_sup_id = ' AND bio_supplier_id = ' . $id_brand;
-        if($time_start != '' && $time_end != ''){
-            $time_start                 = convertDateTime($time_start,'0:0:0');
-            $time_end                   = convertDateTime($time_end,'0:0:0') + 86400 - 1;
-            $and_bio_sup_id = ' AND bio_supplier_id = ' . $id_brand . '
-                                AND bio_start_time >= ' . $time_start . '
-                                AND bio_start_time <= ' . $time_end;
-        }
-        if($time_start != '' && $time_end == ''){
-            $time_start                 = convertDateTime($time_start,'0:0:0');
-            $and_bio_sup_id = ' AND bio_supplier_id = ' . $id_brand . '
-                                AND bio_start_time >= ' . $time_start;
-        }
-        if($time_start == '' && $time_end != ''){
-            $and_bio_sup_id = ' AND bio_supplier_id = ' . $id_brand . '
-                                AND bio_start_time <= ' . $time_end;
-        }
-    }
-    // neu ton tai id _ brand == 0
-    if($id_brand == 0){
-        $and_bio_sup_id = '';
-        if($time_start != '' && $time_end != ''){
-            $time_start                 = convertDateTime($time_start,'0:0:0');
-            $time_end                   = convertDateTime($time_end,'0:0:0') + 86400 - 1;
-            $and_bio_sup_id = ' AND bio_start_time >= ' . $time_start . '
-                                AND bio_start_time <= ' . $time_end;
-        }
-        if($time_start != '' && $time_end == ''){
-            $time_start                 = convertDateTime($time_start,'0:0:0');
-            $and_bio_sup_id = ' AND bio_start_time >= ' . $time_start;
-        }
-        if($time_start == '' && $time_end != ''){
-            $and_bio_sup_id = ' AND bio_start_time <= ' . $time_end;
-        }
-    }
+    $time_start = convertDateTime(getValue('time_start','str','POST',''),'0:0:0');
+    $time_end   = convertDateTime(getValue('time_end','str','POST',''),'23:59:59'); 
+    if ( $id_brand ) $and_bio_sup_id .= ' AND bio_supplier_id = ' . intval( $id_brand ); // loc theo id nha cung cap
+    if ( $time_start ) $and_bio_sup_id .= $type_bill_fillter . ' >= ' . $time_start;
+    if ( $time_end ) $and_bio_sup_id .= $type_bill_fillter . ' <= ' . $time_end;
+}else{
+    $and_bio_sup_id = $type_bill_fillter . ' >= ' . ( convertDateTime($today,'0:0:0') - 2592000 ) . $type_bill_fillter . ' <= ' . convertDateTime($today,'23:59:59');
 }
 $db_count = new db_count('SELECT count(*) as count
                             FROM '.$bg_table_o.'
                             WHERE 1 '.$list_right->sqlSearch(). $and_bio_sup_id.'
                             ');
 $total_ = $db_count->total;unset($db_count);
-
 $db_listing = new db_query('SELECT *
                             FROM '.$bg_table_o.'
                             WHERE 1 '.$list_right->sqlSearch().$and_bio_sup_id.'
@@ -321,9 +204,9 @@ $footer_control   .= '<div class="col-xs-6-both">';
 $footer_control   .= '<div class="col-xs-6-bth-lft">';
 $footer_control   .= '<div class="col-xs-6-bth-frm-lft">';
 $footer_control   .= '<div class="frm-lft-left">';
-$footer_control   .= '<input class="datetime-local frm-dt-lft lft" name="" value=""/>';
+$footer_control   .= '<input class="datetime-local frm-dt-lft lft" name="" value="'.$formDate.'"/>';
 $footer_control   .= '<span class="frm-ic-ct"><i class="fa fa-arrow-right"></i></span>';
-$footer_control   .= '<input class="datetime-local frm-dt-rgh lft" name="" value=""/></br>';
+$footer_control   .= '<input class="datetime-local frm-dt-rgh lft" name="" value="'.$toDate.'"/></br>';
 $footer_control   .= '<div class="clear_"></div>';
 $footer_control   .= '<select class="frm-sel-lft" id="select-customer" name="">';
 $footer_control   .= '<option value="0">--- Tất cả khách hàng</option>';
@@ -343,7 +226,7 @@ $footer_control   .= '</div>';
 $footer_control   .= '<div class="col-xs-6-bth-frm-rgh">';
 $footer_control   .= '<ul>'; 
 $footer_control   .= '<li>Lọc theo thời gian</li>';
-$footer_control   .= '<li><label for="creat-bill"><input type="radio" name="filter" value="0" id="creat-bill"/> Tạo Hóa Đơn (mặc định)</label></li>';
+$footer_control   .= '<li><label for="creat-bill"><input type="radio" name="filter" value="0" checked="checked" id="creat-bill"/> Tạo Hóa Đơn (mặc định)</label></li>';
 $footer_control   .= '<li><label for="pay-bill"><input type="radio" name="filter" value="1" id="pay-bill"/> Thanh toán Hóa Đơn</label></li>';
 $footer_control   .= '</ul>';
 $footer_control   .= '</div>';
@@ -353,12 +236,12 @@ $footer_control   .= '</div>';
 $footer_control   .= '<div class="col-xs-6-bth-rgh">';
 $footer_control   .= '<div class="col-xs-6-bth-frm-rgh-lft">';
 $footer_control   .= '<div class="frm-lft-left">';
-$footer_control   .= '<input name="" class="datetime-local frm-dt-lft rgh" value=""/>';
+$footer_control   .= '<input name="" class="datetime-local frm-dt-lft rgh" value="'.$formDate.'"/>';
 $footer_control   .= '<span class="frm-ic-ct"><i class="fa fa-arrow-right"></i></span>';
-$footer_control   .= '<input name="" class="datetime-local frm-dt-rgh rgh" value=""/></br>';
+$footer_control   .= '<input name="" class="datetime-local frm-dt-rgh rgh" value="'.$toDate.'"/></br>';
 $footer_control   .= '<div class="clear_"></div>';
 $footer_control   .= '<select class="frm-sel-lft frm-sel-rgh" id="select-brand" name="">';
-$footer_control   .= '<option value="">--- Tất cả nhà cung cấp</option>';
+$footer_control   .= '<option value="0">--- Tất cả nhà cung cấp</option>';
 $sql = new db_query('SELECT * FROM suppliers');
 while ($row = mysqli_fetch_assoc($sql->result))
 $footer_control   .= '<option value="' . $row['sup_id'] . '">' . $row['sup_name'] . '</option>';unset($sql);
@@ -383,6 +266,7 @@ $footer_control   .= '</div>';
 $footer_control   .= '<div id="cus-form" class="dpl-none">';
 $footer_control   .= '<div class="content-form-cus dpl-none"></div>';
 $footer_control   .= '</div>';
+// return ajax
 if($isAjaxRequest){
     if(isset($id_customer)){
         echo $table_left_column;

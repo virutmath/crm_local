@@ -369,3 +369,6 @@ select#store_id {
 #content-column .table-listing-bound{
     height: 365px;
 }
+.form-inline select.form-control{
+    width: 50% !important;
+}

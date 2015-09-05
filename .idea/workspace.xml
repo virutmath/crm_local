@@ -2,73 +2,42 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e761213-30cd-4315-8c53-666a1a6f0c7d" name="Default" comment="">
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\New Text Document.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\PRP085.rar" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\admin\resources\caches\admin_index.d1ca576805cfe3b2fb21dd3504c709b9.rtpl.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\admin\resources\caches\bill_detail.feb7ee57c7a699eca0faa3fe848659c7.rtpl.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\admin\resources\caches\config_navigate.feb7ee57c7a699eca0faa3fe848659c7.rtpl.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\admin\resources\caches\debit.149f304ead0198351fd25efb2ec2b69e.rtpl.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\admin\resources\caches\fullwidth_2column.feb7ee57c7a699eca0faa3fe848659c7.rtpl.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\admin\resources\caches\fullwidth_2column_report.feb7ee57c7a699eca0faa3fe848659c7.rtpl.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\admin\resources\caches\fullwidth_2column_report_bill.feb7ee57c7a699eca0faa3fe848659c7.rtpl.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\admin\resources\caches\fullwidth_2column_report_transfer.feb7ee57c7a699eca0faa3fe848659c7.rtpl.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\admin\resources\caches\fullwidth_3column.feb7ee57c7a699eca0faa3fe848659c7.rtpl.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\admin\resources\caches\fullwidth_half.feb7ee57c7a699eca0faa3fe848659c7.rtpl.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\admin\resources\caches\home.149f304ead0198351fd25efb2ec2b69e.rtpl.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\admin\resources\caches\home.feb7ee57c7a699eca0faa3fe848659c7.rtpl.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\admin\resources\caches\home_list_menu.889e736acfbc9a6d678b83bf3d2e9e9b.rtpl.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\admin\resources\caches\mindow_2column.feb7ee57c7a699eca0faa3fe848659c7.rtpl.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\admin\resources\caches\mindow_iframe.feb7ee57c7a699eca0faa3fe848659c7.rtpl.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\admin\resources\caches\mindow_iframe_1column.feb7ee57c7a699eca0faa3fe848659c7.rtpl.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\admin\resources\caches\mindow_iframe_2column.feb7ee57c7a699eca0faa3fe848659c7.rtpl.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\admin\resources\caches\modal_1column.feb7ee57c7a699eca0faa3fe848659c7.rtpl.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\admin\resources\caches\modal_2column.feb7ee57c7a699eca0faa3fe848659c7.rtpl.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\admin\resources\caches\modal_setup.feb7ee57c7a699eca0faa3fe848659c7.rtpl.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\admin\resources\caches\modal_template.feb7ee57c7a699eca0faa3fe848659c7.rtpl.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\admin\resources\caches\order.6e43b102343366a2dc233c597094da22.rtpl.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\admin\resources\caches\pay_libility.feb7ee57c7a699eca0faa3fe848659c7.rtpl.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\admin\resources\caches\print.feb7ee57c7a699eca0faa3fe848659c7.rtpl.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\admin\resources\caches\user_config.d1ca576805cfe3b2fb21dd3504c709b9.rtpl.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\admin\resources\caches\websetting.feb7ee57c7a699eca0faa3fe848659c7.rtpl.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\mysql.sql" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\pictures\2015\4\organic\aqp1429021604.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\pictures\2015\4\organic\buy1429850143.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\pictures\2015\4\organic\fwb1429850800.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\pictures\2015\4\organic\gpv1429850435.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\pictures\2015\4\organic\jkq1429850546.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\pictures\2015\4\organic\kuz1429022238.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\pictures\2015\4\organic\lxi1429850665.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\pictures\2015\4\organic\lyt1429850989.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\pictures\2015\4\organic\mwc1429021925.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\pictures\2015\4\organic\njh1429022165.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\pictures\2015\4\organic\oee1429022327.JPG" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\pictures\2015\4\organic\olf1429021856.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\pictures\2015\4\organic\sou1429850275.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\pictures\2015\4\organic\tey1429850859.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\pictures\2015\4\organic\vjz1429850599.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\pictures\2015\4\organic\zli1429850364.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\pictures\2015\4\organic\zok1429022819.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\sql_backup\2015-04-02-alter-trash.sql" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\sql_backup\configurations.sql" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\sql_backup\crm_offline_install.sql" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\sql_backup\crm_restaurant.sql" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\sql_backup\financial.sql" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\sql_backup\menu_products.sql" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\sql_backup\promotions.sql" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\sql_backup\triggers.sql" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\sql_backup\units.sql" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\temp\dlv1427103569.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\temp\dsa1429020628.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\temp\ewc1429018868.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\temp\jeg1427345389.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\temp\jfq1428635333.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\temp\kqk1422195523.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\temp\pqe1422242387.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\temp\rei1428635437.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\temp\vnj1422194464.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\temp\xve1422242529.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\crm_local\temp\zgq1422247102.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/resources/security/functions.php" afterPath="$PROJECT_DIR$/admin/resources/security/functions.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/core/inventory_transfer/add_inventory.php" afterPath="$PROJECT_DIR$/admin/core/inventory_transfer/add_inventory.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/core/inventory_transfer/add_stock_transfer.php" afterPath="$PROJECT_DIR$/admin/core/inventory_transfer/add_stock_transfer.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/resources/templates/admin_index.html" afterPath="$PROJECT_DIR$/admin/resources/templates/admin_index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/core/home/ajax.php" afterPath="$PROJECT_DIR$/admin/core/home/ajax.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/core/menus/ajax.php" afterPath="$PROJECT_DIR$/admin/core/menus/ajax.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/core/products/ajax.php" afterPath="$PROJECT_DIR$/admin/core/products/ajax.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/core/report/ajax.php" afterPath="$PROJECT_DIR$/admin/core/report/ajax.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/core/bills/bill_detail.css" afterPath="$PROJECT_DIR$/admin/core/bills/bill_detail.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/core/bills/bill_detail.php" afterPath="$PROJECT_DIR$/admin/core/bills/bill_detail.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/core/inventory_transfer/custom.css" afterPath="$PROJECT_DIR$/admin/core/inventory_transfer/custom.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/resources/security/functions_1.php" afterPath="$PROJECT_DIR$/admin/resources/security/functions_1.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/resources/security/functions_local.php" afterPath="$PROJECT_DIR$/admin/resources/security/functions_local.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/resources/templates/v2/home/home.html" afterPath="$PROJECT_DIR$/admin/resources/templates/v2/home/home.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/core/products/import.php" afterPath="$PROJECT_DIR$/admin/core/products/import.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/resources/security/inc_constant.php" afterPath="$PROJECT_DIR$/admin/resources/security/inc_constant.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/core/bills/inc_security.php" afterPath="$PROJECT_DIR$/admin/core/bills/inc_security.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/core/report/inc_security.php" afterPath="$PROJECT_DIR$/admin/core/report/inc_security.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/core/bills/index.php" afterPath="$PROJECT_DIR$/admin/core/bills/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/core/desks/index.php" afterPath="$PROJECT_DIR$/admin/core/desks/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/core/home/index.php" afterPath="$PROJECT_DIR$/admin/core/home/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/core/products/index.php" afterPath="$PROJECT_DIR$/admin/core/products/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/core/report/index.php" afterPath="$PROJECT_DIR$/admin/core/report/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/resources/templates/report_1column.html" afterPath="$PROJECT_DIR$/admin/resources/templates/report_1column.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/core/report/report_bill_detail.php" afterPath="$PROJECT_DIR$/admin/core/report/report_bill_detail.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/core/report/report_product.php" afterPath="$PROJECT_DIR$/admin/core/report/report_product.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/core/report/report_stock.php" afterPath="$PROJECT_DIR$/admin/core/report/report_stock.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/core/admin_users/script.html" afterPath="$PROJECT_DIR$/admin/core/admin_users/script.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/core/agencies/script.html" afterPath="$PROJECT_DIR$/admin/core/agencies/script.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/core/menus/script.html" afterPath="$PROJECT_DIR$/admin/core/menus/script.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/core/products/script.html" afterPath="$PROJECT_DIR$/admin/core/products/script.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/core/report/script.html" afterPath="$PROJECT_DIR$/admin/core/report/script.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/core/suppliers/script.html" afterPath="$PROJECT_DIR$/admin/core/suppliers/script.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/resources/js/script.js" afterPath="$PROJECT_DIR$/admin/resources/js/script.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/core/report/script_report.html" afterPath="$PROJECT_DIR$/admin/core/report/script_report.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/resources/security/security.php" afterPath="$PROJECT_DIR$/admin/resources/security/security.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/synchronize.php" afterPath="$PROJECT_DIR$/admin/synchronize.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="crm_local.iws" />
@@ -91,65 +60,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="config.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/home/config.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="7" column="44" selection-start-line="7" selection-start-column="44" selection-end-line="7" selection-end-column="44" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="synchronize.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="synchronize.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/admin/synchronize.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="18" column="31" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
+            <state vertical-scroll-proportion="0.77618366">
+              <caret line="27" column="76" selection-start-line="27" selection-start-column="76" selection-end-line="27" selection-end-column="76" />
               <folding>
-                <marker date="1439884193515" expanded="true" signature="1075:1128" placeholder="INSERT INTO ..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="install.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/install.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="230" column="0" selection-start-line="230" selection-start-column="0" selection-end-line="230" selection-end-column="0" />
-              <folding>
-                <marker date="1439894001297" expanded="true" signature="684:909" placeholder="INSERT INTO ..." />
-                <marker date="1439894001297" expanded="true" signature="3165:3184" placeholder="INSERT INTO ..." />
-                <marker date="1439894001297" expanded="true" signature="3931:4007" placeholder="INSERT INTO ..." />
-                <marker date="1439894001297" expanded="true" signature="5491:5588" placeholder="INSERT INTO ..." />
-                <marker date="1439894001297" expanded="true" signature="6337:6407" placeholder="INSERT INTO ..." />
-                <marker date="1439894001297" expanded="true" signature="7130:7350" placeholder="INSERT INTO ..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="config" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/admin/config">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.17881706">
-              <caret line="5" column="33" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="security.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/resources/security/security.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="14" column="32" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
-              <folding>
-                <marker date="1439914661436" expanded="true" signature="1525:1596" placeholder="SELECT * FRO..configurations..." />
-                <marker date="1439914661436" expanded="true" signature="1632:1816" placeholder="SELECT * FRO..configurations..." />
-                <marker date="1439914661436" expanded="true" signature="2004:2241" placeholder="SELECT * FRO..desks..." />
-                <marker date="1439914661436" expanded="true" signature="2415:2597" placeholder="SELECT * FRO..sections..." />
+                <marker date="1441425822237" expanded="true" signature="1093:1146" placeholder="INSERT INTO ..." />
               </folding>
             </state>
           </provider>
@@ -185,19 +102,24 @@
         <option value="$PROJECT_DIR$/log/sync/2015/6/30/9.log" />
         <option value="$PROJECT_DIR$/home/synchronize.php" />
         <option value="$PROJECT_DIR$/log/sync/2015/7/1/11.log" />
-        <option value="$PROJECT_DIR$/admin/resources/security/functions_1.php" />
         <option value="$PROJECT_DIR$/classes/database.php" />
         <option value="$PROJECT_DIR$/test/test.php" />
         <option value="$PROJECT_DIR$/log/sync/2015/7/3/10.log" />
         <option value="$PROJECT_DIR$/admin/resources/js/crm.js" />
-        <option value="$PROJECT_DIR$/admin/resources/templates/admin_index.html" />
         <option value="$PROJECT_DIR$/admin/resources/css/home.css" />
         <option value="$PROJECT_DIR$/admin/resources/security/functions.php" />
-        <option value="$PROJECT_DIR$/admin/synchronize.php" />
-        <option value="$PROJECT_DIR$/admin/resources/security/functions_local.php" />
-        <option value="$PROJECT_DIR$/admin/install.php" />
-        <option value="$PROJECT_DIR$/admin/resources/security/security.php" />
         <option value="$PROJECT_DIR$/admin/config" />
+        <option value="$PROJECT_DIR$/admin/install.php" />
+        <option value="$PROJECT_DIR$/admin/prepare_install.php" />
+        <option value="$PROJECT_DIR$/admin/resources/templates/admin_index.html" />
+        <option value="$PROJECT_DIR$/admin/resources/security/inc_config_security.php" />
+        <option value="$PROJECT_DIR$/admin/resources/security/functions_local.php" />
+        <option value="$PROJECT_DIR$/admin/resources/security/security.php" />
+        <option value="$PROJECT_DIR$/admin/resources/security/inc_constant.php" />
+        <option value="$PROJECT_DIR$/admin/core/home/ajax.php" />
+        <option value="$PROJECT_DIR$/admin/test.php" />
+        <option value="$PROJECT_DIR$/admin/resources/security/functions_1.php" />
+        <option value="$PROJECT_DIR$/admin/synchronize.php" />
       </list>
     </option>
   </component>
@@ -241,18 +163,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Problems" />
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -281,7 +191,23 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="pictures" />
+              <option name="myItemId" value="log" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sync" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="2015" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="9" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="5" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -345,16 +271,46 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="crm_local" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="crm_local" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="home" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope">
+        <subPane subId="Problems" />
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -363,6 +319,7 @@
     <property name="FullScreen" value="false" />
     <property name="LayoutCode.rearrangeEntriesPHP" value="false" />
     <property name="SearchEverywhereHistoryKey" value="get_pic&#9;null&#9;null&#10;removeTi&#9;null&#9;null&#10;removeAc&#9;null&#9;null" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../cmsms" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -404,7 +361,7 @@
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="SvnConfiguration">
-    <configuration />
+    <configuration>C:\Users\Administrator PC\AppData\Roaming\Subversion</configuration>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -413,13 +370,20 @@
       <option name="number" value="Default" />
       <updated>1432538471911</updated>
     </task>
+    <task id="LOCAL-00001" summary="xong">
+      <created>1441415981735</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1441415981735</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="886" extended-state="6" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1616" height="886" extended-state="7" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2114396" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24807198" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -430,6 +394,7 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -451,6 +416,10 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="xong" />
+    <option name="LAST_COMMIT_MESSAGE" value="xong" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <option name="time" value="1" />
@@ -458,69 +427,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/admin/resources/security/security.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="32" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
-          <folding>
-            <marker date="1439914661436" expanded="true" signature="1525:1596" placeholder="SELECT * FRO..configurations..." />
-            <marker date="1439914661436" expanded="true" signature="1632:1816" placeholder="SELECT * FRO..configurations..." />
-            <marker date="1439914661436" expanded="true" signature="2004:2241" placeholder="SELECT * FRO..desks..." />
-            <marker date="1439914661436" expanded="true" signature="2415:2597" placeholder="SELECT * FRO..sections..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/install.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1439894001297" expanded="true" signature="684:909" placeholder="INSERT INTO ..." />
-            <marker date="1439894001297" expanded="true" signature="3165:3184" placeholder="INSERT INTO ..." />
-            <marker date="1439894001297" expanded="true" signature="3931:4007" placeholder="INSERT INTO ..." />
-            <marker date="1439894001297" expanded="true" signature="5491:5588" placeholder="INSERT INTO ..." />
-            <marker date="1439894001297" expanded="true" signature="6337:6407" placeholder="INSERT INTO ..." />
-            <marker date="1439894001297" expanded="true" signature="7130:7350" placeholder="INSERT INTO ..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/resources/js/crm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/config_db.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/resources/templates/admin_index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="202" column="20" selection-start-line="202" selection-start-column="20" selection-end-line="202" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/resources/js/home.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/resources/js/crm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="324" column="8" selection-start-line="324" selection-start-column="8" selection-end-line="324" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -654,13 +560,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4469914">
-          <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/intro.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -717,20 +616,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/core/home/ajax.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3328467">
-          <caret line="480" column="13" selection-start-line="480" selection-start-column="13" selection-end-line="480" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/resources/security/functions_1.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8567335">
-          <caret line="23" column="31" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/resources/css/home.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2874828">
@@ -759,13 +644,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/resources/templates/admin_index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6325167">
-          <caret line="253" column="20" selection-start-line="253" selection-start-column="20" selection-end-line="253" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/home/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -780,49 +658,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/admin/resources/templates/admin_index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3982808">
+          <caret line="247" column="23" selection-start-line="247" selection-start-column="23" selection-end-line="247" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/home/config.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.260745">
           <caret line="7" column="44" selection-start-line="7" selection-start-column="44" selection-end-line="7" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/synchronize.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="31" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
-          <folding>
-            <marker date="1439884193515" expanded="true" signature="1075:1128" placeholder="INSERT INTO ..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/resources/security/security.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="32" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
-          <folding>
-            <marker date="1439914661436" expanded="true" signature="1525:1596" placeholder="SELECT * FRO..configurations..." />
-            <marker date="1439914661436" expanded="true" signature="1632:1816" placeholder="SELECT * FRO..configurations..." />
-            <marker date="1439914661436" expanded="true" signature="2004:2241" placeholder="SELECT * FRO..desks..." />
-            <marker date="1439914661436" expanded="true" signature="2415:2597" placeholder="SELECT * FRO..sections..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/install.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="230" column="0" selection-start-line="230" selection-start-column="0" selection-end-line="230" selection-end-column="0" />
-          <folding>
-            <marker date="1439894001297" expanded="true" signature="684:909" placeholder="INSERT INTO ..." />
-            <marker date="1439894001297" expanded="true" signature="3165:3184" placeholder="INSERT INTO ..." />
-            <marker date="1439894001297" expanded="true" signature="3931:4007" placeholder="INSERT INTO ..." />
-            <marker date="1439894001297" expanded="true" signature="5491:5588" placeholder="INSERT INTO ..." />
-            <marker date="1439894001297" expanded="true" signature="6337:6407" placeholder="INSERT INTO ..." />
-            <marker date="1439894001297" expanded="true" signature="7130:7350" placeholder="INSERT INTO ..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -830,7 +676,222 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.17881706">
           <caret line="5" column="33" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/core/home/script_new.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.9685714">
+          <caret line="16" column="52" selection-start-line="16" selection-start-column="52" selection-end-line="16" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/core/products/script_import.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.14326647">
+          <caret line="235" column="0" selection-start-line="235" selection-start-column="0" selection-end-line="235" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/resources/security/inc_config_security.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.28301886">
+          <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/install.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="11" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
+          <folding>
+            <marker date="1439950955238" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1439950955238" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1439950955238" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1439950955238" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1439950955238" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1439950955238" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/resources/security/inc_constant.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.037249282">
+          <caret line="1" column="38" selection-start-line="1" selection-start-column="38" selection-end-line="1" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/resources/security/functions_local.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.11174785">
+          <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
+          <folding>
+            <marker date="1441419730658" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1441419730658" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1441419730658" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..synchronize_trigger..." />
+            <marker date="1441419730658" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..server_config..." />
+            <marker date="1441419730658" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..system_update_log..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/prepare_install.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.40974212">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/core/products/js/import.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.32093665">
+          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/resources/security/security.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.655172">
+          <caret line="40" column="14" selection-start-line="40" selection-start-column="14" selection-end-line="40" selection-end-column="14" />
+          <folding>
+            <marker date="1441420304068" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..configurations..." />
+            <marker date="1441420304068" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..configurations..." />
+            <marker date="1441420304068" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..desks..." />
+            <marker date="1441420304068" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..sections..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7087518">
+          <caret line="34" column="53" selection-start-line="34" selection-start-column="44" selection-end-line="34" selection-end-column="53" />
+          <folding>
+            <marker date="1438745862275" expanded="true" signature="-1:-1" placeholder="SELECT adu_g..admin_users..." />
+            <marker date="1438745862275" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..configurations..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/resources/security/functions_1.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0028694405">
+          <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+          <folding>
+            <marker date="1441425760866" expanded="true" signature="-1:-1" placeholder="SELECT &quot;5529..kdims..." />
+            <marker date="1441425760866" expanded="true" signature="-1:-1" placeholder="SELECT &quot;5529..kdims..." />
+            <marker date="1441425760866" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1441425760866" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/core/home/ajax.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.482066">
+          <caret line="81" column="29" selection-start-line="81" selection-start-column="29" selection-end-line="81" selection-end-column="29" />
+          <folding>
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..configurations..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..current_desk..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..customers..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..users..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..current_desk..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="SELECT count..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..menus..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..units..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..current_desk..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..current_desk..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..menus..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="UPDATE cdm_n..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..current_desk..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="SELECT count..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..current_desk_menu..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..units..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="SELECT *,uni..current_desk_menu..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..menus..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="UPDATE curre..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="SELECT men_e..menus..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="SELECT men_e..menus..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="UPDATE curre..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="SELECT cus_i..customers..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="UPDATE curre..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="UPDATE curre..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="UPDATE curre..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="UPDATE curre..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="UPDATE curre..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="UPDATE curre..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="UPDATE curre..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="UPDATE curre..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="SELECT tri_s..triggers..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="SELECT count..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..current_desk..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="SELECT men_e..menus..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="UPDATE trigg..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..menu_products..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="UPDATE produ..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..customers..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="UPDATE trigg..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="UPDATE curre..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="UPDATE curre..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..current_desk_menu..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="UPDATE cdm_n..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="SELECT count..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="SELECT count..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="SELECT ${$to..current_desk_menu..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="UPDATE curre..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1441423675124" expanded="true" signature="-1:-1" placeholder="UPDATE curre..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/test.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.77618366">
+          <caret line="28" column="3" selection-start-line="28" selection-start-column="3" selection-end-line="28" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/log/sync/2015/9/5/6.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.035812672">
+          <caret line="1" column="21" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/synchronize.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.77618366">
+          <caret line="27" column="76" selection-start-line="27" selection-start-column="76" selection-end-line="27" selection-end-column="76" />
+          <folding>
+            <marker date="1441425822237" expanded="true" signature="1093:1146" placeholder="INSERT INTO ..." />
+          </folding>
         </state>
       </provider>
     </entry>

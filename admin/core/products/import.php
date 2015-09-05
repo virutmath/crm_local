@@ -27,11 +27,12 @@ $left_column .= '
 
 //Danh sách mặt hàng
 $listing_product = '';
+$list_product_array = array();
 $list = new dataGrid('pro_id', $listing_product_size, '#mindow-listing-product');
 $list->add('pro_name', 'Tên mặt hàng', 'string', 1, 0);
 $list->add('', 'ĐVT');
 $list->add('', 'Giá TB');
-$list->addSearch('', 'pro_cat_id', 'array', $pro_cat_id, getValue('pro_cat_id'));
+$list->addSearch('', 'pro_cat_id', 'array', $pro_cat_id, getValue('pro_cat_id'),true);
 $sql_search = '';
 $search_cat_id = getValue('pro_cat_id');
 if ($search_cat_id) {
@@ -60,34 +61,38 @@ while ($row = mysqli_fetch_assoc($db_query->result)) {
 }
 while ($row = mysqli_fetch_assoc($db_listing->result)) {
     $i++;
-    if(!$row['uni_id'] || !isset($array_unit[$row['uni_id']])) {
-        $array_unit[$row['uni_id']] = '';
+    if(!$row['pro_unit_id'] || !isset($array_unit[$row['pro_unit_id']])) {
+        $array_unit[$row['pro_unit_id']] = '';
     }
     $row['pro_code'] = format_codenumber($row['pro_id'], 6, PREFIX_PRODUCT_CODE);
+    $row['pro_unit'] = $array_unit[$row['pro_unit_id']];
     $row['pro_image'] = get_picture_path($row['pro_image']);
-    $listing_product .= $list->start_tr($i, $row['pro_id'], 'class="menu-normal record-item" onclick="mindowScript.activeProductList('.$row['pro_id'].')" ondblclick="mindowScript.addProduct(' . $row['pro_id'] . ')" data-record_id="' . $row['pro_id'] . '" data-pro_name="' . $row['pro_name'] . '" data-pro_code="' . $row['pro_code'] . '" data-pro_unit="' . $array_unit[$row['pro_unit_id']] . '" data-pro_image="' . $row['pro_image'] . '"');
+    $listing_product .= $list->start_tr($i, $row['pro_id'], 'class="menu-normal record-item" onclick="ImportScript.activeProductListing('.$row['pro_id'].')" ondblclick="ImportScript.addProduct(' . $row['pro_id'] . ')" data-record_id="' . $row['pro_id'] . '" data-pro_name="' . $row['pro_name'] . '" data-pro_code="' . $row['pro_code'] . '" data-pro_unit="' . $array_unit[$row['pro_unit_id']] . '" data-pro_image="' . $row['pro_image'] . '"');
     /* code something */
     $listing_product .= '<td class="text-left" style="width : 50%">' . $row['pro_name'] . '</td>';
-    $listing_product .= '<td class="center">' . $array_unit[$row['pro_unit_id']] . '</td>';
+    $listing_product .= '<td class="center">' . $row['pro_unit'] . '</td>';
     $listing_product .= '<td class="text-right"></td>';
     $listing_product .= $list->end_tr();
+    $list_product_array[] = $row;
 }
 $listing_product .= $list->showFooter();
-
+$listing_product .= '<script>var ImportScript = ImportScript || {};ImportScript.productListData = '.json_encode($list_product_array).';</script>';
 $left_column .= $listing_product;
 $left_column .= '</div>';
 
 if($isAjaxRequest) {
-    $action = $_REQUEST['action'];
-    $ajax_container = $_REQUEST['container'];
+    $action = isset($_REQUEST['action']) ? $_REQUEST['action'] : '';
+    $ajax_container = isset($_REQUEST['container']) ? $_REQUEST['container'] : '';
     switch($action) {
         case 'pagingAjax' :
             if($ajax_container == '#mindow-listing-product') {
                 echo $listing_product;
+                echo '<script>ImportScript.generateProductList();</script>';
             }
             break;
         case 'searchAjax':
             echo $listing_product;
+            echo '<script>ImportScript.generateProductList();</script>';
             break;
     }
     die();
@@ -156,20 +161,7 @@ $right_column .=
 </div>
 <div id="listing-import" class="col-xs-12 row">
     <div class="table-listing-bound">
-        <table class="table table-bordered table-hover table-listing">
-            <thead>
-                <tr>
-                    <th width="40">STT</th>
-                    <th width="100">Mã hàng</th>
-                    <th>Tên hàng</th>
-                    <th width="40">ĐVT</th>
-                    <th width="40">SL</th>
-                    <th width="100">Giá nhập</th>
-                    <th width="100">Thành tiền</th>
-                </tr>
-            </thead>
-            <tbody></tbody>
-        </table>
+
     </div>
 </div>';
 
@@ -179,19 +171,19 @@ $footer_control = '
         <div class="row">
             <div class="row-title pull-left">Mã hàng</div>
             <div class="row-control pull-left">
-                <input type="text" id="product-id" disabled/>
+                <input type="text" id="product-id" disabled class="text-right"/>
             </div>
         </div>
         <div class="row">
             <div class="row-title pull-left">Số lượng</div>
             <div class="row-control pull-left">
-                <input type="text" id="product-number"/>
+                <input type="text" id="product-number" class="text-right"/>
             </div>
         </div>
         <div class="row">
             <div class="row-title pull-left">Giá nhập</div>
             <div class="row-control pull-left">
-                <input type="text" id="product-price"/>
+                <input type="text" id="product-price" class="text-right"/>
             </div>
         </div>
         <div class="row">
@@ -216,17 +208,21 @@ $footer_control = '
         <div class="row">
             <div class="col-xs-4">
                 <label>
-                    <input type="checkbox" class="pull-left" id="check-debit"/>
+                    <input type="checkbox" class="pull-left" id="check-debit" onclick="ImportScript.setDebit()"/>
                     Ghi nợ
                 </label>
             </div>
             <div class="col-xs-8">
                 <label>
-                    <input type="radio" class="pull-left" checked name="pay-type" value="' . PAY_TYPE_CASH . '"/>
+                    <input type="radio" class="pull-left" checked
+                    onclick="ImportScript.setPayType('.PAY_TYPE_CASH.')"
+                    name="pay-type" value="' . PAY_TYPE_CASH . '"/>
                     Tiền mặt
                 </label>
                 <label>
-                    <input type="radio" class="pull-left" name="pay-type" value="' . PAY_TYPE_CARD . '"/>
+                    <input type="radio" class="pull-left"
+                    onclick="ImportScript.setPayType('.PAY_TYPE_CARD.')"
+                    name="pay-type" value="' . PAY_TYPE_CARD . '"/>
                     Thẻ
                 </label>
             </div>
@@ -265,11 +261,12 @@ $footer_button = '
     </label>
 </div>
 <div class="col-xs-8">
-    <label class="control-btn pull-right" onclick="mindowScript.billSubmit()">
+    <label class="control-btn pull-right" onclick="ImportScript.billSubmit()">
         <i class="fa fa-save"></i>
         Lưu hóa đơn
     </label>
 </div>';
+
 
 $rainTpl = new RainTPL();
 add_more_css('custom_import.css',$load_header);
@@ -277,7 +274,5 @@ $rainTpl->assign('load_header', $load_header);
 $rainTpl->assign('left_column', $left_column);
 $rainTpl->assign('right_column', $right_column);
 $rainTpl->assign('footer_control', $footer_button);
-$custom_script = file_get_contents('script_import.html');
-$rainTpl->assign('custom_script', $custom_script);
 
-$rainTpl->draw('mindow_iframe_2column');
+$rainTpl->draw('v2/product/import');

@@ -77,11 +77,23 @@ class HomeAjax extends AjaxCommon
         }
         check_desk_exist($desk_id);
         //xóa bàn hiện tại
-        $db_query = new db_query('DELETE FROM current_desk WHERE cud_desk_id = ' . $desk_id);
+        $db_query = new db_execute('DELETE FROM current_desk WHERE cud_desk_id = ' . $desk_id);
         unset($db_query);
         // xoa thuc don trong ban
-        $deleteDeskMenu = new db_query('DELETE FROM current_desk_menu WHERE cdm_desk_id = ' . $desk_id);
+        $deleteDeskMenu = new db_execute('DELETE FROM current_desk_menu WHERE cdm_desk_id = ' . $desk_id);
         unset($deleteDeskMenu);
+        $this->add(array('success' => 1));
+    }
+
+    public function deleteMenu()
+    {
+        $menu_id = getValue('menu_id', 'int', 'POST', 0);
+        if (!$menu_id) {
+            return;
+        }
+        // xoa thuc don trong ban
+        $deleteMenu = new db_query('DELETE FROM current_desk_menu WHERE cdm_menu_id = ' . $menu_id);
+        unset($deleteMenu);
         $this->add(array('success' => 1));
     }
 
@@ -867,8 +879,9 @@ class HomeAjax extends AjaxCommon
             //id thu ngân - người lập hóa đơn
             $bii_admin_id = $admin_id;
 
-            //loại thanh toán - tiền mặt hay thẻ. Tạm thời để tiền mặt
-            $bii_type = PAY_TYPE_CASH;
+            //loại thanh toán - tiền mặt hay thẻ.
+            $bii_type = getValue('payType','int','POST',PAY_TYPE_CASH);
+            $bii_type = $bii_type == PAY_TYPE_CASH ? PAY_TYPE_CASH : PAY_TYPE_CARD;
             //phụ phí
             $bii_extra_fee = $desk_detail['cud_extra_fee'];
             //thue VAT

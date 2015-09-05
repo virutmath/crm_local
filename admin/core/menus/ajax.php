@@ -343,7 +343,7 @@ class MenuAjax extends AjaxCommon {
         $i = 0;
         foreach($array_row as $row){
             $i++;
-            $html .= $this->list->start_tr($i,'product_'.$row['pro_id'],'class="'.$class_context_menu.' menu-product-item" onclick="active_menu_product('.$row['pro_id'].')" data-record_id="'.$row['pro_id'].'"');
+            $html .= $this->list->start_tr($i,'product_'.$row['pro_id'],'class="'.$class_context_menu.' menu-product-item" onclick="active_menu_product('.$row['pro_id'].')" data-record_id="'.$row['pro_id'].'" data-menu_id = "'.$record_id.'"');
             $html .= '<td>'.$row['pro_name'].'</td>';
             $html .= '<td>'.$row['mep_quantity'].'</td>';
             $html .= '<td>'.$row['uni_name'].'</td>';
@@ -472,6 +472,37 @@ class MenuAjax extends AjaxCommon {
         //close modal
         $this->closeModal('edit_menu_product');
     }
+    // delete cong thuc che bien
+    function deleteMenuProduct()
+    {
+        checkPermission('trash');
+        $array_return = array();
+        $mep_pro_id = getValue('record_id','int','POST',0);
+        $men_id = getValue('men_id','int','POST',0);
+        if ( !$mep_pro_id || !$men_id )
+        {
+            $array_return['success'] = 0;
+            echo json_encode($array_return);
+            exit();
+        }
+        $db_mep_pro = new db_query('SELECT * FROM menu_products 
+                                    WHERE mep_menu_id = ' . $men_id . ' 
+                                    AND mep_product_id = ' . $mep_pro_id );
+        $data_mep_pro = mysqli_fetch_assoc($db_mep_pro->result); unset($db_mep_pro);
+        if ( $data_mep_pro )
+        {
+            $db_delete = new db_execute('DELETE FROM menu_products WHERE 1 
+                                         AND mep_menu_id = ' . $men_id . ' 
+                                         AND mep_product_id = ' . $mep_pro_id); 
+            unset($db_delete);
+            $array_return['success'] = 1; 
+        }
+        else{
+            exit();
+        }
+        echo json_encode($array_return);
+    }
+    
 }
 // khai bao cac bien global
 $array_unit = array();

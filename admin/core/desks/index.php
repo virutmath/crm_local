@@ -117,7 +117,7 @@ ob_start();
         <?
         }?>
         <li data-section="trash">
-            <label class="section_name"><b><i class="fa fa-trash fa-fw"></i> Thùng rác (<?=count_item_trash('desks',$configuration['con_default_agency'])?>)</b></label>
+            <label class="section_name"><b><i class="fa fa-trash fa-fw"></i> Thùng rác (<?=count_item_trash('desks','agency_'.$configuration['con_default_agency'])?>)</b></label>
         </li>
     </ul>
 <?

@@ -1,4 +1,5 @@
 <?
+define('DEVELOPER_ENVIRONMENT',false);
 define('WEBSITE_NAME','CRM Restaurant');
 define('ACTION_LOG_DELETE','delete');
 define('ACTION_LOG_TRASH','trash');

@@ -133,7 +133,7 @@ function validForm(obj){
         }
     });
     if(submit_available == true){
-        document.form_name.submit();
+        document[form_name].submit();
     }
 }
 function Grid(){

@@ -1,13 +1,12 @@
 <?php
 session_start();
 ob_start();
-define('DEVELOPER_ENVIRONMENT',false);
+require_once 'inc_constant.php';
 if(DEVELOPER_ENVIRONMENT) {
     error_reporting(0);
 }else{
     error_reporting(0);
 }
-require_once 'inc_constant.php';
 require_once('../../../classes/database.php');
 require_once('../../../classes/generate_form.php');
 require_once("../../../classes/simple_html_dom.php");

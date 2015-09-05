@@ -335,7 +335,7 @@ if(trim($position)      == 'right' || trim($position) == 'bill_out'){
         $store              = $data_sup['cat_name'];
         $nhacc              = $data_sup['sup_name'];
         if($data_sup['sup_image']    == ''){
-            $avata              = '<i class="fa fa-camera-retro fa-2x ava-cus"></i><p>Không có hình</p>';
+            $avata              = '<span class="ava-cus"><i class="fa fa-camera-retro fa-2x"></i></span><p>Không có hình</p>';
         }else{
             $avata              = '<img src="'.get_picture_path($data_sup['sup_image']).'"/>';
         }
@@ -353,7 +353,7 @@ if(trim($position)      == 'right' || trim($position) == 'bill_out'){
         $data_nhacc     = mysqli_fetch_assoc($db_nhacc->result);unset($db_nhacc);
         $nhacc          = $data_nhacc['sup_name'];
         if($data_nhacc['sup_image']    == ''){
-            $avata              = '<i class="fa fa-camera-retro fa-2x ava-cus"></i><p>Không có hình</p>';
+            $avata              = '<span class="ava-cus"><i class="fa fa-camera-retro fa-2x"></i></span><p>Không có hình</p>';
         }else{
             $avata              = '<img src="'.get_picture_path($data_nhacc['sup_image']).'"/>';
         }

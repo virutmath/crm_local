@@ -29,10 +29,10 @@
 .box-content-inf-bill-left p {margin: 10px 0 0 0;}
 .box-content-inf-bill-right {float: right; width: 45%; padding-left: 10px; padding-top:10px; box-sizing: border-box;}
 .box-content-inf-bill-right p {text-align: center;margin:0;}
-.box-content-inf-bill-right .box-ava-cus {padding:20px 0;}
 .brand-name {font-weight: bold; margin: 10px 0 0 0 !important;}
 .print-close span {cursor: pointer;}
 .clear {clear: both;}
+.ava-cus {padding: 20px 60px; display: inline-block;border: 1px solid;}
 
 
 

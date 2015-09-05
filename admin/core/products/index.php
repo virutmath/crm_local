@@ -122,7 +122,7 @@ $left_column_title = 'Nhóm mặt hàng';
 $right_column = '';
 $right_column_title = 'Danh sách mặt hàng';
 $context_menu = '';
-
+global $configuration;
 
 $add_btn = getPermissionValue('add');
 $edit_btn = getPermissionValue('edit');
@@ -147,26 +147,26 @@ ob_start();
             <?
             //nếu cat_parent_id = 0 thì là category cha
             if ($cat['cat_parent_id'] == 0) { ?>
-                <li cat-parent="<?=$cat['cat_id']?>" data-cat="<?=$cat['cat_id'] ?>" class="list-vertical-item">
+                <li data-cat="<?=$cat['cat_id'] ?>" class="list-vertical-item">
                     <label class="cat_name"><i class="fa fa-minus-square-o collapse-li"></i> <?= $cat['cat_name'] ?></label>
+                    <ul>
+                        <?
+                        //foreach lại 1 lần nữa trong mảng categoy để lấy ra các category con của cat cha hiện tại
+                        foreach ($list_category as $cat_child) {
+                            //đếm số bản ghi trong mỗi cat
+                            $db_count = new db_count('SELECT count(*) as count FROM ' . $bg_table . ' WHERE ' . $cat_field . ' = ' . $cat_child['cat_id']);
+                            $cat_count = $db_count->total;
+                            unset($db_count);
+                            if($cat_child['cat_parent_id']== $cat['cat_id']){
+                                ?>
+                                <li data-cat="<?= $cat_child['cat_id'] ?>" data-parent="<?=$cat_child['cat_parent_id']?>" class="list-vertical-item">
+                                    <label class="cat_name cat_sub"><i class="fa fa-caret-right"></i> <?= $cat_child['cat_name'] ?> (<?= $cat_count ?>)</label>
+                                </li>
+                            <?}
+                        }?>
+                    </ul>
                 </li>
-            <? }
-
-            ?>
-            <?
-            //foreach lại 1 lần nữa trong mảng categoy để lấy ra các category con của cat cha hiện tại
-            foreach ($list_category as $cat_child) {
-                //đếm số bản ghi trong mỗi cat
-                $db_count = new db_count('SELECT count(*) as count FROM ' . $bg_table . ' WHERE ' . $cat_field . ' = ' . $cat_child['cat_id']);
-                $cat_count = $db_count->total;
-                unset($db_count);
-                if($cat_child['cat_parent_id']== $cat['cat_id']){
-                ?>
-                    <li data-cat="<?= $cat_child['cat_id'] ?>" data-parent="<?=$cat_child['cat_parent_id']?>" class="list-vertical-item">
-                        <label class="cat_name cat_sub"><i class="fa fa-caret-right"></i> <?= $cat_child['cat_name'] ?> (<?= $cat_count ?>)</label>
-                    </li>
-                <?}
-            }?>
+            <? }?>
         <?
         } ?>
         <li data-cat="trash">

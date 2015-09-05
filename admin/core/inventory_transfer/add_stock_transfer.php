@@ -117,7 +117,7 @@ while ($row = mysqli_fetch_assoc($db_agen->result)) {
 $right_control = '
 <div class="col-xs-4">
     <div class="row">
-        <div class="row-title" style="width:55px"> Nhân viên </div>
+        <div class="row-title" style="width:60px"> Nhân viên </div>
         <div class="row-control">
             <input type="text" name="staff_name" class="form-control" id="staff_name" style="width:140px">
             <input type="hidden" name="staff_id" id="staff_id">

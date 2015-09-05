@@ -27,7 +27,7 @@ $left_column .= '
             <li><a href="#" data-cat="report_transfer"> <i class="fa fa-file-text-o"></i> Báo xuất nhập tồn kho hàng</a></li>
             <li><a href="#" data-cat="report_stock"> <i class="fa fa-file-text-o"></i> Báo cáo giá trị tồn kho</a></li>
             <li><a href="#" data-cat="report_bill_detail"> <i class="fa fa-file-text-o"></i> Báo cáo chi tiết bán hàng</a></li>
-            <li><a href="#"> <i class="fa fa-file-text-o"></i> Báo cáo thu chi theo phiên đăng nhập</a></li>
+            <li><a href="#" data-cat="report_bill_admin"> <i class="fa fa-file-text-o"></i> Báo cáo thu chi theo phiên đăng nhập</a></li>
             <br/>
             <li><a href="#" data-cat="revenue_bill"> <i class="fa fa-table"></i> Thống kê doanh thu theo hóa đơn</a></li>
             <li><a href="#" data-cat="revenue_fund"> <i class="fa fa-table"></i> Thống kê doanh thu theo quỹ tiền</a></li>

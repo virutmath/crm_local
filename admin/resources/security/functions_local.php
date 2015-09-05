@@ -35,7 +35,7 @@ function truncate_database() {
     $list_table = new db_query('SHOW TABLES');
     while($row = mysqli_fetch_assoc($list_table->result)) {
         foreach($row as $k=>$tableName) {
-            $db = new db_execute('TRUNCATE TABLE '.$tableName);
+            $db = new db_execute('TRUNCATE TABLE '.$tableName,1,0);
             unset($db);
         }
     }

@@ -265,16 +265,22 @@
     //delete right
     btn_trash_right.unbind('click').click(function () {
         if($(this).hasClass('deactivate')) return false;
-        var record_id = $('.record-item.active').data('record_id');
+        var record_id = $('#menu_product_listing .menu-product-item.active').data('record_id');
+        var men_id = $('#menu_product_listing .menu-product-item.active').data('menu_id');
         if(confirm('Bạn muốn xóa bản ghi này?')){
             $.ajax({
                 type : 'post',
                 url : 'ajax.php',
-                data : {action:ajax_url.trash_right,record_id : record_id},
+                data : 
+                {
+                    action:ajax_url.trash_right,
+                    record_id : record_id,
+                    men_id : men_id
+                    },
                 dataType : 'json',
                 success : function(resp){
                     if(resp.success){
-                        $('#record_'+record_id).remove();
+                        $('#record_product_'+record_id).remove();
                         //deactivate các nút bên phải
                         deactivate_control('right');
                     }
@@ -321,10 +327,15 @@
             $(this).removeClass('fa-plus-square-o').addClass('fa-minus-square-o');
         else
             $(this).removeClass('fa-minus-square-o').addClass('fa-plus-square-o');
-        $('.list-vertical-item[data-parent="' + $cat_parent + '"]').toggle();
+        $('.list-vertical-item[data-parent="' + $cat_parent + '"]').toggle('medium');
 
     });
-
+    //left column scroll
+    $('.left-column .section-content').enscroll({
+        showOnHover: true,
+        minScrollbarLength: 28,
+        addPaddingToPane : false
+    });
     //table scroll
     sectionContent.enscroll({
         showOnHover: true,

@@ -502,7 +502,7 @@ class ProductAjax extends AjaxCommon
         //Trạng thái hóa đơn - ghi nợ hay đã thanh toán đủ
         $is_debit = getValue('is_debit','int','POST',0);
         $money_debit = getValue('money_debit','int','POST',0);
-        $date_debit = getValue('date_debit','str','POST',0);
+        $date_debit = getValue('date_debit','str','POST',0,3);
         $date_debit_convert = convertDateTime($date_debit);
         if($is_debit) {
             if($date_debit_convert <= time()) {
@@ -550,6 +550,7 @@ class ProductAjax extends AjaxCommon
                                              bio_total_money,
                                              bio_supplier_id,
                                              bio_note,
+                                             bio_type,
                                              bio_admin_id,
                                              bio_money_debit,
                                              bio_date_debit)
@@ -560,6 +561,7 @@ class ProductAjax extends AjaxCommon
                        '.$bio_total_money.',
                        '.$bio_supplier_id.',
                        "'.$bio_note.'",
+                       '.$pay_type.',
                        '.$bio_admin_id.',
                        '.$bio_money_debit.',
                        '.$bio_date_debit.'

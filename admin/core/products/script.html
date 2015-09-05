@@ -9,7 +9,7 @@
         recoveryRow: 'recoveryRecord',
         terminalDelete: 'terminalDeleteRecord',
         listRecord: 'listRecord'
-    }
+    };
     var btn_refresh = $('.modal-control .control-btn-refresh');
     var btn_add_left = $('.left-column .control-btn-add');
     var btn_add_right = $('.right-column .control-btn-add');
@@ -29,8 +29,7 @@
     var sectionContent = right_column_wrapper.find('.table-listing-bound');
     var offsetTopContent = sectionContent.offset().top;
     sectionContent.height(wrapperHeight - offsetTopContent - 10 - 28);
-    var offsetLeftContent = left_column_wrapper.offset().top;
-    left_column_wrapper.height(wrapperHeight - offsetLeftContent - 13 - 28);
+    left_column_wrapper.height(wrapperHeight - offsetTopContent - 13 - 28);
     right_column_wrapper.height(wrapperHeight - offsetTopContent - 10 - 28);
 
     function deactivate_control(type) {
@@ -222,7 +221,7 @@
             $(this).removeClass('fa-plus-square-o').addClass('fa-minus-square-o');
         else
             $(this).removeClass('fa-minus-square-o').addClass('fa-plus-square-o');
-        $('.list-vertical-item[data-parent="' + $cat_parent + '"]').toggle();
+        $('.list-vertical-item[data-parent="' + $cat_parent + '"]').toggle('medium');
 
     });
 
@@ -271,6 +270,7 @@
     function communicateParentWindow(action, data) {
         switch (action) {
             case 'closeImportProduct' :
+                $('.mwindow-close').trigger('click');
 
                 break;
         }

@@ -159,6 +159,7 @@
                         btn_trash_right.addClass('deactivate');
                         //remove user khỏi bảng
                         $('tr#record_'+user_id).remove();
+                        window.location.reload();
                     }else{
                         alert(resp.error);
                     }
@@ -189,6 +190,7 @@
                 success : function(resp){
                     if(resp.success){
                         $('#tr_'+user_id).remove();
+                        window.location.reload();
                     }else{
                         alert(resp.error);
                     }

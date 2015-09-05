@@ -182,9 +182,10 @@ $rainTpl->assign('load_header', $load_header);
 $rainTpl->assign('module_name', $module_name);
 $rainTpl->assign('error_msg', print_error_msg($bg_errorMsg));
 $rainTpl->assign('permission_print_order',getPermissionValue('IN_CHE_BIEN'));
+$rainTpl->assign('pay_type_cash',PAY_TYPE_CASH);
+$rainTpl->assign('pay_type_card',PAY_TYPE_CARD);
 $rainTpl->assign('listing_menu', $listing_menu);
 $rainTpl->assign('restaurant_info', $restaurant_info);
 $rainTpl->assign('list_desk', $list_desk);
 
-$rainTpl->assign('custom_script', file_get_contents($custom_script_file));
 $rainTpl->draw('/v2/home/home');

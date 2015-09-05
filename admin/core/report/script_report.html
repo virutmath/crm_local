@@ -4,7 +4,6 @@
     var dataPoint_chi = [];
     if ( title.all )
     {
-        console.log(array_date_time);
         for ( var i in array_date_time )
         {
             var tmp_thu = {
@@ -21,11 +20,11 @@
         // end for array_date_time
         var chartTC = new CanvasJS.Chart("chartContainer",
         {
-            theme: "theme2",
+            title:{
+                text: title.title
+            },
             animationEnabled: true,
             axisX: {
-                gridColor: "Silver",
-                tickColor: "silver",
                 valueFormatString: "DD/MM/YYYY"
             },
             toolTip:{
@@ -36,22 +35,17 @@
                 tickColor: "silver"
             },
             data: [{
-                type: "line",
+                type: "column",
                 xValueType: "dateTime",
                 showInLegend: true,
-                lineThickness: 3,
                 name: "Doanh Thu",
-                markerType: "square",
-                color: "#20B2AA",
                 dataPoints: dataPoint_thu
             },
             {
-                type: "line",
+                type: "column",
                 showInLegend: true,
                 xValueType: "dateTime",
                 name: "Chi Phí",
-                color: "#F08080",
-                lineThickness: 2,
                 dataPoints: dataPoint_chi
             }],
             legend:{

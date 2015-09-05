@@ -61,17 +61,29 @@ ob_start();
             <?
             //nếu cat_parent_id = 0 thì là category cha
             if ($cat['cat_parent_id'] == 0) { ?>
-                <li class="cat_parent list-vertical-item"  data-cat_parent="<?=$cat['cat_id'] ?>">
+                <li class="cat_parent list-vertical-item"  data-cat_parent="<?=$cat['cat_id'] ?>" data-cat="<?= $cat['cat_id'] ?>">
                     <i class="fa fa-minus-square-o collapse-li"></i>
                     <label>
                         <input type="checkbox" name="group_products" class="group_product" id="cat_parent_<?=$cat['cat_id']?>">
                         <span> <?= $cat['cat_name'] ?></span>
                     </label>
+                    <ul class="item_pro">
+                        <?
+                        // lấy ra những product thuộc các group_cat
+                        $db_products = new db_query('SELECT pro_id,pro_name,pro_cat_id FROM products WHERE pro_cat_id = '.$cat['cat_id'].'');
+                        while($row_product = mysqli_fetch_assoc($db_products->result)){?>
+                            <li class="product_item" data-cat_pro="<?=$cat['cat_id'] ?>" data-parent_pro="<?=$row_product['pro_cat_id']?>">
+                                <label>
+                                    <input type="checkbox" name="pro_item" class="group_product pro_item" value="<?=$row_product['pro_id']?>" id="item_product_<?=$row_product['pro_id']?>">
+                                    <span><?= $row_product['pro_name'] ?></span>
+                                </label>
+                            </li>
+                        <?}?>
+                    </ul>
                     <ul class="cat_child">
                         <?
                         //foreach lại 1 lần nữa trong mảng categoy để lấy ra các category con của cat cha hiện tại
                         foreach ($list_category as $cat_child) {
-
                             if($cat_child['cat_parent_id']== $cat['cat_id']){
                                 ?>
                                 <li class="cat_item list-vertical-item" data-cat="<?= $cat_child['cat_id'] ?>" data-parent="<?= $cat_child['cat_parent_id']?>">
