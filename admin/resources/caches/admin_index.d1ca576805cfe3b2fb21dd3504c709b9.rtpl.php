@@ -245,20 +245,6 @@
     $(window).resize(function () {
         //window.location.reload();
     });
-    synchronize_data();
-    isOnline(function () {
-        $('#AppOffline').hide();
-        $('#navigator-online').hide();
-        $('#overlay').hide().css({
-            background : 'transparent'
-        });
-    }, function () {
-        $('#AppOffline').show();
-        $('#overlay').show().css({
-            background : 'rgba(0, 0, 0, 0.3)'
-        });
-        $('#navigator-online').show();
-    });
 
     function closeNavigator() {
         $('#overlay').hide();

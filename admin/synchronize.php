@@ -24,5 +24,7 @@ $server_config = read_server_config();
 //bắn các câu query lên qua curl
 $curl = curl_get_content($server_config['synchronize_url'],array('queries'=>$array_query,'action'=>'syncLogQuery','username'=>$username,'password'=>$password));
 $response = json_decode($curl,1);
-$db_delete = new db_execute('TRUNCATE TABLE synchronize_trigger',1,false);
-$db_exe = new db_execute('INSERT INTO synchronize_trigger VALUES (' . time().')',1,false);
+if($response['success'] == 1) {
+    $db_delete = new db_execute('TRUNCATE TABLE synchronize_trigger',1,false);
+    $db_exe = new db_execute('INSERT INTO synchronize_trigger VALUES (' . time().')',1,false);
+}

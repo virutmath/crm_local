@@ -240,25 +240,15 @@
         <button onclick="closeNavigator()">Tiếp tục</button>
     </div>
 </div>
+<script src="resources/js/crm_local.js" type="text/javascript"></script>
+<script type="text/javascript">
+    synchronize_data();
+</script>
 <script type="text/javascript">
     var main_iframe = $('#main_frame');
     $(window).resize(function () {
         //window.location.reload();
     });
-    isOnline(function () {
-        $('#AppOffline').hide();
-        $('#navigator-online').hide();
-        $('#overlay').hide().css({
-            background : 'transparent'
-        });
-    }, function () {
-        $('#AppOffline').show();
-        $('#overlay').show().css({
-            background : 'rgba(0, 0, 0, 0.3)'
-        });
-        $('#navigator-online').show();
-    });
-
     function closeNavigator() {
         $('#overlay').hide();
         $('#navigator-online').hide();
