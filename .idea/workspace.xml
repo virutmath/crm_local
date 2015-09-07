@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e761213-30cd-4315-8c53-666a1a6f0c7d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/resources/js/crm_local.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/resources/caches/admin_index.d1ca576805cfe3b2fb21dd3504c709b9.rtpl.php" afterPath="$PROJECT_DIR$/admin/resources/caches/admin_index.d1ca576805cfe3b2fb21dd3504c709b9.rtpl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/resources/templates/admin_index.html" afterPath="$PROJECT_DIR$/admin/resources/templates/admin_index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/resources/js/crm.js" afterPath="$PROJECT_DIR$/admin/resources/js/crm.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/synchronize.php" afterPath="$PROJECT_DIR$/admin/synchronize.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="crm_local.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,24 +25,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="synchronize.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="synchronize.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/admin/synchronize.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.620689">
-              <caret line="18" column="41" selection-start-line="18" selection-start-column="41" selection-end-line="18" selection-end-column="41" />
+            <state vertical-scroll-proportion="0.66427547">
+              <caret line="37" column="6" selection-start-line="37" selection-start-column="6" selection-end-line="37" selection-end-column="6" />
               <folding>
-                <marker date="1441593760492" expanded="true" signature="1133:1186" placeholder="INSERT INTO ..." />
+                <marker date="1441596383368" expanded="true" signature="1295:1348" placeholder="INSERT INTO ..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="crm.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/resources/js/crm.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="285" column="0" selection-start-line="285" selection-start-column="0" selection-end-line="285" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -55,17 +41,7 @@
         <entry file="file://$PROJECT_DIR$/admin/resources/js/crm_local.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="admin_index.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/admin/resources/templates/admin_index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3667622">
-              <caret line="243" column="29" selection-start-line="243" selection-start-column="29" selection-end-line="243" selection-end-column="29" />
+              <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -116,10 +92,10 @@
         <option value="$PROJECT_DIR$/admin/core/home/ajax.php" />
         <option value="$PROJECT_DIR$/admin/test.php" />
         <option value="$PROJECT_DIR$/admin/resources/security/functions_1.php" />
-        <option value="$PROJECT_DIR$/admin/synchronize.php" />
         <option value="$PROJECT_DIR$/admin/resources/js/crm.js" />
         <option value="$PROJECT_DIR$/admin/resources/js/crm_local.js" />
         <option value="$PROJECT_DIR$/admin/resources/templates/admin_index.html" />
+        <option value="$PROJECT_DIR$/admin/synchronize.php" />
       </list>
     </option>
   </component>
@@ -137,7 +113,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1604" />
+    <option name="width" value="1616" />
     <option name="height" value="886" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -358,10 +334,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1604" height="886" extended-state="0" />
+    <frame x="-8" y="-8" width="1616" height="886" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22927462" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22750643" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -711,6 +687,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0028694405">
           <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -735,20 +712,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/synchronize.php">
+    <entry file="file://$PROJECT_DIR$/admin/resources/templates/admin_index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.620689">
-          <caret line="18" column="41" selection-start-line="18" selection-start-column="41" selection-end-line="18" selection-end-column="41" />
-          <folding>
-            <marker date="1441593760492" expanded="true" signature="1133:1186" placeholder="INSERT INTO ..." />
-          </folding>
+        <state vertical-scroll-proportion="0.3667622">
+          <caret line="243" column="29" selection-start-line="243" selection-start-column="29" selection-end-line="243" selection-end-column="29" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/resources/js/crm.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="285" column="0" selection-start-line="285" selection-start-column="0" selection-end-line="285" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.20632738">
+          <caret line="286" column="0" selection-start-line="286" selection-start-column="0" selection-end-line="286" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -756,16 +731,18 @@
     <entry file="file://$PROJECT_DIR$/admin/resources/js/crm_local.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/resources/templates/admin_index.html">
+    <entry file="file://$PROJECT_DIR$/admin/synchronize.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3667622">
-          <caret line="243" column="29" selection-start-line="243" selection-start-column="29" selection-end-line="243" selection-end-column="29" />
-          <folding />
+        <state vertical-scroll-proportion="0.66427547">
+          <caret line="37" column="6" selection-start-line="37" selection-start-column="6" selection-end-line="37" selection-end-column="6" />
+          <folding>
+            <marker date="1441596383368" expanded="true" signature="1295:1348" placeholder="INSERT INTO ..." />
+          </folding>
         </state>
       </provider>
     </entry>

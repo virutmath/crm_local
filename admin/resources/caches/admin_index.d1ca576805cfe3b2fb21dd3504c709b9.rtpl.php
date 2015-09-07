@@ -240,12 +240,15 @@
         <button onclick="closeNavigator()">Tiếp tục</button>
     </div>
 </div>
+<script src="resources/js/crm_local.js" type="text/javascript"></script>
+<script type="text/javascript">
+    synchronize_data();
+</script>
 <script type="text/javascript">
     var main_iframe = $('#main_frame');
     $(window).resize(function () {
         //window.location.reload();
     });
-
     function closeNavigator() {
         $('#overlay').hide();
         $('#navigator-online').hide();
