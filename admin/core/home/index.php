@@ -187,5 +187,6 @@ $rainTpl->assign('pay_type_card',PAY_TYPE_CARD);
 $rainTpl->assign('listing_menu', $listing_menu);
 $rainTpl->assign('restaurant_info', $restaurant_info);
 $rainTpl->assign('list_desk', $list_desk);
+$rainTpl->assign('list_menu_json',json_encode($list_category_menu));
 
 $rainTpl->draw('/v2/home/home');

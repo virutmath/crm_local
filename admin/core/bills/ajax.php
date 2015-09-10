@@ -8,34 +8,27 @@ class HomeAjax extends AjaxCommon
     function deleteBillIn(){
         checkPermission('trash');
         $billIn_id                      = getValue('billIn_id','int','POST',0);
-        $debit                          = getValue('debit','int','POST',0);
         $reason_other                   = 'Bán hàng';
-        // nếu hóa đơn chưa thanh toán công nợ thì k cho xóa
-        if(intval($debit) != 0){
-            $array_return['success']    = 0; 
-            echo json_encode($array_return);
-            exit();
-        }
-        $sql                            = new db_query('SELECT * FROM bill_in WHERE bii_id = ' . intval($billIn_id));
-        $debit                          = mysqli_fetch_assoc($sql->result);unset($sql);
-        if($debit['bii_money_debit']  != 0){
-            $array_return['success']    = 0; 
-            echo json_encode($array_return);
-            exit();
-        }
         // kiểm tra id hóa đơn có tồn tại không
         if(!$billIn_id) {
             $array_return['success']    = 0; 
             echo json_encode($array_return);
             exit();
         }
-        $db_count                       = new db_count('SELECT count(*) AS count FROM bill_in WHERE bii_id = ' . intval($billIn_id));
-        if ($db_count->total            == 0) {
+        // nếu hóa đơn chưa thanh toán công nợ thì k cho xóa
+        $sql                            = new db_query('SELECT * FROM bill_in WHERE bii_id = ' . intval($billIn_id));
+        $debit                          = mysqli_fetch_assoc($sql->result);unset($sql);
+        if(!$debit){
             $array_return['success']    = 0; 
             echo json_encode($array_return);
             exit();
         }
-        
+        if($debit['bii_money_debit']  != 0){
+            $array_return['success']    = 0; 
+            echo json_encode($array_return);
+            exit();
+        }
+        //
         $arr_fin_id = array();
         // xóa phiếu thu trong bảng financies
         $delete_financies               = new db_query('SELECT * FROM financial 
@@ -84,8 +77,6 @@ class HomeAjax extends AjaxCommon
             $data_bill_in['arr_fin_id'] = $array_fin_id;
             // thực hiện chuyển hóa đơn vào thùng rác
             move2trash('bii_id',$billIn_id,'bill_in',$data_bill_in);
-            //log action
-            log_action(ACTION_LOG_TRASH, 'Xóa hóa đơn bán hàng ' . $billIn_id . ' bảng bill_in và xóa chi tiết hóa đơn bán ' . $billIn_id . ' bảng bill_in_detail');
             $array_return               = array('success'=>1);
         }else{
             exit();
@@ -96,29 +87,18 @@ class HomeAjax extends AjaxCommon
     function deleteBillOut(){
         checkPermission('trash');
         $billOut_id                     = getValue('billOut_id','int','POST',0);
-        $debit                          = getValue('debit','int','POST',0);
         $reason_other                   = 'Nhập hàng';
-        // nếu hóa đơn chưa thanh toán công nợ thì k cho xóa
-        if(intval($debit) != 0){
-            $array_return['success']    = 0; 
-            echo json_encode($array_return);
-            exit();
-        }
+        // kiem tra hoa don co ton tai k
+        // nếu hóa đơn ton tai nhung chưa thanh toán công nợ thì k cho xóa
         $sql                            = new db_query('SELECT * FROM bill_out WHERE bio_id = ' . intval($billOut_id));
         $debit                          = mysqli_fetch_assoc($sql->result);unset($sql);
+        if(!$debit) {
+            $array_return['success']    = 0;
+            echo json_encode($array_return);
+            exit();
+        }
         if($debit['bio_money_debit']  != 0){
             $array_return['success']    = 0; 
-            echo json_encode($array_return);
-            exit();
-        }
-        if(!$billOut_id){
-            $array_return['success']    = 0;
-            echo json_encode($array_return);
-            exit();
-        }
-        $db_count                       = new db_count('SELECT count(*) AS count FROM bill_out WHERE bio_id = ' . intval($billOut_id));
-        if ($db_count->total            == 0) {
-            $array_return['success']    = 0;
             echo json_encode($array_return);
             exit();
         }
@@ -156,7 +136,7 @@ class HomeAjax extends AjaxCommon
                                             
                  //c?p nh?t l?i s? lu?ng khi xóa
                 while($row_pro          = mysqli_fetch_assoc($db_product->result)) {
-                    $sql_minus          = 'UPDATE product_quantity SET pro_quantity = pro_quantity + ' . $list_quantity[$row_pro['pro_id']] . ' WHERE product_id = ' . $row_pro['pro_id'] . ' AND store_id = ' . $store;
+                    $sql_minus          = 'UPDATE product_quantity SET pro_quantity = pro_quantity - ' . $list_quantity[$row_pro['pro_id']] . ' WHERE product_id = ' . $row_pro['pro_id'] . ' AND store_id = ' . $store;
                     $db_update          = new db_execute($sql_minus);
                     unset($db_update);
                 }
@@ -164,8 +144,6 @@ class HomeAjax extends AjaxCommon
             $data['arr_fin_id'] = $array_fin_id;
             //th?c hi?n chuy?n hóa don vào thùng rác
             move2trash('bio_id',$billOut_id,'bill_out',$data);
-            //log_action
-            log_action(ACTION_LOG_TRASH, 'Xóa hóa đơn nhập hàng ' . $billOut_id . ' bảng bill_out và xóa chi tiết hóa đơn nhập ' . $billOut_id . ' bảng bill_out_detail');
             $array_return['success']    = 1;
         }else{
             exit();
@@ -178,7 +156,7 @@ class HomeAjax extends AjaxCommon
         $record_id                      = getValue('record_id','int','POST',0);
         $table                          = getValue('table','str','POST','');
         $tra_table_financies            = 'financial';
-        ///* kiểm tra xem hóa đơn bán còn tồn tại trong thùng rác hay đã bị xóa
+        ///* kiểm tra xem hóa đơn còn tồn tại trong thùng rác hay đã bị xóa
         $db_count                       = new db_count('SELECT count(*) AS count FROM trash 
                                                         WHERE tra_record_id = ' . intval($record_id) . ' 
                                                         AND tra_table = \'' . $table .'\'');
@@ -287,7 +265,8 @@ class HomeAjax extends AjaxCommon
                                             WHERE pro_id = ' . $data['bid_pro_id'] . '
                                             AND store_id = ' . $store);
                 while($row_pro = mysqli_fetch_assoc($db_product->result)) {
-                    $sql_minus = 'UPDATE product_quantity SET pro_quantity = pro_quantity - ' . $data['bid_pro_number'] . ' WHERE product_id = ' . $row_pro['product_id'] . ' AND store_id = ' . $store;
+                    // cap nhat lai so luong sau khi khoi phuc hoa don nhap
+                    $sql_minus = 'UPDATE product_quantity SET pro_quantity = pro_quantity + ' . $data['bid_pro_number'] . ' WHERE product_id = ' . $row_pro['product_id'] . ' AND store_id = ' . $store;
                     $db_update = new db_execute($sql_minus);
                     unset($db_update);
                 }unset($db_product);
@@ -295,6 +274,7 @@ class HomeAjax extends AjaxCommon
             }
             unset($sql);
             trash_recovery($record_id, $table);
+            
             $array_return = array('success'=>1);
         }
         echo json_encode($array_return);

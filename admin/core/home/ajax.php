@@ -82,19 +82,32 @@ class HomeAjax extends AjaxCommon
         // xoa thuc don trong ban
         $deleteDeskMenu = new db_execute('DELETE FROM current_desk_menu WHERE cdm_desk_id = ' . $desk_id);
         unset($deleteDeskMenu);
+        log_action(ACTION_LOG_DELETE,'Hủy bàn ID ' . $desk_id);
         $this->add(array('success' => 1));
     }
 
     public function deleteMenu()
     {
         $menu_id = getValue('menu_id', 'int', 'POST', 0);
-        if (!$menu_id) {
+        $desk_id = getValue('desk_id','int','POST',0);
+        if (!$menu_id || !$desk_id) {
+            echo 'error!';
             return;
         }
+        check_desk_exist($desk_id);
         // xoa thuc don trong ban
-        $deleteMenu = new db_query('DELETE FROM current_desk_menu WHERE cdm_menu_id = ' . $menu_id);
-        unset($deleteMenu);
-        $this->add(array('success' => 1));
+        $db_deleteMenu = new db_execute('DELETE FROM current_desk_menu
+                                         WHERE cdm_menu_id = ' . $menu_id . '
+                                            AND cdm_desk_id = '.$desk_id.'
+                                         AND cdm_printed_number = 0');
+
+        if($db_deleteMenu->total) {
+            unset($deleteMenu);
+            $this->add(array('success' => 1));
+            log_action(ACTION_LOG_DELETE,'Hủy thực đơn ID '. $menu_id .' ở bàn ID ' . $desk_id);
+        }else{
+            $this->add(array('success'=>0,'error'=>'Thực đơn đã in bếp, bạn không thể hủy bỏ thực đơn này'));
+        }
     }
 
     public function openDesk()

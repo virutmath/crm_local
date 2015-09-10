@@ -22,13 +22,11 @@ $bill_id        = '';
 $customer_name = 'Khách lẻ';
 
 // thong tin nha hang
-$db_query_res   = new db_query('SELECT *FROM configurations WHERE con_id = 1');
-$row_con  = mysqli_fetch_assoc($db_query_res->result);
 
-$res_name       = $row_con['con_restaurant_name'];
-$res_address    = $row_con['con_restaurant_address'];
-$res_logo       = get_picture_path($row_con['con_restaurant_image']);
-$res_phone      = $row_con['con_restaurant_phone'];
+$res_name       = $configuration['con_restaurant_name'];
+$res_address    = $configuration['con_restaurant_address'];
+$res_logo       = get_picture_path($configuration['con_restaurant_image']);
+$res_phone      = $configuration['con_restaurant_phone'];
 unset($db_query_res);
 
 

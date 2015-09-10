@@ -9,6 +9,9 @@
     {$error_msg}
     <div class="left-column fl rlt">
         <div class="section-content column-wrapper">
+            <div id="search-menu">
+                <input type="text" id="search-menu-text" placeholder="Nhập tên thực đơn cần tìm..." onkeyup="HomeScript.view.searchMenu()" />
+            </div>
             <div id="listing-menu" class="scrollable-area">
                 {$listing_menu}
             </div>
@@ -315,6 +318,7 @@
         </div>
     </div>
 </div>
+<script>var data_list_menu = {$list_menu_json};</script>
 {* Sử dụng jsx nếu đang ở chế độ DEVELOPER *}
 {if="$tpl_constants['DEVELOPER_ENVIRONMENT']"}
 <script type="text/jsx" src="js/src/home.js"></script>

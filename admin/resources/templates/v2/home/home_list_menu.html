@@ -14,7 +14,7 @@
                 </label>
                 <ul class="list-menu-child list-unstyled" data-collapse-id="{$value.cat_id}"  style="display: none;">
                     {loop="$value.list_menu_child"}
-                    <li class="list-item item-menu">
+                    <li class="list-item item-menu" data-id="{$value.men_id}" data-name="{$value.men_name}">
                         <label class="item-name" ondblclick="HomeScript.addMenuToDesk({$value.men_id})">
                             - {$value.men_name}
                         </label>

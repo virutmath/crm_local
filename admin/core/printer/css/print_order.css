@@ -55,7 +55,10 @@
     }
     #print-area {
         margin: 10px auto;
-        width : 600px;
+        max-width : 600px;
+    }
+    #print-area .font-small {
+        font-size: 9px;
     }
     #print-area.hidden {
         display: block !important;

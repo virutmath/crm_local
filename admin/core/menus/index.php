@@ -569,7 +569,7 @@ $center_control .= '<input id="file-menu" type="file" name="import_menu" class="
 $center_control .= '<button type="submit" id="submit_form"></button>';
 $center_control .= '</form>';
 #Bắt đầu với datagrid
-$list = new dataGrid($id_field,20);
+$list = new dataGrid($id_field,3000);
 $list->add('men_id','Mã');
 $list->add('men_name','Tên thực đơn','string',1,1);
 $list->add('men_unit_id','Đơn vị tính','string',0,0);

@@ -5,7 +5,6 @@
  * Date: 6/2/2015
  * Time: 11:01 AM
  */
-
 $css_global = '';
 $css_global .= '<link rel="stylesheet" type="text/css" href="../../resources/css/bootstrap.min.css" media="screen"/>';
 $css_global .= '<link rel="stylesheet" type="text/css" href="../../resources/js/jquery.contextMenu.css" media="screen"/>';

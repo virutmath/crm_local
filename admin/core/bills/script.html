@@ -260,7 +260,7 @@
             $.ajax({
                 type : 'post',
                 url : 'ajax.php',
-                data : {action : 'deleteBillIn',billIn_id : billIn_id,debit : debit},
+                data : {action : 'deleteBillIn',billIn_id : billIn_id},
                 dataType : 'json',
                 success : function(resp){
                     if(resp.success){
@@ -287,7 +287,7 @@
             $.ajax({
                 type : 'post',
                 url : 'ajax.php',
-                data : {action:'deleteBillOut',billOut_id : billOut_id, debit: debit},
+                data : {action:'deleteBillOut',billOut_id : billOut_id},
                 dataType : 'json',
                 success : function(resp){
                     if(resp.success){

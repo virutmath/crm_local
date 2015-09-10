@@ -485,3 +485,14 @@ input:focus {
     padding : 5px 18px;
     margin-top: 20px;
 }
+#search-menu {
+    padding : 2px;
+}
+#search-menu-text {
+    border: 1px solid #ccc;
+    background: #f0f0f0;
+    line-height: 30px;
+    height: 30px;
+    width: 100%;
+    padding: 5px;
+}
