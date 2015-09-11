@@ -2,6 +2,7 @@
 session_start();
 error_reporting(E_ALL);
 require_once("../functions/functions.php");
+require_once("../functions/date_functions.php");
 require_once('resources/security/inc_constant.php');
 require_once("../classes/database.php");
 require_once("resources/security/functions.php");
