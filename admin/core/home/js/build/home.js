@@ -200,7 +200,7 @@ MenuList.CategoryItem = React.createClass({displayName: "CategoryItem",
         }
         return React.createElement("li", {className: "list-item item-cat-parent"}, 
             React.createElement("label", {className: "item-name", onClick: onClickFn}, 
-                React.createElement("i", {className: "fa fa-minus-square-o"}), 
+                React.createElement("i", {className: "fa fa-minus-square-o"}), " ", 
                 React.createElement("span", null, props.cat_name, " (", props.count_menu, ")")
             ), 
             React.createElement("ul", {className: "list-cat-child list-unstyled", "data-collapse-id": props.cat_id}, 
@@ -218,25 +218,34 @@ MenuList.CategoryItemChild = React.createClass({displayName: "CategoryItemChild"
 
         var rowMenu = [];
         for (var i in props.list_menu_child) {
-            var onDbClick = function () {
-                HomeScript.addMenuToDesk(props.list_menu_child[i].men_id);
-            };
-            rowMenu.push(React.createElement("li", {className: "list-item item-menu", "data-id": props.list_menu_child[i].men_id, 
-                             "data-name": props.list_menu_child[i].men_name}, 
-                React.createElement("label", {className: "item-name", onDoubleClick: onDbClick}, 
-                    "- ", props.list_menu_child[i].men_name
-                )
-            ));
+            rowMenu.push(React.createElement(MenuList.MenuItem, {
+                    men_id: props.list_menu_child[i].men_id, 
+                    men_name: props.list_menu_child[i].men_name}
+                ));
         }
         return React.createElement("li", {className: "list-item item-cat-child"}, 
             React.createElement("label", {className: "item-name", onClick: onClickFn}, 
-                React.createElement("i", {className: "fa fa-caret-down"}), 
+                React.createElement("i", {className: "fa fa-caret-down"}), " ", 
                 props.cat_name, " (", props.count_menu, ")"
             ), 
             React.createElement("ul", {className: "list-menu-child list-unstyled", "data-collapse-id": props.cat_id}, 
                 rowMenu
             )
         )
+    }
+});
+MenuList.MenuItem = React.createClass({displayName: "MenuItem",
+    render : function () {
+        var props = this.props;
+        var onDbClick = function () {
+            HomeScript.addMenuToDesk(props.men_id);
+        };
+        return React.createElement("li", {className: "list-item item-menu", "data-id": props.men_id, 
+                   "data-name": props.men_name}, 
+                    React.createElement("label", {className: "item-name", onDoubleClick: onDbClick}, 
+                        "- ", props.men_name
+                    )
+                )
     }
 });
 //build danh sách thực đơn ở bàn được chọn từ currentDesk

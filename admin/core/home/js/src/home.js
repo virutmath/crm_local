@@ -200,7 +200,7 @@ MenuList.CategoryItem = React.createClass({
         }
         return <li className="list-item item-cat-parent">
             <label className="item-name" onClick={onClickFn}>
-                <i className="fa fa-minus-square-o"></i>
+                <i className="fa fa-minus-square-o"></i>&nbsp;
                 <span>{props.cat_name} ({props.count_menu})</span>
             </label>
             <ul className="list-cat-child list-unstyled" data-collapse-id={props.cat_id}>
@@ -218,25 +218,34 @@ MenuList.CategoryItemChild = React.createClass({
 
         var rowMenu = [];
         for (var i in props.list_menu_child) {
-            var onDbClick = function () {
-                HomeScript.addMenuToDesk(props.list_menu_child[i].men_id);
-            };
-            rowMenu.push(<li className="list-item item-menu" data-id={props.list_menu_child[i].men_id}
-                             data-name={props.list_menu_child[i].men_name}>
-                <label className="item-name" onDoubleClick={onDbClick}>
-                    - {props.list_menu_child[i].men_name}
-                </label>
-            </li>);
+            rowMenu.push(<MenuList.MenuItem
+                    men_id={props.list_menu_child[i].men_id}
+                    men_name={props.list_menu_child[i].men_name}
+                />);
         }
         return <li className="list-item item-cat-child">
             <label className="item-name" onClick={onClickFn}>
-                <i className="fa fa-caret-down"></i>
+                <i className="fa fa-caret-down"></i>&nbsp;
                 {props.cat_name} ({props.count_menu})
             </label>
             <ul className="list-menu-child list-unstyled" data-collapse-id={props.cat_id}>
                 {rowMenu}
             </ul>
         </li>
+    }
+});
+MenuList.MenuItem = React.createClass({
+    render : function () {
+        var props = this.props;
+        var onDbClick = function () {
+            HomeScript.addMenuToDesk(props.men_id);
+        };
+        return <li className="list-item item-menu" data-id={props.men_id}
+                   data-name={props.men_name}>
+                    <label className="item-name" onDoubleClick={onDbClick}>
+                        - {props.men_name}
+                    </label>
+                </li>
     }
 });
 //build danh sách thực đơn ở bàn được chọn từ currentDesk
