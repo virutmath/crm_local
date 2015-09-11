@@ -37,6 +37,18 @@ if ($action == "login") {
         $_SESSION['isSuperAdmin']   =   $isSuperAdmin;
         unset($db_isadmin);
 
+        $db_query_log = new db_query('SELECT * FROM logs_session WHERE log_admin_id ='.$user_id .'
+                                     ORDER BY log_time_in DESC LIMIT 1');
+
+        $row_log = mysqli_fetch_assoc($db_query_log->result); unset($db_query_log);
+        $time_log_start = convertDateTime(date('d/m/Y',$row_log['log_time_in']),'0:0:0');// reset thời gian về đầu ngày
+        $time_log       = convertDateTime(date('d/m/Y',time()),'0:0:0');
+        if($time_log    != $time_log_start ){
+            /* Khi đăng nhập thì lưu lại log admin đăng nhập vào khoảng thời gian nào*/
+            $db_admin_log = 'INSERT INTO logs_session (log_admin_id,log_time_in) VALUES ('.$user_id.','.time().')';
+            $db_exc_logs = new db_execute($db_admin_log); unset($db_exc_logs);
+        }
+
         if(!$isAdmin && !$isSuperAdmin) {
             $_SESSION['user_config'] = $row['adm_user_config'];
             redirect('index.php');
