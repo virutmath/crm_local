@@ -14,7 +14,7 @@
                 </label>
                 <ul class="list-menu-child list-unstyled" data-collapse-id="<?php echo $value2["cat_id"];?>"  style="display: none;">
                     <?php $counter3=-1; if( isset($value2["list_menu_child"]) && is_array($value2["list_menu_child"]) && sizeof($value2["list_menu_child"]) ) foreach( $value2["list_menu_child"] as $key3 => $value3 ){ $counter3++; ?>
-                    <li class="list-item item-menu">
+                    <li class="list-item item-menu" data-id="<?php echo $value3["men_id"];?>" data-name="<?php echo $value3["men_name"];?>">
                         <label class="item-name" ondblclick="HomeScript.addMenuToDesk(<?php echo $value3["men_id"];?>)">
                             - <?php echo $value3["men_name"];?>
                         </label>
