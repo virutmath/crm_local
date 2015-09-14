@@ -73,15 +73,20 @@ class dataGrid{
         type : kiểu search
         value : giá trị nếu kiểu array thì truyền vào một array
         default: giá trị mặc định
+     *  submit : khi onchange co submit khong
      */
-    function addSearch($name,$field,$type,$value = '',$default=""){
+    function addSearch($name,$field,$type,$value = '',$default="", $submit = false){
         $str = '';
         $value = $value ? $value : $default;
         $str .= '&nbsp;' .$name . '&nbsp;';
         switch($type){
             //kiểu array
             case "array":
-                $str .= '<select name="' . $field . '" id="' . $field . '" class="textbox form-control">';
+                $onchange = "";
+                if($submit == true) {
+                    $onchange   =   " onchange='$(this).closest(\"form\").submit();' ";
+                }
+                $str .= '<select name="' . $field . '" id="' . $field . '" class="textbox form-control" '.$onchange.'>';
                 foreach($value as $id=>$text){
                     $str .= '<option value="' . $id . '" ' . (($default==$id) ? 'selected' : '') . '>' . $text . '</option>';
                 }

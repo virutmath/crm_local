@@ -11,3 +11,4 @@ require_once("resources/security/functions_1.php");
 ob_clean();
 truncate_database();
 import_server_config();
+redirect('install.php');

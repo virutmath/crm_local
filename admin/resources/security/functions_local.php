@@ -185,9 +185,7 @@ function directoryToArray($directory, $recursive = true, $listDirs = false, $lis
     }
     return $arrayItems;
 }
-function getUpdateSystem() {
 
-}
 function read_server_config() {
     $db_query = new db_query('SELECT * FROM server_config LIMIT 1');
     $array_return = array();
@@ -200,5 +198,9 @@ function read_server_config() {
 function checkSystemUpdate() {
     $db_query = new db_query('SELECT * FROM system_update_log ORDER BY update_time DESC LIMIT 1');
     $update_info = mysqli_fetch_assoc($db_query->result);unset($db_query);
+    if(!$update_info) {
+        $update_info['update_time'] = 0;
+        $update_info['update_version'] = 0;
+    }
 
 }
