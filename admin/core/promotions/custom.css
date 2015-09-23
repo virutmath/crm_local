@@ -123,12 +123,9 @@ select#store_id {
 #import-control .row-title {
     float: left;
     line-height: 24px;
-    width: 100px;
+    width: 105px;
 }
 
-#import-control .row-control {
-    float: left;
-}
 
 #import-control .row-control select, #import-control .row-control input {
     line-height: 24px;
@@ -137,6 +134,7 @@ select#store_id {
 }
 
 #import-control .col-xs-6 input {
+    float:left;
     width: 200px;
 }
 
@@ -242,15 +240,15 @@ select#store_id {
 
 .footer-button {
     background-color: #f0f0f0;
-    padding-top: 2px;
-    padding-bottom: 2px;
     box-shadow: 0 -1px 2px #d0d0d0;
 }
 .footer-button .control-btn {
     border : 1px solid transparent;
     font-size: 12px;
-    margin-bottom: 0;
-    margin-top: 2px;
+    margin: 2px 0 !important;
+}
+.btn-default{
+    display: none;
 }
 .footer-button .control-btn:hover {
     border : 1px solid #999;

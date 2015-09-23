@@ -42,12 +42,9 @@
     var sectionContent = $('.table-listing-bound');
     var offsetTopContent = sectionContent.offset().top;
     sectionContent.height(wrapperHeight - offsetTopContent - 10);
-    var offsetLeftContent = left_column_wrapper.offset().top;
-    left_column_wrapper.height(wrapperHeight - offsetLeftContent - 13);
-    var offsetCenterContent = center_column_wrapper.offset().top;
-    center_column_wrapper.height(wrapperHeight - offsetCenterContent - 13);
-    var offsetRightContent = right_column_wrapper.offset().top;
-    right_column_wrapper.height(wrapperHeight - offsetRightContent - 13);
+    left_column_wrapper.height(wrapperHeight - offsetTopContent - 13);
+    center_column_wrapper.height(wrapperHeight - offsetTopContent - 13);
+    right_column_wrapper.height(wrapperHeight - offsetTopContent - 13);
     function deactivate_control(type){
         switch (type){
             case 'left':
@@ -66,6 +63,16 @@
                 break;
         }
     }
+
+    // hàm load khi chạy scrip ajax
+    (function(){
+        if (sectionContent.find('.enscroll-trach').length < 1) {
+            sectionContent.find('.table-listing-bound').enscroll({
+                addPaddingToPane: false
+            });
+        }
+    })();
+
     /// cap nhat menu moi
     function updateMenu(){
         $('#submit_form').trigger('click'); 

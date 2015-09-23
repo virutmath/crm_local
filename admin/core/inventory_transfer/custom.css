@@ -237,12 +237,7 @@ select#store_id {
 .modal-mini-content table {width: 100%;}
 .modal-mini-content table td {border:1px solid #ddd; text-align: center;font-size: 11px !important; padding: 5px; box-sizing: border-box;}
 
-.footer-button {
-    background-color: #f0f0f0;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    box-shadow: 0 -1px 2px #d0d0d0;
-}
+
 .footer-button .control-btn {
     border : 1px solid transparent;
     font-size: 12px;
@@ -282,13 +277,8 @@ select#store_id {
 .box-search{
     padding: 10px 0 3px 0 ;
 }
-
-
-
 .footer-button {
     background-color: #f0f0f0;
-    padding-top: 2px;
-    padding-bottom: 2px;
     box-shadow: 0 -1px 2px #d0d0d0;
 }
 .footer-button .control-btn {

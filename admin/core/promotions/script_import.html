@@ -300,8 +300,9 @@
     });
 
     (function () {
-        if (mindowScript.listing_menu.find('.enscroll-trach').length < 1) {
-            mindowScript.listing_menu.find('.table-listing-bound').enscroll({
+        sectionContent = mindowScript.listing_menu.find('.table-listing-bound');
+        if (sectionContent.find('.enscroll-trach').length < 1) {
+            sectionContent.find('.table-listing-bound').enscroll({
                 addPaddingToPane: false
             });
         }
@@ -322,12 +323,6 @@
 
         });
     })();
-    //date picker
-    if ($('input[datepick-element="1"]').length) {
-        $('input[datepick-element="1"]').datepicker({
-            format: 'dd/mm/yyyy'
-        });
-    }
 
     // fix autoNumeric các trường số
     $('#promo_condition').autoNumeric();

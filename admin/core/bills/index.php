@@ -29,7 +29,7 @@ $left_control .= '<div class="control-table-listing top_right_control">
     <span class="control-btn control-list-trash"><i class="fa fa-recycle"></i> Thùng rác ('.$count.')</span>
 </div>';
 
-$list = new dataGrid($id_field_i,10);
+$list = new dataGrid($id_field_i,3000);
 $list->add($id_field_i, 'Số HĐ','string',1);
 $list->add('bii_desk_id', 'Bàn');
 $list->add('bii_customer_id', 'Khách hàng');
@@ -99,7 +99,7 @@ while($row = mysqli_fetch_assoc($db_listing->result)){
         $cus_name = $row_['cus_name'];
     }
     $table_left_column .= '<td>' . $cus_name . '</td>';
-    $table_left_column .= '<td class="center" width="120">' . date('d-m-Y h:i:s',$row['bii_end_time']) . '</td>';
+    $table_left_column .= '<td class="center" width="120">' . date('d-m-Y H:i:s',$row['bii_end_time']) . '</td>';
     $table_left_column .= '<td class="text-right" width="100">' . number_format($row['bii_true_money']) .' '. DEFAULT_MONEY_UNIT . '</td>';
     $table_left_column .= $list->end_tr();
     $totalAll += $row['bii_true_money'];
@@ -132,7 +132,7 @@ $right_control .= '<div class="control-table-listing top_right_control">
     <span class="control-btn control-list-trash"><i class="fa fa-recycle"></i> Thùng rác ('.$count.')</span>
 </div>';
 
-$list_right = new dataGrid($id_field_o,10);
+$list_right = new dataGrid($id_field_o,3000);
 $list_right->add($id_field_o, 'Số HĐ', 'string',1);
 $list_right->add('bio_supplier_id', 'Nhà cung cấp');
 $list_right->add('bio_start_time', 'Ngày nhập');
@@ -179,7 +179,7 @@ while($row = mysqli_fetch_assoc($db_listing->result)){
     $table_right_column .= $list_right->start_tr($i,$row[$id_field_o],''.$backgrouds.' class="menu-normal record-item" onclick="active_record('.$row[$id_field_o].',\'right\')" data-debit="'.$row['bio_money_debit'].'" data-record_id="'.$row[$id_field_o].'" ondblclick="showDetail(\'right\')"');
     $table_right_column .= '<td class="center" width="80">' . format_codenumber($row[$id_field_o],6,PREFIX_BILL_CODE) . '</td>';
     $table_right_column .= '<td>' . $row_['sup_name'] . '</td>';
-    $table_right_column .= '<td class="center" width="130">' . date('d-m-Y h:i:s',$row['bio_start_time']) . '</td>';
+    $table_right_column .= '<td class="center" width="130">' . date('d-m-Y H:i:s',$row['bio_start_time']) . '</td>';
     $table_right_column .= '<td class="text-right" width="100">' . number_format($row['bio_total_money']) .' '. DEFAULT_MONEY_UNIT . '</td>';
     $table_right_column .= $list_right->end_tr();
     $totalAll_ += $row['bio_total_money'];

@@ -122,7 +122,7 @@ $right_control = '
     <div class="row">
         <div class="row-title fl">Giảm giá/Hóa đơn</div>
         <div class="row-control">
-            <input type="text" name="value_sale" id="promo_value" value="0" class="form-control fl" style="width:95px;margin-right:5px">
+            <input type="text" name="value_sale" id="promo_value" value="0" class="form-control fl" style="float:left;width:95px;margin-right:5px">
             <select name="type_sale" id="promo_type" class="form-control" style="width:100px">
                 <option value="1"><i class="fa fa-pencil"></i>Phần trăm</option>
                 <option value="2"><i class=" fa fa-money"></i>Tiền mặt</option>
