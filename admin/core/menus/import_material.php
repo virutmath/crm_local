@@ -13,7 +13,7 @@ if($import_menu)
         $menu1      = $value['menu_cap_1'];
         if( $menu1 == '' ) continue;
         $uni_note = '';
-        $array_replace = array('(g)','(gói)','(ml)', '(hộp)', 'miếng');
+        $array_replace = array('(g)','(gói)','(ml)', '(hộp)', '(miếng)', '(kg)');
         $ten_nguyenlieu = str_replace($array_replace,'',$ten_nguyenlieu);
         // kiem tra xem don vi tinh da ton tai trong bang units chua
         $db_unit    = new db_query("SELECT uni_id FROM units 

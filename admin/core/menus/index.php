@@ -191,7 +191,7 @@ if($isAjaxRequest && $import_menu)
             if ( $menu1 == '' && $menu2 == '' || $menu2 == '' ) continue;
             
             $men_cat_id     = 0;
-            $men_price      = $value['gia_ban'];
+            $men_price      = '' ? 0 : floatval($value['gia_ban']);
             $men_price1     = 0;
             $men_price2     = 0;
             $men_image      = '';
@@ -371,7 +371,7 @@ if($isAjaxRequest && $import_menu)
                 $pro_instock = 0;
                 $pro_status = 0;
                 $idPro = 0;
-                $array_replace = array('(g)','(gói)','(ml)', '(hộp)', '(miếng)');
+                $array_replace = array('(g)','(gói)','(ml)', '(hộp)', '(miếng)', '(kg)');
                 $pro_name = str_ireplace($array_replace,'',$pro_name);
                 //don vi tinh cua nguyen lieu
                 $uni_name = trim(str_replace(array($pro_name, '(', ')'),'',$val['ten_nguyenlieu']));

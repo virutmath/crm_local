@@ -149,7 +149,7 @@ $left_control .= '<div class="control-table-listing top_right_control pull-right
 </div>';
 //Hiển thị danh sách phiếu thu bên trái
 #Bắt đầu với datagird
-$list = new dataGrid($id_field,30);
+$list = new dataGrid($id_field,3000);
 $list->add('', 'Ngày thu');
 $list->add('','Số phiếu');
 $list->add('','Người nhận');
@@ -233,7 +233,7 @@ $right_control .= '<div class="control-table-listing top_right_control pull-righ
     <span class="control-btn control-list-trash" onclick="list_trash(\'out\')"><i class="fa fa-recycle"></i> Thùng rác</span>
 </div>';
 #Bắt đầu với datagrid
-$list = new dataGrid($id_field,30);
+$list = new dataGrid($id_field,3000);
 $list->add('','Ngày chi');
 $list->add('','Số phiếu');
 $list->add('','Người nhận');

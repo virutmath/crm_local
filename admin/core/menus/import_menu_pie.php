@@ -192,7 +192,7 @@ if($import_menu)
         $cat_desc = '';
         $cat_picture = '';
         $mep_quantity = 1; 
-        $array_replace = array('(g)','(gói)','(ml)');
+        $array_replace = array('(g)','(gói)','(ml)', '(miếng)','(kg)');
         $pro_name = str_replace($array_replace,'',$pro_name);
         // kiem tra xem danh muc cap 1 cua nguyen lieu nay da ton tai chua
         // nêu ton tai rôi thi lay ra cat id 

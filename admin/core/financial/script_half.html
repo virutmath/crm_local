@@ -28,7 +28,6 @@
     var sectionContent = $('.section-content');
     var offsetTopContent = sectionContent.offset().top;
     sectionContent.height(wrapperHeight - offsetTopContent - 85);
-
     //table scroll
     $('.table-listing-bound').enscroll({
         showOnHover: true,
@@ -37,22 +36,16 @@
     });
     //fix tất cả table listing
     function fixScrollMenu() {
-        center_listing.find('.table-listing-bound').height(center_listing.height() - 5);
-        //cấp phát lại table scroll
-        if(center_listing.find('.enscroll-track').length < 1){
-            center_listing.find('.table-listing-bound').enscroll({
-                showOnHover: false,
-                minScrollbarLength: 28,
-                addPaddingToPane : false
-            });
-        }
-        if(listing_menu.find('.enscroll-track').length < 1) {
-            listing_menu.find('.table-listing-bound').height(listing_menu.height() - 30).enscroll({
-                showOnHover: false,
-                minScrollbarLength: 28,
-                addPaddingToPane : false
-            });
-        }
+        sectionContent.find('.table-listing-bound').height(sectionContent.height() - 5);
+        $('.table-listing-bound').each(function () {
+            if($(this).siblings('.enscroll-track').length < 1) {
+                $(this).enscroll({
+                    showOnHover: true,
+                    minScrollbarLength: 28,
+                    addPaddingToPane : false
+                });
+            }
+        })
     }
 
 
@@ -182,21 +175,27 @@
     btn_trash_right.unbind('click').click(function () {
         if($(this).hasClass('deactivate')) return false;
         var record_id = $('#table-listing-right').find('.record-item.active').data('record_id');
-        if(confirm('Bạn muốn xóa bản ghi này?')){
-            $.ajax({
-                type : 'post',
-                url : 'ajax.php',
-                data : {action:ajax_url.trash_right,record_id : record_id},
-                dataType : 'json',
-                success : function(resp){
-                    if(resp.success){
-                        $('#record_'+record_id).remove();
-                        //deactivate các nút bên phải
-                        deactivate_control('right');
-                    }
+        bootbox.confirm('Bạn muốn xóa bản ghi này?', function (result) {
+            if(result) {
+                {
+                    $.ajax({
+                        type : 'post',
+                        url : 'ajax.php',
+                        data : {action:ajax_url.trash_right,record_id : record_id},
+                        dataType : 'json',
+                        success : function(resp){
+                            if(resp.success){
+                                $('#record_'+record_id).remove();
+                                //deactivate các nút bên phải
+                                deactivate_control('right');
+                            }else{
+                                bootbox.alert(resp.error);
+                            }
+                        }
+                    })
                 }
-            })
-        }
+            }
+        });
     });
 
 
@@ -275,6 +274,7 @@
                     left_column_wrapper.html(html);
                 else
                     right_column_wrapper.html(html);
+                fixScrollMenu();
             },
             beforeSend : function () {
                 loadingProgress('show');

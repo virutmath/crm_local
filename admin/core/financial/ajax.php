@@ -396,6 +396,7 @@ class FinancialAjax extends AjaxCommon {
         $record_id = getValue('record_id', 'int', 'POST', 0);
         $db_query = new db_query('SELECT * FROM financial WHERE fin_id = ' . $record_id);
         $data_record = mysqli_fetch_assoc($db_query->result);
+        //Neu la phieu chi he thong thi khong hien thi sua
         //open modal
         $this->openModal();
         $this->add(
@@ -462,12 +463,12 @@ class FinancialAjax extends AjaxCommon {
         );
         $this->add(
             $this->form->text(array(
-                'label' => 'Người nộp tiền',
+                'label' => 'Người nhận tiền',
                 'name' => 'fin_username',
                 'id' => 'fin_username',
                 'value' => $data_record['fin_username'],
                 'require' => 1,
-                'errorMsg' => 'Bạn chưa nhập tên người nộp tiền'
+                'errorMsg' => 'Bạn chưa nhập tên người nhận tiền'
             ))
         );
         $this->add(
