@@ -20,7 +20,7 @@ $left_column        .= '</select>';
 // right column
 $id_financial         = 'fin_id';
 $bg_financial         = 'financial';
-$list = new dataGrid($id_financial,30);
+$list = new dataGrid($id_financial,3000);
 $list->add('', 'Thời gian');
 $list->add('', 'Số HĐ');
 $list->add('', 'Chi phí');

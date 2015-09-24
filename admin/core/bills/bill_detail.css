@@ -1,4 +1,4 @@
-.detail_content_righ {width: 35%; float: right;padding-left: 5px; box-sizing: border-box;}
+.detail_content_righ {width: 35%; height: 100%; float: right;padding-left: 5px; box-sizing: border-box;}
 .title_detail_bill {text-align: center; font-weight: bold; font-size: 13px; text-transform: uppercase; padding:5px 0;}
 .bill-inf {width: 99%; font-size: 12px;}
 .bill-inf td {border-bottom: 1px solid #ddd; padding: 5px 3px;}
@@ -24,7 +24,7 @@
 .pp-vat table {font-size:12px;}
 .pp-vat table td{border-bottom: 1px solid #ddd; padding: 3px;}
 .box-content-inf-bill {margin-bottom: 25px;}
-.detail_content_left {width: 65%; float: left;}
+.detail_content_left {width: 65%; float: left; height: 100%;}
 .box-content-inf-bill-left {float: left; width: 55%; border-right:1px solid #ddd;}
 .box-content-inf-bill-left p {margin: 10px 0 0 0;}
 .box-content-inf-bill-right {float: right; width: 45%; padding-left: 10px; padding-top:10px; box-sizing: border-box;}
@@ -33,6 +33,6 @@
 .print-close span {cursor: pointer;}
 .clear {clear: both;}
 .ava-cus {padding: 20px 60px; display: inline-block;border: 1px solid;}
-
+#content-column {height: 100%;}
 
 

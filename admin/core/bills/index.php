@@ -100,7 +100,18 @@ while($row = mysqli_fetch_assoc($db_listing->result)){
     }
     $table_left_column .= '<td>' . $cus_name . '</td>';
     $table_left_column .= '<td class="center" width="120">' . date('d-m-Y H:i:s',$row['bii_end_time']) . '</td>';
-    $table_left_column .= '<td class="text-right" width="100">' . number_format($row['bii_true_money']) .' '. DEFAULT_MONEY_UNIT . '</td>';
+    // tính lại tổng tiền của 1 hóa đơn theo số lượng món * giá
+    $data_bill_detail = new db_query('SELECT bid_menu_number, bid_menu_price
+                                        FROM bill_in_detail
+                                        WHERE bid_bill_id = ' . $row[$id_field_i] . '');
+    $total_bii_true_money = 0;
+    while ( $data_bill_in_detail = mysqli_fetch_assoc($data_bill_detail->result) )
+    {
+        $bii_true_money = $data_bill_in_detail['bid_menu_number'] * $data_bill_in_detail['bid_menu_price'];
+        $total_bii_true_money += $bii_true_money;
+    }unset($data_bill_detail);
+    //
+    $table_left_column .= '<td class="text-right" width="100">' . number_format($total_bii_true_money) .' '. DEFAULT_MONEY_UNIT . '</td>';
     $table_left_column .= $list->end_tr();
     $totalAll += $row['bii_true_money'];
 }

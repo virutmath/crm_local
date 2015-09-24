@@ -17,6 +17,20 @@
         minScrollbarLength: 28,
         addPaddingToPane : false
     });
+    //fix tất cả table listing
+    function fixScrollMenu() {
+        //cấp phát lại table scroll
+        var scroll_table = $('.table-listing-bound');
+        scroll_table.height(wrapperHeight - offsetTopContent - 125);
+        scroll_table.enscroll({
+            showOnHover: false,
+            minScrollbarLength: 28,
+            addPaddingToPane : false
+        });
+    }
+
+
+
     var ajax_url = {
         add_left : 'loadFormAddCategory',
         edit_left :'loadFormEditCategory',
@@ -66,6 +80,7 @@
             dataType : 'html',
             success : function(html){
                 table.html(html);
+                fixScrollMenu();
             }
         });
     });
@@ -87,6 +102,7 @@
             dataType : 'html',
             success : function(html){
                 table.html(html);
+                fixScrollMenu();
             }
         });
     });
@@ -234,7 +250,7 @@
         }
         var mindow = new Mindows();
         mindow.width = 1100;
-        mindow.height = 500;
+        mindow.height = 550;
         mindow.resize = true;
         mindow.iframe('bill_detail.php?data_record_id='+data_record_id+'&position='+position,'<b>Chi tiết hóa đơn '+bill+' hàng </b>');   
     }

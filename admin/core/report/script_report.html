@@ -107,6 +107,28 @@
     var offsetTopContent = wrapperContent.offset().top;
     left_column_wrapper.height(wrapperHeight - offsetTopContent - 50);
     right_column_wrapper.height(wrapperHeight - offsetTopContent - 50);
+
+    var scroll_table = $('.table-listing-bound');
+    scroll_table.height(wrapperHeight - offsetTopContent - 250);
+    //table scroll
+    scroll_table.enscroll({
+        showOnHover: true,
+        minScrollbarLength: 28,
+        addPaddingToPane : false
+    });
+
+    //fix tất cả table listing
+    function fixScrollMenu() {
+        //cấp phát lại table scroll
+        var scroll_table = $('.table-listing-bound');
+        scroll_table.height(wrapperHeight - offsetTopContent - 250);
+        scroll_table.enscroll({
+            showOnHover: false,
+            minScrollbarLength: 28,
+            addPaddingToPane : false
+        });
+    }
+
     // date time input
     $('.datetime-local').datepicker({
         format : 'dd/mm/yyyy'
@@ -187,6 +209,7 @@
                             }
                             updateChartJS();
                         }
+                        fixScrollMenu();
                     }// end if ( resp.table )
                 }
             });

@@ -908,8 +908,6 @@ class HomeAjax extends AjaxCommon
                 $bii_true_money += $money;
             }
             $bii_round_money = floor($bii_true_money / 1000) * 1000;
-            //trạng thái hóa đơn - hiện tại chưa làm ghi nợ nên để trạng thái là đã trả đủ BILL_STATUS_SUCCESS
-
             if ($debit && $debit < $bii_true_money) {
                 $bii_status = BILL_STATUS_DEBIT;
                 $bii_money_debit = $bii_true_money - $debit;

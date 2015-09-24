@@ -21,7 +21,7 @@ $left_column        .= '</select>';
 $id_financial   = 'fin_id';
 $id_bill        = 'fin_billcode';
 $bg_table_fin   = 'financial';
-$list = new dataGrid($id_bill,30);
+$list = new dataGrid($id_bill,3000);
 $list->add('', 'Thời gian');
 $list->add('', 'Doanh thu');
 $list->add('', 'Chi phí');

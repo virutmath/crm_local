@@ -48,7 +48,7 @@ $left_column        .= '</select>';
 // right column
 $id_field_o         = 'bio_id';
 $bg_table_o         = 'bill_out';
-$list = new dataGrid($id_field_o,30);
+$list = new dataGrid($id_field_o,3000);
 $list->add('', 'Thời gian');
 $list->add('', 'Số HĐ');
 $list->add('', 'Chi phí');

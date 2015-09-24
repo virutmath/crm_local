@@ -7,7 +7,6 @@ class InventoryAjax extends AjaxCommon
     // xóa phiếu kiểm kê
     function deleteInventory()
     {
-        global $configuration;
         //Kiểm tra quyền sửa xóa
         checkPermission('trash');
         $record_id      = getValue('record_id', 'int', 'POST', 0);
@@ -16,25 +15,32 @@ class InventoryAjax extends AjaxCommon
         checkPermission('trash');
         $array_return   = array();
         $db_data        = new db_query('SELECT * FROM inventory WHERE inv_id = ' . $record_id . ' LIMIT 1');
-        $cuscat_data    = mysqli_fetch_assoc($db_data->result);
-        unset($db_data);
-        move2trash('inv_id', $record_id, 'inventory', $cuscat_data);
-        // Khi khôi phục thì cộng hoặc trừ số lượng đã kiểm kê
-        $arr_product = array();
-        $db_query_inv = new db_query('SELECT inv_product_id FROM inventory_products WHERE inv_id = '.$record_id.'');
-        while($row_inv = mysqli_fetch_assoc($db_query_inv->result)){
-            // query xem số lượng chênh lệch của sản phẩm(product_id) khi kiểm kho
-            $db_quantity_inv = new db_query('SELECT * FROM inventory_products WHERE inv_product_id = '.$row_inv['inv_product_id'].'');
-            $row_quantity = mysqli_fetch_assoc($db_quantity_inv->result); // số lượng chênh lệch của sản phẩm khi kiểm
-            $quantity_inv = $row_quantity['inp_quantity_system'] - $row_quantity['inp_quantity_real'];
-            $arr_product[$row_inv['inv_product_id']] = $quantity_inv; // Mảng dữ liệu gồm các sản phẩm kiêm kê và số lượng chênh lệch
-        }unset($db_quantity_inv); unset($db_query_inv);
+        $cuscat_data    = mysqli_fetch_assoc($db_data->result);unset($db_data);
 
-        // lọc ra các sản phẩm kiểm kê và lấy số lượng chênh lệch để cộng hoặc trừ vào số lượng trong kho
-        foreach($arr_product as $key => $product){
-            $db_update_quantity = new db_execute('UPDATE product_quantity SET pro_quantity = pro_quantity - '.$product.'
-                                                  WHERE product_id = '.$key.' AND store_id = '.$configuration['con_default_store'].'');
-            unset($db_update_quantity);
+        move2trash('inv_id', $record_id, 'inventory', $cuscat_data);
+        // Khi xóa phiếu kiểm kê thì trừ số lượng sản phẩm đã kiểm kê trước đó.
+        if($record_id){
+            // Khi khôi phục thì cộng hoặc trừ số lượng đã kiểm kê
+            $arr_product = array();
+            $db_query_inv = new db_query('SELECT inv_product_id FROM inventory_products WHERE inv_id = '.$record_id.'');
+            while($row_inv = mysqli_fetch_assoc($db_query_inv->result)){
+                // query xem số lượng chênh lệch của sản phẩm(product_id) khi kiểm kho
+                $db_quantity_inv = new db_query('SELECT * FROM inventory_products
+                                                 WHERE inv_product_id = '.$row_inv['inv_product_id'].'
+                                                 AND inv_id = '.$record_id.'');
+                $row_quantity = mysqli_fetch_assoc($db_quantity_inv->result); // số lượng chênh lệch của sản phẩm khi kiểm
+                $quantity_inv = $row_quantity['inp_quantity_system'] - $row_quantity['inp_quantity_real'];
+                $arr_product[$row_inv['inv_product_id']] = $quantity_inv; // Mảng dữ liệu gồm các sản phẩm kiêm kê và số lượng chênh lệch
+
+            }unset($db_quantity_inv); unset($db_query_inv);
+            // lọc ra các sản phẩm kiểm kê và lấy số lượng chênh lệch để cộng hoặc trừ vào số lượng trong kho
+            foreach($arr_product as $key => $product){
+                $db_update_quantity = new db_execute('UPDATE product_quantity
+                                                      SET pro_quantity = pro_quantity + '.$product.'
+                                                      WHERE product_id = '.$key.'
+                                                      AND store_id = '.$cuscat_data['inv_store_id'].'');
+                unset($db_update_quantity);
+            }
         }
         //log action
         log_action(ACTION_LOG_DELETE, 'Xóa phiếu kiểm kê với id là  ' . $record_id . ' bảng inventory');
@@ -282,28 +288,41 @@ class InventoryAjax extends AjaxCommon
      */
     function recoveryInventory()
     {
-        global $configuration;
         //check quyền recovery
         checkPermission('recovery');
         $record_id          = getValue('record_id', 'int', 'POST', 0);
-        if (trash_recovery($record_id, 'inventory') === TRUE) {
+        // Trước khi khôi phục phiếu kiểm kê cần phải khôi phục số sản phẩm đã kiêm kê. Điều kiện kho hàng từ phiếu kiểm kê
+        if($record_id){
             // Khi khôi phục thì cộng hoặc trừ số lượng đã kiểm kê
             $arr_product = array();
             $db_query_inv = new db_query('SELECT inv_product_id FROM inventory_products WHERE inv_id = '.$record_id.'');
             while($row_inv = mysqli_fetch_assoc($db_query_inv->result)){
                 // query xem số lượng chênh lệch của sản phẩm(product_id) khi kiểm kho
-                $db_quantity_inv = new db_query('SELECT * FROM inventory_products WHERE inv_product_id = '.$row_inv['inv_product_id'].'');
+                $db_quantity_inv = new db_query('SELECT * FROM inventory_products
+                                                 WHERE inv_product_id = '.$row_inv['inv_product_id'].'
+                                                 AND inv_id = '.$record_id.'');
                 $row_quantity = mysqli_fetch_assoc($db_quantity_inv->result); // số lượng chênh lệch của sản phẩm khi kiểm
                 $quantity_inv = $row_quantity['inp_quantity_system'] - $row_quantity['inp_quantity_real'];
                 $arr_product[$row_inv['inv_product_id']] = $quantity_inv; // Mảng dữ liệu gồm các sản phẩm kiêm kê và số lượng chênh lệch
-            }unset($db_quantity_inv); unset($db_query_inv);
 
+            }unset($db_quantity_inv); unset($db_query_inv);
             // lọc ra các sản phẩm kiểm kê và lấy số lượng chênh lệch để cộng hoặc trừ vào số lượng trong kho
+            $sql_trash            = new db_query('SELECT * FROM trash
+                                                      WHERE tra_record_id = ' .$record_id . '
+                                                      AND tra_table = "inventory"');
+            $tra_data       = mysqli_fetch_assoc($sql_trash->result);unset($sql_trash);
+            $tra_data       = json_decode(base64_decode($tra_data['tra_data']),1);
+            $store_id       = $tra_data['inv_store_id'];
+
             foreach($arr_product as $key => $product){
-                $db_update_quantity = new db_execute('UPDATE product_quantity SET pro_quantity = pro_quantity + '.$product.'
-                                                      WHERE product_id = '.$key.' AND store_id = '.$configuration['con_default_store'].'');
+                $db_update_quantity = new db_execute('UPDATE product_quantity SET pro_quantity = pro_quantity - '.$product.'
+                                                      WHERE product_id = '.$key.'
+                                                      AND store_id = '.$store_id.'');
                 unset($db_update_quantity);
             }
+        }
+        // Khôi phục phiếu kiểm kê trong thùng rác
+        if (trash_recovery($record_id, 'inventory') === TRUE) {
             //khôi phục thành công
             $array_return   = array('success' => 1 , 'msg' => 'Hoàn tất');
         } else {

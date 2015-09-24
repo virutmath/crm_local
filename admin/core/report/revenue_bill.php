@@ -55,7 +55,7 @@ $left_column        .= '</select>';
 // right column
 $id_field_i         = 'bii_id';
 $bg_table_i         = 'bill_in';
-$list = new dataGrid($id_field_i,30);
+$list = new dataGrid($id_field_i,3000);
 $list->add('', 'Thời gian');
 $list->add('', 'Số HĐ');
 $list->add('', 'Doanh thu');
