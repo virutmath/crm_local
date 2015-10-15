@@ -200,7 +200,7 @@ abstract class AbstractAjax {
             $db_mep = new db_query('SELECT *
                                     FROM menu_products
                                     LEFT JOIN product_quantity ON product_id = mep_product_id
-                                    WHERE mep_menu_id = ' . $men_id . '
+                                    WHERE mep_menu_id = ' . intval($men_id) . '
                                     AND store_id = ' . $configuration['con_default_store']);
             $quantity = array();
             while($row = mysqli_fetch_assoc($db_mep->result)) {
@@ -225,7 +225,8 @@ abstract class AbstractAjax {
                 $db_mep = new db_query('SELECT *
                                         FROM menu_products
                                         LEFT JOIN product_quantity ON product_id = mep_product_id
-                                        WHERE mep_menu_id = ' . intval($men_id));
+                                        WHERE mep_menu_id = ' . intval($men_id) . '
+                                        AND store_id = ' . $configuration['con_default_store']);
 
                 while($row = mysqli_fetch_assoc($db_mep->result)) {
                     if($row['mep_quantity'] > 0) {
@@ -243,6 +244,12 @@ abstract class AbstractAjax {
 
             }
             return $quantity;
+        }
+    }
+    public function calculateMoneyBill($list_menu = array(), $extra_fee, $discount, $vat) {
+        $total_money_menu = 0;
+        foreach($list_menu as $menu) {
+
         }
     }
 
