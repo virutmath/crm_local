@@ -468,7 +468,7 @@ class ProductAjax extends AjaxCommon
     function importProduct () {
         //check quyền
         checkCustomPermission('NHAP_HANG');
-        global $admin_id;
+        global $admin_id, $configuration;
         $array_return = array();
         //kiểm tra xem có hóa đơn nào thực hiện ko, nếu có thì exit luôn
         $db_trigger = new db_query('SELECT tri_status FROM triggers WHERE tri_key = "billSubmit" LIMIT 1');
@@ -624,9 +624,9 @@ class ProductAjax extends AjaxCommon
         $fin_pay_type = $pay_type;
         $fin_note = $bio_note;
         $fin_admin_id = $admin_id;
-
+        $fin_agency_id = $configuration['fin_agency_id'];
         //insert vào bảng financial
-        $sql_insert = 'INSERT INTO financial (fin_date, fin_updated_time, fin_money, fin_reason_other, fin_billcode, fin_username, fin_address, fin_cat_id, fin_pay_type, fin_note, fin_admin_id)
+        $sql_insert = 'INSERT INTO financial (fin_date, fin_updated_time, fin_money, fin_reason_other, fin_billcode, fin_username, fin_address, fin_cat_id, fin_pay_type, fin_note, fin_admin_id, fin_agency_id)
                        VALUES (
                        '.$fin_date.',
                        '.$fin_updated_time.',
@@ -638,7 +638,8 @@ class ProductAjax extends AjaxCommon
                        '.$fin_cat_id.',
                        '.$fin_pay_type.',
                        "'.$fin_note.'",
-                       '.$fin_admin_id.'
+                       '.$fin_admin_id.',
+                       '.$fin_agency_id.'
                        )';
         $db_insert = new db_execute_return();
         $fin_insert_id = $db_insert->db_execute($sql_insert);

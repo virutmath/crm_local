@@ -279,6 +279,38 @@ class CustomerAjax extends AjaxCommon {
 
     }
 
+    function changePassword(){
+
+        $array_return = array();
+        $admin_id   = getValue('adm_id','int','POST',0);
+        $pass_old   = getValue('pass_old','str','POST','');
+        $pass_new   = getValue('pass_new','str','POST','');
+        $repass_new = getValue('repass_new','str','POST','');
+        if(!$pass_old){
+            $array_return = array('error' => 'Bạn chưa điền mật khẩu cũ');
+            die(json_encode($array_return));
+        }
+        if(!$pass_new || !$repass_new || $repass_new != $pass_new){
+            $array_return = array('error' => 'Mật khẩu mới không hợp lệ');
+            die(json_encode($array_return));
+        }
+        $db_admin_pas = new db_query('SELECT adm_password FROM admin_users WHERE adm_id = '.$admin_id.'');
+        $row_admin_pas = mysqli_fetch_assoc($db_admin_pas->result); unset($db_admin_pas);
+        if($row_admin_pas['adm_password'] != md5($pass_old)){
+            $array_return = array('error' => 'Mật khẩu cũ không đúng');
+            die(json_encode($array_return));
+        } else {
+            $db_update_pass = new db_execute('UPDATE admin_users SET adm_password = "'.md5($pass_new).'" WHERE adm_id = '.$admin_id.'');
+            if($db_update_pass->total){
+                $array_return = array('success' => 1, 'msg' => 'Đổi mật khẩu thành công');
+                die(json_encode($array_return));
+            } else {
+                $array_return = array('error' => 'Đổi mật khẩu thành công');
+                die(json_encode($array_return));
+            }
+        }
+    }
+
     function _listAdd()
     {
 

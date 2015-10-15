@@ -496,3 +496,201 @@ input:focus {
     width: 100%;
     padding: 5px;
 }
+@media only screen and (max-width: 1024px) {
+    .left-column{
+        width: 230px;
+    }
+    .right-column {
+        margin-left: 230px;
+        padding-left: 3px;
+    }
+    #center-sale {
+        width: 570px;
+    }
+    #start_time_string, #cud_note, #search_customer, #search_staff{
+        width: 120px;
+    }
+    #sale_customer_code, #sale_staff_code {
+        width: 80px;
+    }
+    #list-desk {
+        margin-left:568px;
+    }
+    .btn {
+        padding: 1px 4px;
+    }
+    #list-desk .desk-item {
+        margin-right: 22px;
+    }
+    #cdm_number {
+        width: 35%;
+        margin: 0;
+        float: left;
+        text-align: right;
+    }
+    .men_price_span{
+        width: 93%;
+        margin: 10px 0 0;
+    }
+    #sale-price {
+        display: none;
+    }
+    #sale-price-1024{
+        display: block !important;
+    }
+    .cdm_discount_bound {
+        margin: 0;
+        float: right;
+        width: 65%;
+        padding-left: 7px;
+        box-sizing:border-box;
+    }
+    .cdm_menu_discount {
+        width: 65%;
+        float: left;
+        position: relative;
+    }
+    .sale-pt {
+        position: absolute;
+        right: 5px;
+        top: 7px;
+        color: #aaa;
+    }
+    #cdm_menu_discount {
+        text-align: right;
+        padding-right: 20px;
+        box-sizing:border-box; 
+    }
+    #setting-menu-discount {
+        display: block;
+        line-height: 30px;
+        height: 31px;
+        border: 1px solid #aaa;
+        float: right;
+    }
+    .men_price_bound {
+        width:100%;
+        margin-left: 5px;
+        position: relative;
+    }
+    .info-money-extra {
+        display: none !important;
+    }
+    .info-money-extra-1024{
+        display: block !important;
+    }
+    .info-money-percent{
+        width: 90px !important;
+        padding-right: 18px;
+    }
+    #info-money .info-money-bound {
+        margin: 0;
+        width: 80px;
+    }
+    #info-money .row{
+        margin-bottom: 10px; 
+    }
+    .total-sum-money{
+        float: left;
+        margin-left:5px;
+        width: 290px; 
+    }
+    #info-money .info-money-text{
+        font-size: 14px;
+    }
+}
+#sale-price-1024{
+    display: none;
+    padding-top: 5px;
+    width: 185px;
+    float: left;
+}
+.pos-price {
+    position: absolute;
+    top: 15px;
+    left: 13px;
+    color: #aaa;
+}
+.clear{
+    clear: both;
+}
+.info-money-extra-1024{
+    display: none;
+    width: 175px;
+    height: 110px;
+    float: left;
+}
+.info-money-extra-1024 .row #sub-fee{
+    position: relative;
+    float: left;
+}
+.sub-fee{
+    position: absolute;
+    top: 4px;
+    right: 8px;
+    color: #aaa;
+}
+ 
+@media only screen and (max-width: 980px) {
+ 
+}
+ 
+@media only screen and (max-width: 800px) {
+   
+}
+ 
+@media only screen and (max-width: 780px) {
+    
+}
+ 
+@media only screen and (max-width: 768px) {
+   
+}
+ 
+@media only screen and (max-width: 720px) {
+ 
+}
+ 
+@media only screen and (max-width: 640px) {
+   
+}
+ 
+@media only screen and (max-width: 600px) {
+   
+}
+ 
+@media only screen and (max-width: 568px) {
+    
+}
+ 
+@media only screen and (max-width: 563px) {
+ 
+}
+ 
+@media only screen and (max-width: 549px) {
+ 
+}
+ 
+@media only screen and (max-width: 534px) {
+ 
+}
+ 
+@media only screen and (max-width: 480px) {
+    
+}
+ 
+@media only screen and (max-width: 360px) {
+    
+}
+ 
+@media only screen and (max-width: 338px) {
+ 
+}
+ 
+@media only screen and (max-width: 330px) {
+ 
+}
+ 
+@media only screen and (max-width: 320px) {
+ 
+}

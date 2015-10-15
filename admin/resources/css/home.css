@@ -194,6 +194,18 @@ div#navigator-online {
 #menu > ul >li.menu-function.active .list-function-menu{
     display: block;
 }
+.list-function-menu-user .list-function-menu{
+    display: none;
+    left: auto !important;
+    right: 0;
+    border-left: 1px solid #ccc;
+}
+.list-function-menu-user .list-function-menu a{
+    padding: 0 15px;
+}
+.list-function-menu-user.active .list-function-menu{
+    display: block;
+}
 #menu > ul > li > a {
     line-height: 18px;
     padding: 6px 20px;
@@ -206,6 +218,17 @@ div#navigator-online {
 #menu > ul.ul-right > li > a {
     padding : 0;
 }
+
+#menu .ul-right {
+    float:right;
+    padding:0 15px;
+}
+
+#menu .ul-right:hover {
+    color : #C75050;
+    cursor: pointer;
+}
+
 #menu > ul > li > a.active {
     background: #C75050;
     color: #fff;
@@ -297,4 +320,9 @@ div#navigator-online {
     box-shadow: inset 1px 0 5px #00345C;
     width: 100%;
     color: #fff;
+}
+@media only screen and (max-width: 1024px) {
+    #menu > ul > li > a {
+        padding: 6px 12px;
+    }
 }

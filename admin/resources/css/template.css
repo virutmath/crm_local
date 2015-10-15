@@ -363,3 +363,19 @@ body {
 .bootbox button {
     padding : 4px 14px;
 }
+
+ul.setting_account{
+    display: none;
+    width: 150px;
+    background-color: #fff;
+    padding: 5px 0 !important;
+    position: absolute;
+    right: 0;
+    top: 31px;
+    overflow: hidden;
+    border: 1px solid #CCCCCC;
+    border-top: none;
+}
+ul.setting_account>li{
+    padding: 2px 0 !important;
+}

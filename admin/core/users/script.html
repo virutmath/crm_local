@@ -8,8 +8,9 @@
         trash_right : 'deleteRecord',
         recoveryRow : 'recoveryRecord',
         terminalDelete : 'terminalDeleteRecord',
-        listRecord : 'listRecord'
-    }
+        listRecord : 'listRecord',
+        changePassword : 'changePassword'
+    };
     var btn_refresh = $('.modal-control .control-btn-refresh');
     var btn_add_left = $('.left-column .control-btn-add');
     var btn_add_right = $('.right-column .control-btn-add');
@@ -28,10 +29,8 @@
     var sectionContent = $('.table-listing-bound');
     var offsetTopContent = sectionContent.offset().top;
     sectionContent.height(wrapperHeight - offsetTopContent - 10);
-    var offsetLeftContent = left_column_wrapper.offset().top;
-    left_column_wrapper.height(wrapperHeight - offsetLeftContent - 10);
-    var offsetRightContent = right_column_wrapper.offset().top;
-    right_column_wrapper.height(wrapperHeight - offsetRightContent - 10);
+    left_column_wrapper.height(wrapperHeight - offsetTopContent - 10);
+    right_column_wrapper.height(wrapperHeight - offsetTopContent - 10);
 
     //table scroll
     sectionContent.enscroll({
@@ -55,6 +54,38 @@
                 showOnHover: false,
                 minScrollbarLength: 28,
                 addPaddingToPane : false
+            });
+        }
+    }
+
+    //đổi mật khẩu
+    function changePassword(id){
+        var old_pass    = $('#pass_old').val();
+        var new_pass    = $('#pass_new').val();
+        var new_repass  = $('#repass_new').val();
+        if(old_pass == ''){
+            bootbox.alert('Chưa điền mật khẩu cũ');
+            return false;
+        }
+        if(new_pass != new_repass){
+            bootbox.alert('Mật khẩu mới không giống nhau');
+            return false;
+        }
+        if(id && confirm('Bạn có chắc muốn đổi mật khẩu')){
+            $.ajax({
+                type  : 'post',
+                url   : 'ajax.php',
+                data  : { action : ajax_url.changePassword , adm_id : id, pass_old : old_pass, pass_new : new_pass , repass_new : new_repass},
+                dataType : 'json',
+                success  : function(resp){
+                    if( resp.success == 1){
+                        bootbox.alert(resp.msg);
+                        window.parent.communicateParentWindow('changePassword',{});
+                    } else {
+                        bootbox.alert(resp.error);
+                        return false;
+                    }
+                }
             });
         }
     }
@@ -90,7 +121,7 @@
                         $('#record_'+record_id).remove();
                         deactivate_control('right');
                     }else{
-                        alert(resp.error);
+                        bootbox.alert(resp.error);
                     }
                 }
             })
@@ -108,7 +139,7 @@
                         $('#record_'+record_id).remove();
                         deactivate_control('right');
                     }else{
-                        alert(resp.error);
+                        bootbox.alert(resp.error);
                     }
                 }
             })
@@ -145,7 +176,7 @@
         var cat_id = parseInt(cat_active.data('cat'));
         var cat_count = cat_active.data('count-record');
         if(cat_count > 0){
-            alert('Bạn không thể xóa nhóm này vì nó vẫn còn chứa các bản ghi. Vui lòng xóa bản ghi trước');
+            bootbox.alert('Bạn không thể xóa nhóm này vì nó vẫn còn chứa các bản ghi. Vui lòng xóa bản ghi trước');
             return false;
         }
         if(confirm('Bạn muốn xóa nhóm này?')){
@@ -208,7 +239,7 @@
                 }
             })
         }
-    })
+    });
 
     $('.list-vertical-crm').find('li').unbind('click').click(function() {
         var url = 'index.php';

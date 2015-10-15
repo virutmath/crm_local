@@ -12,6 +12,7 @@ require_once('../../../classes/generate_form.php');
 require_once("../../../classes/simple_html_dom.php");
 require_once('../../../classes/rain.tpl.class.php');
 require_once('../../../classes/PHPExcel.php');
+require_once('../../../classes/Patterns/autoload.php');
 require_once('../../../functions/functions.php');
 require_once('../../../functions/rewrite_functions.php');
 require_once('../../../functions/form.php');

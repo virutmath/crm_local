@@ -903,11 +903,13 @@ class HomeAjax extends AjaxCommon
             $bii_discount = $desk_detail['cud_customer_discount'];
             //tong tien
             $bii_true_money = 0;
-            $bii_round_money = 0;
             foreach ($array_money as $key => $money) {
                 $bii_true_money += $money;
             }
-            $bii_round_money = floor($bii_true_money / 1000) * 1000;
+            //tính giảm giá, thuế và phụ phí để ra số tiền thực tế
+            $bii_true_money = $bii_true_money * (100 - $bii_discount + $bii_extra_fee)/100 * (100 + $bii_vat)/100;
+            //tiền làm tròn
+            $bii_round_money = round($bii_true_money, -3);
             if ($debit && $debit < $bii_true_money) {
                 $bii_status = BILL_STATUS_DEBIT;
                 $bii_money_debit = $bii_true_money - $debit;
@@ -981,10 +983,12 @@ class HomeAjax extends AjaxCommon
 
             //phát sinh 1 phiếu thu - insert dữ liệu vào phiếu thu
             //logic : hóa đơn ghi nợ thì phát sinh phiếu thu với 1 phần số tiền đã thu. hóa đơn trả đủ thì insert bình thường
-            $fin_money = $bii_round_money;
+            $fin_money = $bii_true_money;
             if ($debit) {
                 $fin_money = $bii_true_money - $bii_money_debit;
             }
+            //làm tròn số
+            $fin_money = round($fin_money);
             //lấy thông tin khách hàng
             if ($bii_customer_id) {
                 $db_customer = new db_query('SELECT * FROM customers WHERE cus_id = ' . $bii_customer_id . ' LIMIT 1');
@@ -999,7 +1003,7 @@ class HomeAjax extends AjaxCommon
             $sql_insert = 'INSERT INTO financial
                             (fin_date, fin_updated_time, fin_money, fin_reason_other,
                             fin_billcode, fin_username, fin_address, fin_cat_id,
-                            fin_pay_type, fin_note, fin_admin_id)
+                            fin_pay_type, fin_note, fin_admin_id, fin_agency_id)
                             VALUES
                             (
                             ' . $bii_end_time . ',
@@ -1012,7 +1016,8 @@ class HomeAjax extends AjaxCommon
                             ' . FINANCIAL_CAT_BAN_HANG . ',
                             ' . $bii_type . ',
                             "",
-                            ' . $admin_id . '
+                            ' . $admin_id . ',
+                            ' . $configuration['con_default_agency'] .'
                             )';
             $db_insert = new db_execute($sql_insert);
             if ($db_insert->total) {

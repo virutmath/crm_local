@@ -7,6 +7,7 @@ require_once 'inc_security.php';
 //Phần xử lý
 $action_modal = getValue('action_modal','str','POST','',2);
 $action = getValue('action','str','POST','',2);
+global $admin_id;
 if($action == 'execute') {
     switch ($action_modal) {
         case 'add_money_ticket_in' :
@@ -14,6 +15,7 @@ if($action == 'execute') {
             //Thời gian tạo phiếu lấy từ thời gian hệ thống
             $fin_date = time();
             $fin_admin_id = $admin_id;
+            $fin_agency_id = $configuration['con_default_agency'];
             $myform = new generate_form();
             $myform->addTable($bg_table);
             $myform->add('fin_date', 'fin_date', 1, 1, $fin_date, 0);
@@ -27,6 +29,7 @@ if($action == 'execute') {
             $myform->add('fin_address', 'fin_address', 0, 0, '', 1, 'Bạn chưa nhập địa chỉ người nộp tiền');
             $myform->add('fin_note', 'fin_note', 0, 0, '');
             $myform->add('fin_admin_id', 'fin_admin_id', 1, 1, 0, 1, 'Bạn chưa đăng nhập');
+            $myform->add('fin_agency_id', 'fin_agency_id', 1, 1, 0, 1, 'Lỗi chi nhánh');
             $bg_errorMsg .= $myform->checkdata();
             if (!$bg_errorMsg) {
                 $db = new db_execute_return();
@@ -69,6 +72,7 @@ if($action == 'execute') {
             //Thời gian tạo phiếu lấy từ thời gian hệ thống
             $fin_date = time();
             $fin_admin_id = $admin_id;
+            $fin_agency_id = $configuration['con_default_agency'];
             $myform = new generate_form();
             $myform->addTable($bg_table);
             $myform->add('fin_date', 'fin_date', 1, 1, $fin_date, 0);
@@ -82,6 +86,7 @@ if($action == 'execute') {
             $myform->add('fin_address', 'fin_address', 0, 0, '', 1, 'Bạn chưa nhập địa chỉ người nhận tiền');
             $myform->add('fin_note', 'fin_note', 0, 0, '');
             $myform->add('fin_admin_id', 'fin_admin_id', 1, 1, 0, 1, 'Bạn chưa đăng nhập');
+            $myform->add('fin_agency_id', 'fin_agency_id', 1, 1, 0, 1, 'Chi nhánh không tồn tại');
             $bg_errorMsg .= $myform->checkdata();
             if (!$bg_errorMsg) {
                 $db = new db_execute_return();
@@ -189,6 +194,7 @@ $sql_date_in .= ' AND fin_date >= ' . $start_date_in . ' AND fin_date <= ' . $en
 $sql_date_out = '';
 $sql_date_out .= ' AND fin_date >= ' . $start_date_out . ' AND fin_date <= ' . $end_date_out;
 
+
 $db_count = new db_count('SELECT count(*) as count
                             FROM '.$bg_table.'
                             LEFT JOIN categories_multi ON cat_id = fin_cat_id
@@ -200,7 +206,7 @@ $db_listing = new db_query('SELECT *
                             FROM '.$bg_table.'
                             LEFT JOIN categories_multi ON cat_id = fin_cat_id
                             WHERE 1 '.$list->sqlSearch(). $sql_phieuthu . $sql_date_in . '
-                            ORDER BY '.$list->sqlSort().' '.$id_field.' ASC
+                            ORDER BY '.$list->sqlSort().' '.$id_field.' DESC
                             '.$list->limit($total));
 $total_row = mysqli_num_rows($db_listing->result);
 //Vì đây là module cần 2 table listing nên khai báo thêm table_extra id=table-listing-left
@@ -252,7 +258,7 @@ $db_listing = new db_query('SELECT *
                             FROM '.$bg_table.'
                             LEFT JOIN categories_multi ON cat_id = fin_cat_id
                             WHERE 1 '.$list->sqlSearch(). $sql_phieuchi . $sql_date_out.'
-                            ORDER BY '.$list->sqlSort().' '.$id_field.' ASC
+                            ORDER BY '.$list->sqlSort().' '.$id_field.' DESC
                             '.$list->limit($total));
 $total_row = mysqli_num_rows($db_listing->result);
 //Vì đây là module cần 2 table listing nên khai báo thêm table_extra id=table-listing-right
@@ -316,9 +322,9 @@ $footer_control .=
 //Phần hiển thị tổng số tiền thu - chi
 //tính tổng số tiền thu - chi
 $db_total_money = new db_query('SELECT SUM(fin_money) as total_money_in
-                             FROM financial
-                             LEFT JOIN categories_multi ON fin_cat_id = cat_id
-                             WHERE cat_type IN("money_in","money_system_in")');
+                                 FROM financial
+                                 LEFT JOIN categories_multi ON fin_cat_id = cat_id
+                                 WHERE cat_type IN("money_in","money_system_in")');
 $total_money_in = mysqli_fetch_assoc($db_total_money->result);
 $total_money_in = $total_money_in['total_money_in'];
 $db_total_money =  new db_query('SELECT SUM(fin_money) as total_money_out

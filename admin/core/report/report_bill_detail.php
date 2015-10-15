@@ -96,21 +96,7 @@ while ($row = mysqli_fetch_assoc($db_listing->result)) {
     $total_money_real = $total_money_ext * (1 + $vat_value);
     unset($db_location);unset($db_section);
 
-    /* Hiển thị số tiền nếu hóa đơn ghi nợ*/
-    $db_fina = new db_query('SELECT fin_money,fin_pay_type FROM financial WHERE fin_billcode = '.$row['bii_id'].'');
-    $row_fin = mysqli_fetch_assoc($db_fina->result); unset($db_fina);
-
-    /* Kiểm tra xem kiểu thanh toán bằng thẻ hay tiền mặt để hiển thị*/
-    if($row['bii_type'] == 0){
-        $money_real = $row_fin['fin_money'];
-    } else{
-        $money_real = 0;
-    }
-    if($row['bii_type'] == 1){
-        $money_cash = $row_fin['fin_money'];
-    } else{
-        $money_cash = 0;
-    }
+    $money_real = round($total_money_real,-3) - $row['bii_money_debit'];
 
     $i++;
     $content_column .= $list->start_tr($i, $row[$id_field], 'class="menu-normal record-item" data-record_id="' . $row[$id_field] . '"');
@@ -123,9 +109,9 @@ while ($row = mysqli_fetch_assoc($db_listing->result)) {
     $content_column .= '<td class="text-right">'.number_format($row['bii_true_money']*$row['bii_extra_fee']/100).'</td>';
     $content_column .= '<td class="text-right">'.number_format($total_money_ext*$row['bii_vat']/100).'</td>';
     $content_column .= '<td class="text-right">'.number_format(round($total_money_real,-3)).'</td>';
-    $content_column .= '<td class="text-right">'.number_format($money_real).'</td>';/* Tiền mặt*/
-    $content_column .= '<td class="text-right">'.number_format($money_cash).'</td>';
-    $content_column .= '<td class="text-right">'.number_format($total_money_real - $row_fin['fin_money']).'</td>';
+    $content_column .= '<td class="text-right">'.number_format($row['bii_type'] == 0 ? $money_real : 0).'</td>';/* Tiền mặt*/
+    $content_column .= '<td class="text-right">'.number_format($row['bii_type'] == 1 ? $money_real : 0).'</td>';
+    $content_column .= '<td class="text-right">'.number_format($row['bii_money_debit']).'</td>';
 
     $content_column .= $list->end_tr();
 
@@ -133,11 +119,11 @@ while ($row = mysqli_fetch_assoc($db_listing->result)) {
     $all_money_default      += $row['bii_true_money'];
     $all_money_discount     += $row['bii_true_money']*$row['bii_discount']/100;
     $all_money_real         += round($total_money_real,-3);/* Tổng tiền*/
-    $all_money_cash         += $money_cash;
     $all_money_vat          += $total_money_ext*$row['bii_vat']/100;
     $all_money_service      += $row['bii_true_money']*$row['bii_extra_fee']/100;
-    $all_money_debit        += $total_money_real - $row_fin['fin_money'];
-    $all_money_true         += $money_real; /*Tiền mặt*/
+    $all_money_debit        += $row['bii_money_debit'];
+    $all_money_true         += $row['bii_type'] == 0 ? $money_real : 0; /*Tiền mặt*/
+    $all_money_cash         += $row['bii_type'] == 1 ? $money_real : 0; /*Tiền mặt*/
 }
 unset($db_listing);
 $content_column .= $list->showFooter();

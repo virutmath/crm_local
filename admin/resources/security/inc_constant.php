@@ -1,5 +1,7 @@
 <?
 define('DEVELOPER_ENVIRONMENT',false);
+//hiển thị quỹ tiền theo từng chi nhánh
+define('SHOW_FINANCIAL_PRIVATE',true);
 define('WEBSITE_NAME','CRM Restaurant');
 define('ACTION_LOG_DELETE','delete');
 define('ACTION_LOG_TRASH','trash');

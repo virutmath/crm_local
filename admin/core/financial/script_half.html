@@ -29,10 +29,15 @@
     var offsetTopContent = sectionContent.offset().top;
     sectionContent.height(wrapperHeight - offsetTopContent - 85);
     //table scroll
-    $('.table-listing-bound').enscroll({
-        showOnHover: true,
-        minScrollbarLength: 28,
-        addPaddingToPane : false
+    sectionContent.find('.table-listing-bound').height(sectionContent.height() - 0);
+    $('.table-listing-bound').each(function () {
+        if($(this).siblings('.enscroll-track').length < 1) {
+            $(this).enscroll({
+                showOnHover: true,
+                minScrollbarLength: 28,
+                addPaddingToPane : false
+            });
+        }
     });
     //fix tất cả table listing
     function fixScrollMenu() {

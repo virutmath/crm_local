@@ -12,7 +12,7 @@ class HomeAjax extends AjaxCommon
         $type_pay       = getValue('type_pay','int','POST',0);
         $ghichu         = getValue('ghichu','str','POST','');
         //
-        global $admin_id;       
+        global $admin_id, $configuration;
         $tabel_bill         = '';
         $table_left_join    = '';
         $bill_id            = '';
@@ -94,7 +94,8 @@ class HomeAjax extends AjaxCommon
                                                                             fin_cat_id, 
                                                                             fin_pay_type, 
                                                                             fin_note, 
-                                                                            fin_admin_id
+                                                                            fin_admin_id,
+                                                                            fin_agency_id
                                                                             ) 
                                                                             VALUES 
                                                                             (
@@ -108,7 +109,8 @@ class HomeAjax extends AjaxCommon
                                                                             '.$cat_id.', 
                                                                             '.$type_pay.', 
                                                                             "'.$ghichu.'", 
-                                                                            '.$admin_id.'
+                                                                            '.$admin_id.',
+                                                                            '.$configuration['con_default_agency'].'
                                                                             )
                                                                             ');
                         unset($db_insert_financy);
@@ -140,7 +142,8 @@ class HomeAjax extends AjaxCommon
                                                                             fin_cat_id, 
                                                                             fin_pay_type, 
                                                                             fin_note, 
-                                                                            fin_admin_id
+                                                                            fin_admin_id,
+                                                                            fin_agency_id
                                                                             ) 
                                                                             VALUES 
                                                                             (
@@ -154,7 +157,8 @@ class HomeAjax extends AjaxCommon
                                                                             '.$cat_id.', 
                                                                             '.$type_pay.', 
                                                                             "'.$ghichu.'", 
-                                                                            '.$admin_id.'
+                                                                            '.$admin_id.',
+                                                                            '.$configuration['con_default_agency'].'
                                                                             )
                                                                             ');
                         // lúc này số tiền khách trả sẽ còn 0;
