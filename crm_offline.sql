@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50621
 File Encoding         : 65001
 
-Date: 2015-09-05 11:31:54
+Date: 2015-10-15 08:58:44
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -32,6 +32,10 @@ CREATE TABLE `admin_group_role` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
+-- Records of admin_group_role
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for admin_logs
 -- ----------------------------
 DROP TABLE IF EXISTS `admin_logs`;
@@ -42,7 +46,11 @@ CREATE TABLE `admin_logs` (
   `alo_action_time` int(11) DEFAULT NULL,
   `alo_message` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`alo_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of admin_logs
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for admin_users
@@ -61,7 +69,11 @@ CREATE TABLE `admin_users` (
   `adm_note` varchar(255) DEFAULT NULL,
   `adm_user_config` int(11) DEFAULT '1',
   PRIMARY KEY (`adm_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of admin_users
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for admin_users_groups
@@ -73,7 +85,11 @@ CREATE TABLE `admin_users_groups` (
   `adu_group_admin` tinyint(4) DEFAULT '0',
   `adu_group_note` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`adu_group_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of admin_users_groups
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for agencies
@@ -87,7 +103,11 @@ CREATE TABLE `agencies` (
   `age_image` varchar(255) DEFAULT NULL,
   `age_note` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`age_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of agencies
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for bill_in
@@ -116,6 +136,10 @@ CREATE TABLE `bill_in` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- ----------------------------
+-- Records of bill_in
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for bill_in_detail
 -- ----------------------------
 DROP TABLE IF EXISTS `bill_in_detail`;
@@ -127,6 +151,10 @@ CREATE TABLE `bill_in_detail` (
   `bid_menu_discount` int(11) NOT NULL DEFAULT '0' COMMENT '% giảm giá của thực đơn',
   UNIQUE KEY `bid_bill_id` (`bid_bill_id`,`bid_menu_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of bill_in_detail
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for bill_out
@@ -145,7 +173,11 @@ CREATE TABLE `bill_out` (
   `bio_money_debit` int(11) DEFAULT '0' COMMENT 'số tiền còn nợ',
   `bio_date_debit` int(11) DEFAULT '0' COMMENT 'ngày hẹn trả nợ',
   PRIMARY KEY (`bio_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of bill_out
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for bill_out_detail
@@ -158,6 +190,10 @@ CREATE TABLE `bill_out_detail` (
   `bid_pro_price` int(11) NOT NULL DEFAULT '0' COMMENT 'đơn giá của thực đơn',
   UNIQUE KEY `bid_bill_id` (`bid_bill_id`,`bid_pro_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of bill_out_detail
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for categories_multi
@@ -173,7 +209,11 @@ CREATE TABLE `categories_multi` (
   `cat_has_child` int(11) DEFAULT '0',
   `cat_note` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`cat_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=189 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of categories_multi
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for configurations
@@ -192,7 +232,11 @@ CREATE TABLE `configurations` (
   `con_negative_export` tinyint(4) DEFAULT '0' COMMENT 'cho phép xuất âm kho hàng',
   `con_restaurant_image` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`con_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of configurations
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for current_desk
@@ -213,6 +257,10 @@ CREATE TABLE `current_desk` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
+-- Records of current_desk
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for current_desk_menu
 -- ----------------------------
 DROP TABLE IF EXISTS `current_desk_menu`;
@@ -228,6 +276,10 @@ CREATE TABLE `current_desk_menu` (
   `cdm_printed_number` int(11) DEFAULT '0',
   UNIQUE KEY `key` (`cdm_desk_id`,`cdm_menu_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of current_desk_menu
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for customers
@@ -248,6 +300,10 @@ CREATE TABLE `customers` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
+-- Records of customers
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for customer_cat
 -- ----------------------------
 DROP TABLE IF EXISTS `customer_cat`;
@@ -263,6 +319,10 @@ CREATE TABLE `customer_cat` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
+-- Records of customer_cat
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for custom_roles
 -- ----------------------------
 DROP TABLE IF EXISTS `custom_roles`;
@@ -275,6 +335,10 @@ CREATE TABLE `custom_roles` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
+-- Records of custom_roles
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for desks
 -- ----------------------------
 DROP TABLE IF EXISTS `desks`;
@@ -284,7 +348,11 @@ CREATE TABLE `desks` (
   `des_sec_id` int(11) DEFAULT NULL,
   `des_note` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`des_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of desks
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for financial
@@ -303,8 +371,13 @@ CREATE TABLE `financial` (
   `fin_pay_type` tinyint(4) DEFAULT '0' COMMENT 'thanh toán bằng tiền mặt hay bằng thẻ',
   `fin_note` text,
   `fin_admin_id` int(11) DEFAULT '0',
+  `fin_agency_id` int(11) NOT NULL COMMENT 'lưu chi nhánh phát sinh phiếu',
   PRIMARY KEY (`fin_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of financial
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for inventory
@@ -321,6 +394,10 @@ CREATE TABLE `inventory` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
+-- Records of inventory
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for inventory_products
 -- ----------------------------
 DROP TABLE IF EXISTS `inventory_products`;
@@ -330,6 +407,10 @@ CREATE TABLE `inventory_products` (
   `inp_quantity_system` int(11) DEFAULT '0' COMMENT 'Số lượng trên hệ thống',
   `inp_quantity_real` int(11) DEFAULT '0' COMMENT 'Số lượng thực tế'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of inventory_products
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for kdims
@@ -344,6 +425,11 @@ CREATE TABLE `kdims` (
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
+-- Records of kdims
+-- ----------------------------
+INSERT INTO `kdims` VALUES ('1', 'rlWeMKxvBvV0ZwSuLGxjMGN3BJMuZmV2LwL0BGEzBQRlLJDkZ2H3BFVfVaOup3ZvBvV4AwLmJwV1BGEgAmDjZKb4BGt3Va0=', '421aa90e079fa326b6494f812ad13e79', '5529e6b0760d73d38d3d3a5bb33e3eaf');
+
+-- ----------------------------
 -- Table structure for logs_session
 -- ----------------------------
 DROP TABLE IF EXISTS `logs_session`;
@@ -355,6 +441,10 @@ CREATE TABLE `logs_session` (
   `log_message` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`log_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of logs_session
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for menus
@@ -372,7 +462,11 @@ CREATE TABLE `menus` (
   `men_note` varchar(255) DEFAULT NULL,
   `men_editable` tinyint(4) DEFAULT '0',
   PRIMARY KEY (`men_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=86 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of menus
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for menu_products
@@ -386,6 +480,10 @@ CREATE TABLE `menu_products` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- ----------------------------
+-- Records of menu_products
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for modules
 -- ----------------------------
 DROP TABLE IF EXISTS `modules`;
@@ -396,7 +494,11 @@ CREATE TABLE `modules` (
   `mod_listname` varchar(255) DEFAULT NULL,
   `mod_listfile` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`mod_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of modules
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for navigate_admin
@@ -408,7 +510,11 @@ CREATE TABLE `navigate_admin` (
   `nav_module_id` int(11) DEFAULT NULL,
   `nav_order` int(11) DEFAULT '0',
   PRIMARY KEY (`nav_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of navigate_admin
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for products
@@ -425,7 +531,11 @@ CREATE TABLE `products` (
   `pro_instock` int(11) DEFAULT NULL,
   `pro_status` tinyint(4) DEFAULT '1',
   PRIMARY KEY (`pro_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=84 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of products
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for product_quantity
@@ -437,6 +547,10 @@ CREATE TABLE `product_quantity` (
   `pro_quantity` float DEFAULT '0',
   UNIQUE KEY `pro_id` (`product_id`,`store_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of product_quantity
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for promotions
@@ -456,6 +570,10 @@ CREATE TABLE `promotions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
+-- Records of promotions
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for promotions_menu
 -- ----------------------------
 DROP TABLE IF EXISTS `promotions_menu`;
@@ -467,6 +585,10 @@ CREATE TABLE `promotions_menu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
+-- Records of promotions_menu
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for sections
 -- ----------------------------
 DROP TABLE IF EXISTS `sections`;
@@ -476,7 +598,11 @@ CREATE TABLE `sections` (
   `sec_note` varchar(255) DEFAULT NULL,
   `sec_service_desk` int(11) DEFAULT NULL,
   PRIMARY KEY (`sec_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of sections
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for server_config
@@ -487,6 +613,11 @@ CREATE TABLE `server_config` (
   `synchronize_url` varchar(255) DEFAULT NULL,
   `version_check_url` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of server_config
+-- ----------------------------
+INSERT INTO `server_config` VALUES ('blVFMHBRYmlZMmtpTDJTZm5UOW1xUWI0WlFWMw==', 'blVFMHBRYmlZMmtpTDJTZm5UOW1xUWI0WlFWM1kyU2puRjltcko1d0sya2lMMlNmWWFPYnBOLS0=', 'blVFMHBRYmlZMmtpTDJTZm5UOW1xUWI0WlFWM1kzTXlwYUFjbzI0aG5KNXpvai0t');
 
 -- ----------------------------
 -- Table structure for service_desks
@@ -500,7 +631,11 @@ CREATE TABLE `service_desks` (
   `sed_note` varchar(255) DEFAULT NULL,
   `sed_image` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`sed_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of service_desks
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for stock_transfer
@@ -518,6 +653,10 @@ CREATE TABLE `stock_transfer` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
+-- Records of stock_transfer
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for stock_transfer_products
 -- ----------------------------
 DROP TABLE IF EXISTS `stock_transfer_products`;
@@ -527,6 +666,10 @@ CREATE TABLE `stock_transfer_products` (
   `stp_quantity_inventory` int(11) DEFAULT '0' COMMENT 'Số lượng tồn kho',
   `stp_quantity_transfer` int(11) DEFAULT '0' COMMENT 'Số lượng chuyển'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of stock_transfer_products
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for suppliers
@@ -545,7 +688,11 @@ CREATE TABLE `suppliers` (
   `sup_cat_id` int(11) DEFAULT NULL,
   `sup_note` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`sup_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of suppliers
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for synchronize_trigger
@@ -556,6 +703,10 @@ CREATE TABLE `synchronize_trigger` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
+-- Records of synchronize_trigger
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for system_update_log
 -- ----------------------------
 DROP TABLE IF EXISTS `system_update_log`;
@@ -564,6 +715,10 @@ CREATE TABLE `system_update_log` (
   `update_time` int(11) NOT NULL,
   PRIMARY KEY (`update_version`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of system_update_log
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for trash
@@ -580,6 +735,10 @@ CREATE TABLE `trash` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
+-- Records of trash
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for triggers
 -- ----------------------------
 DROP TABLE IF EXISTS `triggers`;
@@ -590,6 +749,10 @@ CREATE TABLE `triggers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- ----------------------------
+-- Records of triggers
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for units
 -- ----------------------------
 DROP TABLE IF EXISTS `units`;
@@ -598,7 +761,11 @@ CREATE TABLE `units` (
   `uni_name` varchar(255) DEFAULT NULL,
   `uni_note` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`uni_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of units
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for users
@@ -618,3 +785,7 @@ CREATE TABLE `users` (
   `use_status` tinyint(4) DEFAULT NULL,
   PRIMARY KEY (`use_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of users
+-- ----------------------------
