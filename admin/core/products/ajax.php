@@ -624,7 +624,7 @@ class ProductAjax extends AjaxCommon
         $fin_pay_type = $pay_type;
         $fin_note = $bio_note;
         $fin_admin_id = $admin_id;
-        $fin_agency_id = $configuration['fin_agency_id'];
+        $fin_agency_id = $configuration['con_default_agency'];
         //insert vào bảng financial
         $sql_insert = 'INSERT INTO financial (fin_date, fin_updated_time, fin_money, fin_reason_other, fin_billcode, fin_username, fin_address, fin_cat_id, fin_pay_type, fin_note, fin_admin_id, fin_agency_id)
                        VALUES (
