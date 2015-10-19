@@ -1,5 +1,5 @@
-http://test.khang.vn/api/download.php
-http://test.khang.vn/api/get.php
+http://localhost:8027/api/download.php
+http://localhost:8027/api/get.php
 admin 123456
 http://localhost:8027
 http://localhost:8027/api/sync_local.php
